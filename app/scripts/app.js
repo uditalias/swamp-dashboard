@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('swamp', [
+var app = angular.module('swamp', [
     'swamp.config',
     'ngCookies',
     'ngResource',
