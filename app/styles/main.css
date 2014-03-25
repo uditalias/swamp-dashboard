@@ -1,5 +1,5 @@
-/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 /* line 22, ../lib/sass-bootstrap/lib/_normalize.scss */
 article,
 aside,
@@ -8767,37 +8767,37 @@ ul {
   color: white;
   border: none;
   font-size: 16px;
-  background: #5e2750;
-  border-bottom: solid 3px #2c001e;
+  background: #2c001e;
+  border-bottom: solid 3px black;
 }
-/* line 11, scss/globals/buttons.scss */
+/* line 12, scss/globals/buttons.scss */
 .btn:active, .btn:focus, .btn:hover {
   -webkit-box-shadow: 0 0 0 0 white;
   box-shadow: 0 0 0 0 white;
   color: white;
   outline: none;
 }
-/* line 17, scss/globals/buttons.scss */
+/* line 18, scss/globals/buttons.scss */
 .btn:active {
   margin-top: 3px;
   border-bottom-width: 0;
 }
-/* line 22, scss/globals/buttons.scss */
+/* line 23, scss/globals/buttons.scss */
 .btn.btn-green {
   background-color: #38b44a;
   border-bottom-color: #20662a;
 }
-/* line 27, scss/globals/buttons.scss */
+/* line 28, scss/globals/buttons.scss */
 .btn.btn-yellow {
   background-color: #efb73e;
   border-bottom-color: #b8820f;
 }
-/* line 32, scss/globals/buttons.scss */
+/* line 33, scss/globals/buttons.scss */
 .btn.btn-red {
   background-color: #df382c;
   border-bottom-color: #8f1e16;
 }
-/* line 37, scss/globals/buttons.scss */
+/* line 38, scss/globals/buttons.scss */
 .btn.btn-blue {
   background-color: #19b6ee;
   border-bottom-color: #0b7196;
