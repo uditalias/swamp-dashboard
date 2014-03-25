@@ -1,14 +1,21 @@
+
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu', sans-serif !important;
   font-weight: 300;
+  background: $dark-aubergine;
+  color: $warm-grey;
   >div[ui-view] {
-    width: 100%;
-    height: 100%;
   }
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: 300;
+  line-height: 1.1;
+  color: inherit;
 }
 
 ul {

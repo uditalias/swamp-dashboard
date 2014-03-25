@@ -1,0 +1,42 @@
+.btn {
+
+  @include border-radius($global-border-radius);
+  @include transition(all 100ms);
+  color: $white;
+  border: none;
+  font-size: 16px;
+  background: $mid-aubergine;
+  border-bottom: solid 3px $dark-aubergine;
+
+  &:active, &:focus, &:hover{
+    @include box-shadow(0 0 0 0 $white);
+    color: $white;
+    outline: none;
+  }
+
+  &:active {
+    margin-top: 3px;
+    border-bottom-width: 0;
+  }
+
+  &.btn-green {
+    background-color: $green;
+    border-bottom-color: adjust-lightness($green, -20%);
+  }
+
+  &.btn-yellow {
+    background-color: $yellow;
+    border-bottom-color: adjust-lightness($yellow, -20%);
+  }
+
+  &.btn-red {
+    background-color: $red;
+    border-bottom-color: adjust-lightness($red, -20%);
+  }
+
+  &.btn-blue {
+    background-color: $blue;
+    border-bottom-color: adjust-lightness($blue, -20%);
+  }
+
+}

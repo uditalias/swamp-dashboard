@@ -1,0 +1,23 @@
+header {
+
+  padding: 20px;
+  background: $dark-aubergine;
+
+  .header-inner {
+
+    h1 {
+      font-size: 42px;
+      color: $white;
+      font-weight: 400;
+      margin: 0;
+
+      span {
+        color: $mid-aubergine;
+        font-size: 32px;
+        font-weight: 300;
+      }
+    }
+
+  }
+
+}

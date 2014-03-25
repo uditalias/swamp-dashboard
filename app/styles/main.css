@@ -8715,33 +8715,134 @@ td.visible-print {
   vertical-align: text-top;
 }
 
-/* line 1, scss/globals/common.scss */
+/* line 170, scss/globals/framework.scss */
+.border-radius {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 174, scss/globals/framework.scss */
+.box-shadow {
+  -webkit-box-shadow: 0 2px 2px 0 #c2c2c2;
+  box-shadow: 0 2px 2px 0 #c2c2c2;
+}
+
+/* line 2, scss/globals/common.scss */
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu', sans-serif !important;
   font-weight: 300;
-}
-/* line 8, scss/globals/common.scss */
-html > div[ui-view], body > div[ui-view] {
-  width: 100%;
-  height: 100%;
+  background: #2c001e;
+  color: #aea79f;
 }
 
 /* line 14, scss/globals/common.scss */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: 300;
+  line-height: 1.1;
+  color: inherit;
+}
+
+/* line 21, scss/globals/common.scss */
 ul {
   margin: 0;
   padding: 0;
 }
 
+/* line 1, scss/globals/buttons.scss */
+.btn {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  color: white;
+  border: none;
+  font-size: 16px;
+  background: #5e2750;
+  border-bottom: solid 3px #2c001e;
+}
+/* line 11, scss/globals/buttons.scss */
+.btn:active, .btn:focus, .btn:hover {
+  -webkit-box-shadow: 0 0 0 0 white;
+  box-shadow: 0 0 0 0 white;
+  color: white;
+  outline: none;
+}
+/* line 17, scss/globals/buttons.scss */
+.btn:active {
+  margin-top: 3px;
+  border-bottom-width: 0;
+}
+/* line 22, scss/globals/buttons.scss */
+.btn.btn-green {
+  background-color: #38b44a;
+  border-bottom-color: #20662a;
+}
+/* line 27, scss/globals/buttons.scss */
+.btn.btn-yellow {
+  background-color: #efb73e;
+  border-bottom-color: #b8820f;
+}
+/* line 32, scss/globals/buttons.scss */
+.btn.btn-red {
+  background-color: #df382c;
+  border-bottom-color: #8f1e16;
+}
+/* line 37, scss/globals/buttons.scss */
+.btn.btn-blue {
+  background-color: #19b6ee;
+  border-bottom-color: #0b7196;
+}
+
 /*
  *  Components
  */
+/* line 1, ../components/header/header.scss */
+header {
+  padding: 20px;
+  background: #2c001e;
+}
+/* line 8, ../components/header/header.scss */
+header .header-inner h1 {
+  font-size: 42px;
+  color: white;
+  font-weight: 400;
+  margin: 0;
+}
+/* line 14, ../components/header/header.scss */
+header .header-inner h1 span {
+  color: #5e2750;
+  font-size: 32px;
+  font-weight: 300;
+}
+
 /*
  *  Directives
  */
 /*
  *  Pages
  */
+/* line 1, ../pages/root/root.scss */
+.root-container {
+  padding: 20px;
+}
+/* line 5, ../pages/root/root.scss */
+.root-container ul {
+  list-style-type: none;
+}
+/* line 7, ../pages/root/root.scss */
+.root-container ul li {
+  color: #dd4814;
+  cursor: pointer;
+  padding: 5px 0;
+  border-bottom: solid 1px #5e2750;
+}

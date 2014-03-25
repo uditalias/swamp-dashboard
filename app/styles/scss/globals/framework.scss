@@ -166,3 +166,11 @@
 .vertical-text-top {
   vertical-align: text-top;
 }
+
+.border-radius {
+  @include border-radius($global-border-radius);
+}
+
+.box-shadow {
+  @include box-shadow($global-box-shadow);
+}
