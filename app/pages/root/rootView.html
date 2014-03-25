@@ -1,4 +1,7 @@
 <div class="root-container">
 
+    <div ng-repeat="(id,service) in services">
+        <ng-include src="'/components/service_row_summary/serviceRowSummary.html'" />
+    </div>
 
 </div>

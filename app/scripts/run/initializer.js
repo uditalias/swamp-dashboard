@@ -1,5 +1,7 @@
 'use strict';
 
-app.run([function() {
+app.run(['socketService', function(socketService) {
+
+    socketService.setup();
 
 }]);

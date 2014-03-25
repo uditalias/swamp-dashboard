@@ -95,3 +95,7 @@ _.mixin({'getUrls' : function(text) {
 
     return urls;
 }});
+
+_.mixin({ 'guid': function(){
+    return ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4);
+}});
