@@ -1,9 +1,9 @@
 "use strict";
 
-angular.module('swamp.services').factory('swampServicesFactory', [function() {
+angular.module('swamp.services').factory('swampServicesFactory', ['$rootScope', function($rootScope) {
 
     function SwampService(params) {
-        this.id = _.guid();
+        this.id = params.id;
         this.name = params.name;
         this.description = params.description;
         this.path = params.path;
@@ -16,9 +16,16 @@ angular.module('swamp.services').factory('swampServicesFactory', [function() {
         this.environments = params.environments;
         this.monitorCpu = params.monitor.cpu;
         this.monitorMemory = params.monitor.memory;
+        this.monitor = params.monitor;
     }
 
     SwampService.prototype = {
+
+        updateMonitorData: function(monitorData) {
+            this.monitor = monitorData
+
+            $rootScope.$safeApply();
+        },
 
         stop: function() {
 

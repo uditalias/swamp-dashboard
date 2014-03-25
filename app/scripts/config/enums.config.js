@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('swamp.config')
+    .constant('SOCKET_EVENTS', {
+        "SWAMP_INITIAL": "swamp.initialData",
+        "SERVICE_START": "service.start",
+        "SERVICE_STOP": "service.stop",
+        "SERVICE_RESTART": "service.restart",
+        "SERVICE_ERROR": "service.error",
+        "SERVICE_OUT": "service.out",
+        "SERVICE_MONITOR": "service.monitor"
+    })
     .constant('EVENTS', {
-        "SOCKET_SWAMP_INITIAL": "swamp.initialData",
-        "SOCKET_SERVICE_START": "service.start",
-        "SOCKET_SERVICE_STOP": "service.stop",
-        "SOCKET_SERVICE_RESTART": "service.restart",
-        "SOCKET_SERVICE_ERROR": "service.error",
-        "SOCKET_SERVICE_OUT": "service.out",
-        "SOCKET_SERVICE_MONITOR": "service.monitor"
+        "SWAMP_SERVICES_RECEIVED": "swamp.services.received",
+        "SERVICE_MONITOR_UPDATE": "service.monitor.update"
     });
