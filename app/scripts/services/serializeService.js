@@ -18,6 +18,7 @@ angular.module('swamp.services').service('serializeService', [function() {
             environments : data.environments,
             monitorCpu : data.monitor.cpu,
             monitorMemory : data.monitor.memory,
+            logs: data.logs,
             monitor: {
                 cpu: 0,
                 memory: 0
@@ -54,5 +55,15 @@ angular.module('swamp.services').service('serializeService', [function() {
         }
 
     };
+
+    this.serializeLogData = function(type, log, time) {
+
+        return {
+            type: type,
+            text: log,
+            time: time || new Date()
+        }
+
+    }
 
 }]);

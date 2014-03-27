@@ -1,7 +1,9 @@
 "use strict";
 
-angular.module('swamp.services').factory('swampServicesFactory', ['$rootScope', 'SERVICE_STATE', 'CLIENT_REQUEST', 'aggregatedDataFactory', 'AGGREGATED_LIST_TYPE',
-    function($rootScope, SERVICE_STATE, CLIENT_REQUEST, aggregatedDataFactory, AGGREGATED_LIST_TYPE) {
+angular.module('swamp.services').factory('swampServicesFactory', [
+    '$rootScope', 'env', 'SERVICE_STATE', 'CLIENT_REQUEST', 'aggregatedDataFactory', 'AGGREGATED_LIST_TYPE', 'LOG_TYPE', 'serializeService',
+    function($rootScope, env, SERVICE_STATE, CLIENT_REQUEST, aggregatedDataFactory, AGGREGATED_LIST_TYPE, LOG_TYPE, serializeService) {
+
 
         function SwampService(params) {
             this.id = params.id;
@@ -23,12 +25,15 @@ angular.module('swamp.services').factory('swampServicesFactory', ['$rootScope', 
             this.uptime = null;
             this._uptimeInterval = null;
 
-            this.cpuData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, 100);
-            this.memoryData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, 100);
+            this._createMonitorDataContainers();
+            this._createLogDataContainers(this.options.maxLogsToSave);
 
             if(this.isRunning) {
                 this._startUptimeMessageSync();
             }
+
+            _initializeLogs.call(this, params.logs);
+
         }
 
         SwampService.prototype = {
@@ -60,7 +65,7 @@ angular.module('swamp.services').factory('swampServicesFactory', ['$rootScope', 
 
             },
 
-            forceStop: function(data) {
+            forceStop: function() {
 
                 this._stopUptimeMessageSync();
 
@@ -100,9 +105,72 @@ angular.module('swamp.services').factory('swampServicesFactory', ['$rootScope', 
                 $rootScope.$safeApply();
             },
 
+            log: function(logType, log) {
+
+                var serialized = serializeService.serializeLogData(logType, log);
+
+                switch(logType) {
+
+                    case LOG_TYPE.OUT:
+
+                        this.outLogData.add(serialized);
+
+                        break;
+
+                    case LOG_TYPE.ERROR:
+
+                        this.errorLogData.add(serialized);
+
+                        break;
+                }
+
+            },
+
+            clearErrorLogs: function() {
+
+                this.errorLogData.clear();
+
+            },
+
+            clearOutLogs: function() {
+
+                this.outLogData.clear();
+
+            },
+
+            clearLogs: function() {
+
+                this.clearErrorLogs();
+
+                this.clearOutLogs();
+
+            },
+
+            dispose: function() {
+
+                this.forceStop();
+
+            },
+
             _merge: function(params) {
 
                 _.assign(this, params);
+
+            },
+
+            _createMonitorDataContainers: function() {
+
+                this.cpuData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, 100);
+
+                this.memoryData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, 100);
+
+            },
+
+            _createLogDataContainers: function(maxLength) {
+
+                this.outLogData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, maxLength);
+
+                this.errorLogData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, maxLength);
 
             },
 
@@ -114,7 +182,7 @@ angular.module('swamp.services').factory('swampServicesFactory', ['$rootScope', 
 
                     this._startUptimeMessageSync();
 
-                }.bind(this), 5000);
+                }.bind(this), env.serviceUptimeTickInterval);
 
             },
 
@@ -133,6 +201,37 @@ angular.module('swamp.services').factory('swampServicesFactory', ['$rootScope', 
             return new SwampService(data);
 
         };
+
+        function _initializeLogs(logs) {
+
+            var self = this,
+                serialized;
+
+            if(logs.err) {
+
+                _.forEach(logs.err, function(log) {
+
+                    serialized = serializeService.serializeLogData(LOG_TYPE.ERROR, log.text, log.time);
+
+                    self.errorLogData.add(serialized);
+
+                });
+
+            }
+
+            if(logs.out) {
+
+                _.forEach(logs.out, function(log) {
+
+                    serialized = serializeService.serializeLogData(LOG_TYPE.OUT, log.text, log.time);
+
+                    self.outLogData.add(serialized);
+
+                });
+
+            }
+
+        }
 
         return {
             create: _create

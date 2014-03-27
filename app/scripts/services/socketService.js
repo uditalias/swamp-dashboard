@@ -17,11 +17,11 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
 
         this._bindSocketEvents = function() {
 
-            this._socket.on('connect', this._onSocketConnect.bind(this));
+            this._socket.on(SOCKET_EVENTS.CONNECT, this._onSocketConnect.bind(this));
 
-            this._socket.on('disconnect', this._onSocketDisconnect.bind(this));
+            this._socket.on(SOCKET_EVENTS.DISCONNECT, this._onSocketDisconnect.bind(this));
 
-            this._socket.on('message', this._onSocketMessage.bind(this));
+            this._socket.on(SOCKET_EVENTS.MESSAGE, this._onSocketMessage.bind(this));
 
         }
 
@@ -39,6 +39,8 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
         }
 
         this._onSocketDisconnect = function() {
+
+            $rootScope.$broadcast(EVENTS.SWAMP_DISCONNECTED);
 
         }
 
@@ -90,6 +92,25 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                         var serviceName = message.data.name;
 
                         $rootScope.$broadcast(EVENTS.SERVICE_RESTART, serviceName);
+
+                        break;
+
+                    case SOCKET_EVENTS.SERVICE_OUT:
+
+                        var serviceName = message.data.name;
+                        var logMessage = message.data.log;
+
+                        $rootScope.$broadcast(EVENTS.SERVICE_OUT, serviceName, logMessage);
+
+
+                        break;
+
+                    case SOCKET_EVENTS.SERVICE_ERROR:
+
+                        var serviceName = message.data.name;
+                        var logMessage = message.data.log;
+
+                        $rootScope.$broadcast(EVENTS.SERVICE_OUT, serviceName, logMessage);
 
                         break;
                 }

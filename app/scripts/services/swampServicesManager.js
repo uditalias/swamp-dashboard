@@ -1,7 +1,8 @@
 "use strict";
 
-angular.module('swamp.services').service('swampServicesManager', ['swampServicesFactory', '$rootScope', 'EVENTS', 'CLIENT_REQUEST', 'SOCKET_EVENTS',
-    function(swampServicesFactory, $rootScope, EVENTS, CLIENT_REQUEST, SOCKET_EVENTS) {
+angular.module('swamp.services').service('swampServicesManager', [
+    'swampServicesFactory', '$rootScope', 'EVENTS', 'CLIENT_REQUEST', 'SOCKET_EVENTS', 'LOG_TYPE', 'SERVICE_STATE',
+    function(swampServicesFactory, $rootScope, EVENTS, CLIENT_REQUEST, SOCKET_EVENTS, LOG_TYPE, SERVICE_STATE) {
 
         this._services = {};
 
@@ -37,6 +38,12 @@ angular.module('swamp.services').service('swampServicesManager', ['swampServices
             return this._services[id] || null;
         }
 
+        this.removeById = function(id) {
+            delete this._services[id];
+
+            $rootScope.$safeApply();
+        }
+
         this.stopAllRunningServices = function() {
 
             $rootScope.$broadcast(SOCKET_EVENTS.SWAMP_STOP_ALL);
@@ -49,9 +56,29 @@ angular.module('swamp.services').service('swampServicesManager', ['swampServices
 
         }
 
+        this.startAllServices = function() {
+
+            //todo: need to implement with selected env's for each service
+
+        }
+
+        function _dispose() {
+
+            _.forEach(this._services, function(service) {
+
+                service.dispose();
+
+                this.removeById(service.id);
+
+            }.bind(this));
+
+        }
+
         function _onSwampServicesReceived(event, services) {
             _.forEach(services, function(service) {
+
                 this.addServiceByRaw(service);
+
             }.bind(this));
         }
 
@@ -88,6 +115,26 @@ angular.module('swamp.services').service('swampServicesManager', ['swampServices
             }
         }
 
+        function _onServiceOut(event, serviceName, log) {
+
+            var service = this.getByName(serviceName);
+
+            if(service) {
+                service.log(LOG_TYPE.OUT, log);
+            }
+
+        }
+
+        function _onServiceError(event, serviceName, log) {
+
+            var service = this.getByName(serviceName);
+
+            if(service) {
+                service.log(LOG_TYPE.ERROR, log);
+            }
+
+        }
+
         function _onClientRequestStartService(event, service, environment) {
 
             var params = {
@@ -120,11 +167,20 @@ angular.module('swamp.services').service('swampServicesManager', ['swampServices
 
         }
 
+        function _onSwampDisconnected() {
+
+            _dispose.call(this);
+
+        }
+
         $rootScope.$on(EVENTS.SWAMP_SERVICES_RECEIVED, _onSwampServicesReceived.bind(this));
+        $rootScope.$on(EVENTS.SWAMP_DISCONNECTED, _onSwampDisconnected.bind(this));
         $rootScope.$on(EVENTS.SERVICE_MONITOR_UPDATE, _onServiceMonitorUpdate.bind(this));
         $rootScope.$on(EVENTS.SERVICE_START, _onServiceStart.bind(this));
         $rootScope.$on(EVENTS.SERVICE_STOP, _onServiceStop.bind(this));
         $rootScope.$on(EVENTS.SERVICE_RESTART, _onServiceRestart.bind(this));
+        $rootScope.$on(EVENTS.SERVICE_OUT, _onServiceOut.bind(this));
+        $rootScope.$on(EVENTS.SERVICE_ERROR, _onServiceError.bind(this));
 
         $rootScope.$on(CLIENT_REQUEST.REQUEST_START_SERVICE, _onClientRequestStartService.bind(this));
         $rootScope.$on(CLIENT_REQUEST.REQUEST_STOP_SERVICE, _onClientRequestStopService.bind(this));

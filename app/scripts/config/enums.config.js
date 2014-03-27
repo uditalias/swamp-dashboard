@@ -2,9 +2,13 @@
 
 angular.module('swamp.config')
     .constant('SOCKET_EVENTS', {
+        "CONNECT": "connect",
+        "DISCONNECT": "disconnect",
+        "MESSAGE": "message",
         "SWAMP_INITIAL": "swamp.initialData",
         "SWAMP_RESTART_ALL": "swamp.restartAllRunning",
         "SWAMP_STOP_ALL": "swamp.stopAllRunning",
+        "SWAMP_START_ALL": "swamp.startAll",
         "SERVICE_START": "service.start",
         "SERVICE_STOP": "service.stop",
         "SERVICE_RESTART": "service.restart",
@@ -13,11 +17,14 @@ angular.module('swamp.config')
         "SERVICE_MONITOR": "service.monitor"
     })
     .constant('EVENTS', {
-        "SWAMP_SERVICES_RECEIVED": "swamp.services.received",
-        "SERVICE_MONITOR_UPDATE": "service.monitor.update",
-        "SERVICE_START": "service.start",
-        "SERVICE_STOP": "service.stop",
-        "SERVICE_RESTART": "service.restart"
+        "SWAMP_SERVICES_RECEIVED": "event::swamp.services.received",
+        "SWAMP_DISCONNECTED": "event::swamp.disconnected",
+        "SERVICE_MONITOR_UPDATE": "event::service.monitor.update",
+        "SERVICE_START": "event::service.start",
+        "SERVICE_STOP": "event::service.stop",
+        "SERVICE_RESTART": "event::service.restart",
+        "SERVICE_OUT": "event::service.out",
+        "SERVICE_ERROR": "event::service.error"
     })
     .constant('SERVICE_STATE', {
         "STOP": "service.state.stop",
@@ -32,4 +39,8 @@ angular.module('swamp.config')
     .constant('AGGREGATED_LIST_TYPE', {
         "LIFO": 1,
         "FIFO": 2
+    })
+    .constant('LOG_TYPE', {
+        "OUT": "log.out",
+        "ERROR": "log.error"
     });

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_LIST_TYPE', function(AGGREGATED_LIST_TYPE) {
+angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_LIST_TYPE', '$rootScope', function(AGGREGATED_LIST_TYPE, $rootScope) {
 
     function AggregatedData(type, maxItems) {
 
@@ -17,8 +17,10 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
             this._data.push(item);
 
             if(this.maxItems > 0 && this.count() > this.maxItems) {
-                this._automatedRemove();
+                return this._automatedRemove();
             }
+
+            $rootScope.$safeApply();
 
         },
 
@@ -26,11 +28,27 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
 
             this._data.splice(index, 1);
 
+            $rootScope.$safeApply();
+
+        },
+
+        get: function(index) {
+
+            return this._data[index];
+
+        },
+
+        getAll: function() {
+
+            return this._data;
+
         },
 
         clear: function() {
 
             this._data.length = 0;
+
+            $rootScope.$safeApply();
 
         },
 

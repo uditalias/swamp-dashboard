@@ -1,5 +1,7 @@
 module.exports  =  {
 
-    name: "all"
+    name: "all",
+
+    serviceUptimeTickInterval: 5000
 
 };

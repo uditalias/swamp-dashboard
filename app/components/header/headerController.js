@@ -15,4 +15,8 @@ angular.module('swamp.controllers').controller('headerController', ['$scope', 's
         }
 
 
+        $scope.startAll = function() {
+            swampServicesManager.startAllServices();
+        }
+
     }]);

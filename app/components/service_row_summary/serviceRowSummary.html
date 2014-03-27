@@ -10,4 +10,12 @@
     <button class="btn btn-yellow" ng-click="serviceActions.restart(service)"><i class="fa fa-refresh"></i> Restart</button>
 
     started: {{service.uptime}}
+
+    <div>
+        <ul>
+            <li ng-repeat="out_log in service.outLogData.getAll()">
+                <pre>{{out_log.text}}</pre>
+            </li>
+        </ul>
+    </div>
 </div>
