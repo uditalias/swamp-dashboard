@@ -35,4 +35,24 @@ angular.module('swamp.services').service('serializeService', [function() {
 
     };
 
+    this.serializeServiceStart = function(data) {
+
+        return {
+            isRunning: data.isRunning,
+            runningEnvironment: data.runningEnvironment,
+            pid: data.pid,
+            startTime: data.startTime
+        }
+
+    }
+
+    this.serializeServiceStop = function(data) {
+
+        return {
+            pid: data.pid,
+            startTime: data.startTime
+        }
+
+    };
+
 }]);

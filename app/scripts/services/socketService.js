@@ -25,6 +25,15 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
 
         }
 
+        this._emit = function(event, data) {
+
+            data = data || {};
+            event = event.name || event;
+
+            this._socket.emit(event, data);
+
+        }
+
         this._onSocketConnect = function() {
 
         }
@@ -57,8 +66,40 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                         $rootScope.$broadcast(EVENTS.SERVICE_MONITOR_UPDATE, serviceName, serialized);
 
                         break;
+
+                    case SOCKET_EVENTS.SERVICE_START:
+
+                        var serialized = serializeService.serializeServiceStart(message.data);
+                        var serviceName = message.data.name;
+
+                        $rootScope.$broadcast(EVENTS.SERVICE_START, serviceName, serialized);
+
+                        break;
+
+                    case SOCKET_EVENTS.SERVICE_STOP:
+
+                        var serialized = serializeService.serializeServiceStop(message.data);
+                        var serviceName = message.data.name;
+
+                        $rootScope.$broadcast(EVENTS.SERVICE_STOP, serviceName, serialized);
+
+                        break;
+
+                    case SOCKET_EVENTS.SERVICE_RESTART:
+
+                        var serviceName = message.data.name;
+
+                        $rootScope.$broadcast(EVENTS.SERVICE_RESTART, serviceName);
+
+                        break;
                 }
             }
         }
+
+        $rootScope.$on(SOCKET_EVENTS.SERVICE_START, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SERVICE_STOP, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SERVICE_RESTART, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SWAMP_STOP_ALL, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SWAMP_RESTART_ALL, this._emit.bind(this));
 
     }]);

@@ -4,4 +4,18 @@ angular.module('swamp.controllers').controller('rootController', ['$scope', 'swa
 
     $scope.services = swampServicesManager.getAll();
 
+    $scope.serviceActions = {
+        start: function(service, env) {
+            service.start(env);
+        },
+        stop: function(service) {
+            service.stop();
+        },
+        restart: function(service, env) {
+            service.restart(env);
+        }
+    }
+
+    $scope.bytesToSize = _.bytesToSize;
+
 }]);

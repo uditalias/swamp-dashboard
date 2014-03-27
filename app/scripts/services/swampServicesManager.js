@@ -1,7 +1,7 @@
 "use strict";
 
-angular.module('swamp.services').service('swampServicesManager', ['swampServicesFactory', '$rootScope', 'EVENTS',
-    function(swampServicesFactory, $rootScope, EVENTS) {
+angular.module('swamp.services').service('swampServicesManager', ['swampServicesFactory', '$rootScope', 'EVENTS', 'CLIENT_REQUEST', 'SOCKET_EVENTS',
+    function(swampServicesFactory, $rootScope, EVENTS, CLIENT_REQUEST, SOCKET_EVENTS) {
 
         this._services = {};
 
@@ -37,6 +37,18 @@ angular.module('swamp.services').service('swampServicesManager', ['swampServices
             return this._services[id] || null;
         }
 
+        this.stopAllRunningServices = function() {
+
+            $rootScope.$broadcast(SOCKET_EVENTS.SWAMP_STOP_ALL);
+
+        }
+
+        this.restartAllRunningServices = function() {
+
+            $rootScope.$broadcast(SOCKET_EVENTS.SWAMP_RESTART_ALL);
+
+        }
+
         function _onSwampServicesReceived(event, services) {
             _.forEach(services, function(service) {
                 this.addServiceByRaw(service);
@@ -51,7 +63,71 @@ angular.module('swamp.services').service('swampServicesManager', ['swampServices
             }
         }
 
+        function _onServiceStart(event, serviceName, data) {
+            var service = this.getByName(serviceName);
+
+            if(service) {
+                service.forceStart(data);
+            }
+        }
+
+        function _onServiceStop(event, serviceName, data) {
+            var service = this.getByName(serviceName);
+
+            if(service) {
+                service.forceStop(data);
+            }
+
+        }
+
+        function _onServiceRestart(event, serviceName) {
+            var service = this.getByName(serviceName);
+
+            if(service) {
+                service.forceRestart();
+            }
+        }
+
+        function _onClientRequestStartService(event, service, environment) {
+
+            var params = {
+                name: service.name,
+                environment: environment
+            }
+
+            $rootScope.$broadcast(SOCKET_EVENTS.SERVICE_START, params);
+
+        }
+
+        function _onClientRequestStopService(event, service) {
+
+            var params = {
+                name: service.name
+            }
+
+            $rootScope.$broadcast(SOCKET_EVENTS.SERVICE_STOP, params);
+
+        }
+
+        function _onClientRequestRestartService(event, service, environment) {
+
+            var params = {
+                name: service.name,
+                environment: environment
+            }
+
+            $rootScope.$broadcast(SOCKET_EVENTS.SERVICE_RESTART, params);
+
+        }
+
         $rootScope.$on(EVENTS.SWAMP_SERVICES_RECEIVED, _onSwampServicesReceived.bind(this));
         $rootScope.$on(EVENTS.SERVICE_MONITOR_UPDATE, _onServiceMonitorUpdate.bind(this));
+        $rootScope.$on(EVENTS.SERVICE_START, _onServiceStart.bind(this));
+        $rootScope.$on(EVENTS.SERVICE_STOP, _onServiceStop.bind(this));
+        $rootScope.$on(EVENTS.SERVICE_RESTART, _onServiceRestart.bind(this));
+
+        $rootScope.$on(CLIENT_REQUEST.REQUEST_START_SERVICE, _onClientRequestStartService.bind(this));
+        $rootScope.$on(CLIENT_REQUEST.REQUEST_STOP_SERVICE, _onClientRequestStopService.bind(this));
+        $rootScope.$on(CLIENT_REQUEST.REQUEST_RESTART_SERVICE, _onClientRequestRestartService.bind(this));
 
     }]);
