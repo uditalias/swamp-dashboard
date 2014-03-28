@@ -110,7 +110,7 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                         var serviceName = message.data.name;
                         var logMessage = message.data.log;
 
-                        $rootScope.$broadcast(EVENTS.SERVICE_OUT, serviceName, logMessage);
+                        $rootScope.$broadcast(EVENTS.SERVICE_ERROR, serviceName, logMessage);
 
                         break;
                 }
