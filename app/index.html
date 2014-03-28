@@ -1,3 +1,26 @@
+<!--
+
+ ____    __      __  ______           ____
+/\  _`\ /\ \  __/\ \/\  _  \  /'\_/`\/\  _`\
+\ \,\L\_\ \ \/\ \ \ \ \ \L\ \/\      \ \ \L\ \
+ \/_\__ \\ \ \ \ \ \ \ \  __ \ \ \__\ \ \ ,__/
+   /\ \L\ \ \ \_/ \_\ \ \ \/\ \ \ \_/\ \ \ \/
+   \ `\____\ `\___x___/\ \_\ \_\ \_\\ \_\ \_\
+    \/_____/'\/__//__/  \/_/\/_/\/_/ \/_/\/_/
+
+    The tool for running, managing and monitoring multiple node.js services
+
+    By Udi Talias (udi.talias@gmail.com)
+
+    https://github.com/uditalias
+
+    ---
+
+    For forking, contributing, issues > https://github.com/uditalias/swamp
+
+-->
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -22,9 +45,11 @@
   </head>
   <body ng-app="swamp" ng-controller="mainController">
 
-    <header ng-controller="headerController" ng-include="'/components/header/header.html'"></header>
-    <div ui-view></div>
-    <footer ng-controller="footerController" ng-include="'/components/footer/footer.html'"></footer>
+    <div class="app-wrapper">
+        <header ng-controller="headerController" ng-include="'/components/header/header.html'"></header>
+        <div ui-view></div>
+        <footer ng-controller="footerController" ng-include="'/components/footer/footer.html'"></footer>
+    </div>
 
     <!--[if lt IE 9]>
     <script src="/lib/es5-shim/es5-shim.js"></script>
