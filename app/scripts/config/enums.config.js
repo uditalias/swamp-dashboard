@@ -6,6 +6,8 @@ angular.module('swamp.config')
         "DISCONNECT": "disconnect",
         "MESSAGE": "message",
         "SWAMP_INITIAL": "swamp.initialData",
+        "SWAMP_OUT": "swamp.out",
+        "SWAMP_ERROR": "swamp.error",
         "SWAMP_RESTART_ALL": "swamp.restartAllRunning",
         "SWAMP_STOP_ALL": "swamp.stopAllRunning",
         "SWAMP_START_ALL": "swamp.startAll",
@@ -19,6 +21,9 @@ angular.module('swamp.config')
     .constant('EVENTS', {
         "SWAMP_SERVICES_RECEIVED": "event::swamp.services.received",
         "SWAMP_DISCONNECTED": "event::swamp.disconnected",
+        "SWAMP_OUT": "event::swamp.out",
+        "SWAMP_ERROR": "event::swamp.error",
+        "SWAMP_DATA_RECEIVED": "event::swamp.data.received",
         "SERVICE_MONITOR_UPDATE": "event::service.monitor.update",
         "SERVICE_START": "event::service.start",
         "SERVICE_STOP": "event::service.stop",

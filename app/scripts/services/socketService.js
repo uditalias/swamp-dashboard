@@ -52,11 +52,28 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
 
                         var serialized = [];
 
-                        _.forEach(message.data || [], function(raw) {
+                        _.forEach(message.data.services || [], function(raw) {
                             serialized.push(serializeService.serializeSwampService(raw));
                         });
 
                         $rootScope.$broadcast(EVENTS.SWAMP_SERVICES_RECEIVED, serialized);
+                        $rootScope.$broadcast(EVENTS.SWAMP_DATA_RECEIVED, message.data.swamp);
+
+                        break;
+
+                    case SOCKET_EVENTS.SWAMP_OUT:
+
+                        var logMessage = message.data.log;
+
+                        $rootScope.$broadcast(EVENTS.SWAMP_OUT, logMessage);
+
+                        break;
+
+                    case SOCKET_EVENTS.SWAMP_ERROR:
+
+                        var logMessage = message.data.log;
+
+                        $rootScope.$broadcast(EVENTS.SWAMP_ERROR, logMessage);
 
                         break;
 

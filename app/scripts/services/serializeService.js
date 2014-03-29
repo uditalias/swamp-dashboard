@@ -56,12 +56,12 @@ angular.module('swamp.services').service('serializeService', [function() {
 
     };
 
-    this.serializeLogData = function(type, log, time) {
+    this.serializeLogData = function(type, log) {
 
         return {
             type: type,
-            text: log,
-            time: time || new Date()
+            text: log.text,
+            time: log.time
         }
 
     }

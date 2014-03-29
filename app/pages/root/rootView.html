@@ -4,4 +4,12 @@
         <ng-include src="'/components/service_row_summary/serviceRowSummary.html'" />
     </div>
 
+    <ul>
+        <li ng-repeat="err in errorLogs">{{err.time}} - {{err.text}}</li>
+    </ul>
+    --
+    <ul>
+        <li ng-repeat="out in outLogs">{{out.time}} - {{out.text}}</li>
+    </ul>
+
 </div>

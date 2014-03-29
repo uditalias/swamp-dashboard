@@ -211,7 +211,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
                 _.forEach(logs.err, function(log) {
 
-                    serialized = serializeService.serializeLogData(LOG_TYPE.ERROR, log.text, log.time);
+                    serialized = serializeService.serializeLogData(LOG_TYPE.ERROR, log);
 
                     self.errorLogData.add(serialized);
 
@@ -223,7 +223,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
                 _.forEach(logs.out, function(log) {
 
-                    serialized = serializeService.serializeLogData(LOG_TYPE.OUT, log.text, log.time);
+                    serialized = serializeService.serializeLogData(LOG_TYPE.OUT, log);
 
                     self.outLogData.add(serialized);
 
