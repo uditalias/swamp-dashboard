@@ -1,5 +1,5 @@
 <div>
-    {{service.name}} cpu: {{service.monitor.cpu|number:4}}% memory: {{service.monitor.memory}} ({{bytesToSize(service.monitor.memory)}})
+    [{{service.pid}}] {{service.name}} cpu: {{service.monitor.cpu|number:4}}% memory: {{service.monitor.memory}} ({{bytesToSize(service.monitor.memory)}})
 
     state: {{service.state}} isRunning: {{service.isRunning}}
 
