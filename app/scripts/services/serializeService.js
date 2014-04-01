@@ -61,7 +61,7 @@ angular.module('swamp.services').service('serializeService', [function() {
         return {
             type: type,
             text: log.text,
-            time: log.time
+            time: moment(log.time)
         }
 
     }

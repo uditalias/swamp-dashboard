@@ -5,11 +5,11 @@
     </div>
 
     <ul>
-        <li ng-repeat="err in errorLogs">{{err.time}} - {{err.text}}</li>
+        <li ng-repeat="err in errorLogs">{{err.time.format('DD/MM/YYYY HH:mm')}} - {{err.text}}</li>
     </ul>
     --
     <ul>
-        <li ng-repeat="out in outLogs">{{out.time}} - {{out.text}}</li>
+        <li ng-repeat="out in outLogs">{{out.time.format('DD/MM/YYYY HH:mm')}} - {{out.text}}</li>
     </ul>
 
 </div>
