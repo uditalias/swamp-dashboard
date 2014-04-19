@@ -276,12 +276,12 @@ module.exports = function (grunt) {
                     collapseWhitespace: true,
                     collapseBooleanAttributes: true,
                     removeCommentsFromCDATA: true,
-                    removeOptionalTags: true
+                    removeOptionalTags: false
                 },
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: ['*.html', 'views/{,*/}*.html'],
+                    src: ['*.html', 'pages/{,*/}*.html','components/{,*/}*.html','directives/{,*/}*.html'],
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -364,7 +364,7 @@ module.exports = function (grunt) {
 
         ngtemplates: {
             dest:          {
-                src:        ['<%= yeoman.dist %>/pages/**/*.html','<%= yeoman.dist %>/directives/**/*.html','<%= yeoman.dist %>/components/**/*.html'],
+                src:        ['<%= yeoman.app %>/pages/**/*.html','<%= yeoman.app %>/directives/**/*.html','<%= yeoman.app %>/components/**/*.html'],
                 dest:       '<%= yeoman.dist %>/scripts/templates.js',
                 options:{
                     bootstrap: function(module, script) {
