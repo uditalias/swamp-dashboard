@@ -6,7 +6,7 @@ app.config([
 
         $stateProvider.state('root', {
             url: '/',
-            templateUrl: '/pages/root/rootView.html',
+            templateUrl: 'pages/root/rootView.html',
             controller: 'rootController'
         });
 

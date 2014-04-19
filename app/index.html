@@ -41,9 +41,9 @@
   <body ng-app="swamp" ng-controller="mainController">
 
     <div class="app-wrapper">
-        <header ng-controller="headerController" ng-include="'/components/header/header.html'"></header>
+        <header ng-controller="headerController" ng-include="'components/header/header.html'"></header>
         <div ui-view></div>
-        <footer ng-controller="footerController" ng-include="'/components/footer/footer.html'"></footer>
+        <footer ng-controller="footerController" ng-include="'components/footer/footer.html'"></footer>
     </div>
 
     <!-- build:js /scripts/vendor.js -->
@@ -75,6 +75,7 @@
 
     <!-- config -->
     <script src="/scripts/config/env/constants.js"></script>
+    <script src="/scripts/config/environment.config.js"></script>
     <script src="/scripts/config/location.config.js"></script>
     <script src="/scripts/config/enums.config.js"></script>
     <!-- config -->
@@ -136,5 +137,11 @@
     <!-- build:js({.tmp,app}) /scripts/templates.js -->
 
     <!-- endbuild -->
+
+    <script>
+        //<![CDATA[
+            var socketConnectionString = "<%= socketConnectionString %>";
+        //]]>
+    </script>
 </body>
 </html>

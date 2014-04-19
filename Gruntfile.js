@@ -7,6 +7,9 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
+var path    = require('path'),
+    fs      = require('fs');
+
 module.exports = function (grunt) {
 
     // Load grunt tasks automatically
@@ -15,15 +18,17 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    var yeoman = {
+        // configurable paths
+        app: require('./bower.json').appPath || 'app',
+        dist: 'dist'
+    };
+
     // Define the configuration for all the tasks
     grunt.initConfig({
 
         // Project settings
-        yeoman: {
-            // configurable paths
-            app: require('./bower.json').appPath || 'app',
-            dist: 'dist'
-        },
+        yeoman: yeoman,
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
@@ -160,6 +165,16 @@ module.exports = function (grunt) {
                         '.tmp',
                         '<%= yeoman.dist %>/*',
                         '!<%= yeoman.dist %>/.git*'
+                    ]
+                }]
+            },
+            swamp: {
+                options: { force: true },
+                files: [{
+                    dot: true,
+                    src: [
+                        '../swamp/dashboard/views',
+                        '../swamp/dashboard/public'
                     ]
                 }]
             },
@@ -317,12 +332,12 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,png,txt}',
-                        '.htaccess',
                         '*.html',
-                        'views/{,*/}*.html',
-                        'bower_components/**/*',
                         'images/{,*/}*.{webp}',
-                        'fonts/*'
+                        'assets/*',
+                        'pages/**/*.html',
+                        'components/**/*.html',
+                        'directives/**/*.html'
                     ]
                 }, {
                     expand: true,
@@ -336,7 +351,41 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
-            }
+            },
+
+            // copy the swamp dashboard compiled files into the swamp project
+            swamp: (function() {
+
+                var copy_swamp = {};
+
+                if(fs.existsSync('../swamp')) {
+
+                    copy_swamp = {
+                        files: [{
+                            expand: true,
+                            dot: true,
+                            cwd: '<%= yeoman.dist %>',
+                            dest: '../swamp/dashboard/public/',
+                            src: [
+                                'scripts/**/*',
+                                'styles/**/*',
+                                'assets/**/*'
+                            ]
+                        }, {
+                            expand: true,
+                            dot: true,
+                            cwd: '<%= yeoman.dist %>',
+                            dest: '../swamp/dashboard/views/',
+                            src: [
+                                'index.ejs'
+                            ]
+                        }]
+                    };
+
+                }
+
+                return copy_swamp;
+            })()
         },
 
         // Run some tasks in parallel to speed up the build process
@@ -364,7 +413,7 @@ module.exports = function (grunt) {
 
         ngtemplates: {
             dest:          {
-                src:        ['<%= yeoman.app %>/pages/**/*.html','<%= yeoman.app %>/directives/**/*.html','<%= yeoman.app %>/components/**/*.html'],
+                src:        ['<%= yeoman.dist %>/pages/**/*.html','<%= yeoman.dist %>/directives/**/*.html','<%= yeoman.dist %>/components/**/*.html'],
                 dest:       '<%= yeoman.dist %>/scripts/templates.js',
                 options:{
                     bootstrap: function(module, script) {
@@ -382,9 +431,28 @@ module.exports = function (grunt) {
                     }
                 }
             }
+        },
+
+        exec: {
+            gitAddSwampDashboardAssets: {
+                cwd: '../swamp',
+                cmd: 'git add --all -f dashboard/ '
+            },
+
+            gitCommitSwampDashboard: {
+                cwd: '../swamp',
+                cmd: 'git commit dashboard/* -m "Build"'
+            }
         }
     });
 
+    // creates the .ejs file from the .html
+    grunt.registerTask('converthtml', function() {
+        var html = fs.readFileSync(path.resolve(yeoman.dist, 'index.html'));
+
+        fs.writeFileSync(path.resolve(yeoman.dist, 'index.ejs'), html);
+
+    });
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
@@ -416,7 +484,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'bower-install',
+        //'bower-install',
+        'ngconstant:production',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
@@ -429,7 +498,13 @@ module.exports = function (grunt) {
         'ngtemplates',
         'rev',
         'usemin',
-        'htmlmin'
+        'htmlmin',
+        'converthtml',
+        'clean:swamp',
+        'copy:swamp',
+        'exec:gitAddSwampDashboardAssets',
+        'exec:gitCommitSwampDashboard',
+        'ngconstant:development'
     ]);
 
     grunt.registerTask('default', [
