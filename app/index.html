@@ -20,20 +20,17 @@
 
 -->
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css /styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="/lib/normalize-css/normalize.css" />
+    <link rel="stylesheet" href="lib/sass-bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="lib/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -56,18 +53,18 @@
 
     <!-- build:js /scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="/lib/jquery/jquery.js"></script>
-    <script src="/lib/angular/angular.js"></script>
-    <script src="/lib/sass-bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/lib/angular-resource/angular-resource.js"></script>
-    <script src="/lib/angular-cookies/angular-cookies.js"></script>
-    <script src="/lib/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/lib/lodash/dist/lodash.compat.js"></script>
-    <script src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/lib/momentjs/moment.js"></script>
-    <script src="/lib/AngularJS-Scope.SafeApply/src/Scope.SafeApply.min.js"></script>
-    <script src="/lib/AngularJS-Scope.onReady/src/scope.onready.js"></script>
-    <script src="/lib/socket.io-client/dist/socket.io.min.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/es5-shim/es5-shim.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/json3/lib/json3.min.js"></script>
+    <script src="lib/sass-bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/lodash/dist/lodash.compat.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/momentjs/moment.js"></script>
+    <script src="lib/angular-once/once.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -136,6 +133,9 @@
     <script src="/pages/root/rootController.js"></script>
     <!-- page:root -->
 
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) /scripts/templates.js -->
 
     <!-- endbuild -->
 </body>
