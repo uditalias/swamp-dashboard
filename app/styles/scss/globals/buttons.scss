@@ -8,6 +8,13 @@
   background: $dark-aubergine;
   border-bottom: solid 3px adjust-lightness($dark-aubergine, -20%);;
 
+  &.btn-small {
+    font-size: 12px;
+  }
+
+  &[disabled] {
+    @include opacity(0.4);
+  }
 
   &:active, &:focus, &:hover{
     @include box-shadow(0 0 0 0 $white);

@@ -7630,6 +7630,76 @@ td.visible-print {
     display: none !important;
   }
 }
+/* line 1, scss/globals/colors.scss */
+.color-orange {
+  color: #dd4814;
+}
+
+/* line 5, scss/globals/colors.scss */
+.color-aubergine {
+  color: #772953;
+}
+
+/* line 9, scss/globals/colors.scss */
+.color-light-aubergine {
+  color: #77216f;
+}
+
+/* line 13, scss/globals/colors.scss */
+.color-mid-aubergine {
+  color: #5e2750;
+}
+
+/* line 17, scss/globals/colors.scss */
+.color-dark-aubergine {
+  color: #2c001e;
+}
+
+/* line 21, scss/globals/colors.scss */
+.color-warm-grey {
+  color: #aea79f;
+}
+
+/* line 25, scss/globals/colors.scss */
+.color-white {
+  color: white;
+}
+
+/* line 29, scss/globals/colors.scss */
+.color-light-grey {
+  color: #efefef;
+}
+
+/* line 33, scss/globals/colors.scss */
+.color-cool-grey {
+  color: #333333;
+}
+
+/* line 37, scss/globals/colors.scss */
+.color-red {
+  color: #df382c;
+}
+
+/* line 41, scss/globals/colors.scss */
+.color-grey {
+  color: #aea79f;
+}
+
+/* line 45, scss/globals/colors.scss */
+.color-yellow {
+  color: #efb73e;
+}
+
+/* line 49, scss/globals/colors.scss */
+.color-blue {
+  color: #19b6ee;
+}
+
+/* line 53, scss/globals/colors.scss */
+.color-green {
+  color: #38b44a;
+}
+
 /* line 79, scss/globals/mixins.scss */
 .flex {
   display: -webkit-box;
@@ -8505,6 +8575,11 @@ td.visible-print {
 }
 
 /* line 64, scss/globals/framework.scss */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* line 68, scss/globals/framework.scss */
 .text-8 {
   font-size: 8px;
 }
@@ -8513,7 +8588,7 @@ td.visible-print {
   line-height: 8px;
 }
 
-/* line 68, scss/globals/framework.scss */
+/* line 72, scss/globals/framework.scss */
 .text-10 {
   font-size: 10px;
 }
@@ -8522,7 +8597,7 @@ td.visible-print {
   line-height: 10px;
 }
 
-/* line 72, scss/globals/framework.scss */
+/* line 76, scss/globals/framework.scss */
 .text-12 {
   font-size: 12px;
 }
@@ -8531,7 +8606,7 @@ td.visible-print {
   line-height: 12px;
 }
 
-/* line 76, scss/globals/framework.scss */
+/* line 80, scss/globals/framework.scss */
 .text-14 {
   font-size: 14px;
 }
@@ -8540,7 +8615,7 @@ td.visible-print {
   line-height: 14px;
 }
 
-/* line 80, scss/globals/framework.scss */
+/* line 84, scss/globals/framework.scss */
 .text-15 {
   font-size: 15px;
 }
@@ -8549,7 +8624,7 @@ td.visible-print {
   line-height: 15px;
 }
 
-/* line 84, scss/globals/framework.scss */
+/* line 88, scss/globals/framework.scss */
 .text-16 {
   font-size: 16px;
 }
@@ -8558,7 +8633,7 @@ td.visible-print {
   line-height: 16px;
 }
 
-/* line 87, scss/globals/framework.scss */
+/* line 91, scss/globals/framework.scss */
 .text-17 {
   font-size: 18px;
 }
@@ -8567,7 +8642,7 @@ td.visible-print {
   line-height: 18px;
 }
 
-/* line 91, scss/globals/framework.scss */
+/* line 95, scss/globals/framework.scss */
 .text-18 {
   font-size: 18px;
 }
@@ -8576,7 +8651,7 @@ td.visible-print {
   line-height: 18px;
 }
 
-/* line 95, scss/globals/framework.scss */
+/* line 99, scss/globals/framework.scss */
 .text-20 {
   font-size: 20px;
 }
@@ -8585,7 +8660,7 @@ td.visible-print {
   line-height: 20px;
 }
 
-/* line 99, scss/globals/framework.scss */
+/* line 103, scss/globals/framework.scss */
 .text-23 {
   font-size: 23px;
 }
@@ -8594,7 +8669,7 @@ td.visible-print {
   line-height: 23px;
 }
 
-/* line 103, scss/globals/framework.scss */
+/* line 107, scss/globals/framework.scss */
 .text-24 {
   font-size: 24px;
 }
@@ -8603,7 +8678,7 @@ td.visible-print {
   line-height: 24px;
 }
 
-/* line 107, scss/globals/framework.scss */
+/* line 111, scss/globals/framework.scss */
 .text-25 {
   font-size: 25px;
 }
@@ -8612,7 +8687,7 @@ td.visible-print {
   line-height: 25px;
 }
 
-/* line 111, scss/globals/framework.scss */
+/* line 115, scss/globals/framework.scss */
 .text-26 {
   font-size: 26px;
 }
@@ -8621,7 +8696,7 @@ td.visible-print {
   line-height: 26px;
 }
 
-/* line 115, scss/globals/framework.scss */
+/* line 119, scss/globals/framework.scss */
 .text-28 {
   font-size: 28px;
 }
@@ -8630,7 +8705,7 @@ td.visible-print {
   line-height: 28px;
 }
 
-/* line 119, scss/globals/framework.scss */
+/* line 123, scss/globals/framework.scss */
 .text-30 {
   font-size: 30px;
 }
@@ -8639,7 +8714,7 @@ td.visible-print {
   line-height: 30px;
 }
 
-/* line 123, scss/globals/framework.scss */
+/* line 127, scss/globals/framework.scss */
 .text-36 {
   font-size: 36px;
 }
@@ -8648,7 +8723,7 @@ td.visible-print {
   line-height: 36px;
 }
 
-/* line 127, scss/globals/framework.scss */
+/* line 131, scss/globals/framework.scss */
 .text-40 {
   font-size: 40px;
 }
@@ -8657,7 +8732,7 @@ td.visible-print {
   line-height: 40px;
 }
 
-/* line 131, scss/globals/framework.scss */
+/* line 135, scss/globals/framework.scss */
 .text-46 {
   font-size: 46px;
 }
@@ -8666,7 +8741,7 @@ td.visible-print {
   line-height: 46px;
 }
 
-/* line 135, scss/globals/framework.scss */
+/* line 139, scss/globals/framework.scss */
 .text-50 {
   font-size: 50px;
 }
@@ -8675,7 +8750,7 @@ td.visible-print {
   line-height: 50px;
 }
 
-/* line 139, scss/globals/framework.scss */
+/* line 143, scss/globals/framework.scss */
 .text-70 {
   font-size: 70px;
 }
@@ -8684,39 +8759,39 @@ td.visible-print {
   line-height: 70px;
 }
 
-/* line 144, scss/globals/framework.scss */
+/* line 148, scss/globals/framework.scss */
 .bold, .text-bold {
   font-weight: bold;
 }
 
-/* line 148, scss/globals/framework.scss */
+/* line 152, scss/globals/framework.scss */
 .text-truncate {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* line 154, scss/globals/framework.scss */
+/* line 158, scss/globals/framework.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 158, scss/globals/framework.scss */
+/* line 162, scss/globals/framework.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 162, scss/globals/framework.scss */
+/* line 166, scss/globals/framework.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 166, scss/globals/framework.scss */
+/* line 170, scss/globals/framework.scss */
 .vertical-text-top {
   vertical-align: text-top;
 }
 
-/* line 170, scss/globals/framework.scss */
+/* line 174, scss/globals/framework.scss */
 .border-radius {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -8725,10 +8800,23 @@ td.visible-print {
   border-radius: 4px;
 }
 
-/* line 174, scss/globals/framework.scss */
+/* line 178, scss/globals/framework.scss */
 .box-shadow {
   -webkit-box-shadow: 0 2px 2px 0 #c2c2c2;
   box-shadow: 0 2px 2px 0 #c2c2c2;
+}
+
+/* line 183, scss/globals/framework.scss */
+.top-shadow:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  z-index: 1;
+  -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* line 2, scss/globals/common.scss */
@@ -8741,7 +8829,16 @@ html, body {
   color: #aea79f;
 }
 
-/* line 14, scss/globals/common.scss */
+/* line 16, scss/globals/common.scss */
+body {
+  margin-bottom: 50px;
+}
+/* line 19, scss/globals/common.scss */
+body.footer-panel-open {
+  margin-bottom: 384px;
+}
+
+/* line 25, scss/globals/common.scss */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Ubuntu', sans-serif !important;
@@ -8750,16 +8847,32 @@ h1, h2, h3, h4, h5, h6,
   color: inherit;
 }
 
-/* line 21, scss/globals/common.scss */
+/* line 32, scss/globals/common.scss */
 ul {
   margin: 0;
   padding: 0;
 }
 
-/* line 26, scss/globals/common.scss */
+/* line 37, scss/globals/common.scss */
 pre {
   font-family: 'Ubuntu Mono';
   font-weight: 400;
+}
+
+/* line 43, scss/globals/common.scss */
+.table-header > div {
+  color: #aea79f;
+  font-weight: 400;
+  margin-right: 1px;
+  padding: 5px;
+  background-color: #333333;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  border-top: solid 1px #404040;
+}
+/* line 51, scss/globals/common.scss */
+.table-header > div:last-child {
+  margin-right: 0;
 }
 
 /* line 1, scss/globals/buttons.scss */
@@ -8777,34 +8890,43 @@ pre {
   background: #2c001e;
   border-bottom: solid 3px black;
 }
-/* line 12, scss/globals/buttons.scss */
+/* line 11, scss/globals/buttons.scss */
+.btn.btn-small {
+  font-size: 12px;
+}
+/* line 15, scss/globals/buttons.scss */
+.btn[disabled] {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+/* line 19, scss/globals/buttons.scss */
 .btn:active, .btn:focus, .btn:hover {
   -webkit-box-shadow: 0 0 0 0 white;
   box-shadow: 0 0 0 0 white;
   color: white;
   outline: none;
 }
-/* line 18, scss/globals/buttons.scss */
+/* line 25, scss/globals/buttons.scss */
 .btn:active {
   margin-top: 3px;
   border-bottom-width: 0;
 }
-/* line 23, scss/globals/buttons.scss */
+/* line 30, scss/globals/buttons.scss */
 .btn.btn-green {
   background-color: #38b44a;
   border-bottom-color: #20662a;
 }
-/* line 28, scss/globals/buttons.scss */
+/* line 35, scss/globals/buttons.scss */
 .btn.btn-yellow {
   background-color: #efb73e;
   border-bottom-color: #b8820f;
 }
-/* line 33, scss/globals/buttons.scss */
+/* line 40, scss/globals/buttons.scss */
 .btn.btn-red {
   background-color: #df382c;
   border-bottom-color: #8f1e16;
 }
-/* line 38, scss/globals/buttons.scss */
+/* line 45, scss/globals/buttons.scss */
 .btn.btn-blue {
   background-color: #19b6ee;
   border-bottom-color: #0b7196;
@@ -8813,6 +8935,148 @@ pre {
 /*
  *  Components
  */
+/* line 1, ../components/footer/footer.scss */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+/* line 10, ../components/footer/footer.scss */
+footer .footer-inner .header {
+  background-color: #333333;
+  border-top: solid 1px #404040;
+  padding: 5px;
+  cursor: pointer;
+}
+/* line 16, ../components/footer/footer.scss */
+footer .footer-inner .header .title {
+  color: #aea79f;
+  font-weight: 400;
+}
+/* line 22, ../components/footer/footer.scss */
+footer .footer-inner .content {
+  background-color: #121212;
+  -webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+/* line 26, ../components/footer/footer.scss */
+footer .footer-inner .content .tab-panel {
+  overflow: hidden;
+  position: relative;
+  background-color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding: 5px;
+  padding-bottom: 0;
+}
+/* line 36, ../components/footer/footer.scss */
+footer .footer-inner .content .tab-panel .tab-item {
+  -webkit-transition: background 200ms;
+  transition: background 200ms;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  display: table;
+  margin-right: 2px;
+  padding: 5px 12px;
+  background-color: #262626;
+  cursor: pointer;
+}
+/* line 45, ../components/footer/footer.scss */
+footer .footer-inner .content .tab-panel .tab-item:hover {
+  background-color: #2e2e2e;
+}
+/* line 49, ../components/footer/footer.scss */
+footer .footer-inner .content .tab-panel .tab-item.active {
+  background-color: #121212;
+}
+/* line 57, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log {
+  position: relative;
+}
+/* line 62, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log:hover .tail-log {
+  display: block;
+}
+/* line 66, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log:hover .clear-log {
+  display: block;
+}
+/* line 71, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .clear-log {
+  z-index: 1;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 15px;
+}
+/* line 79, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .clear-log:hover {
+  color: #df382c;
+}
+/* line 84, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .tail-log {
+  z-index: 1;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+/* line 92, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .tail-log:hover {
+  color: #2c8d3a;
+}
+/* line 96, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .tail-log.active {
+  color: #38b44a;
+  display: block;
+}
+/* line 102, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log ul {
+  -webkit-transition: height 200ms;
+  transition: height 200ms;
+  position: relative;
+  overflow: hidden;
+  padding: 5px;
+}
+/* line 109, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log ul:hover li {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+/* line 114, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log ul li {
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+}
+/* line 118, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log ul li:nth-child(even) {
+  background-color: #141414;
+}
+/* line 122, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log ul li:nth-child(odd) {
+  background-color: #121212;
+}
+/* line 126, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log ul li:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+/* line 132, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log pre {
+  color: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
 /* line 1, ../components/header/header.scss */
 header {
   padding: 20px;
@@ -8832,6 +9096,76 @@ header .header-inner h1 span {
   font-weight: 300;
 }
 
+/* line 3, ../components/service_row_summary/servicerowsummary.scss */
+.service-summary .service-summary-row {
+  -webkit-transition: background-color 100ms;
+  transition: background-color 100ms;
+  cursor: pointer;
+  border-bottom: solid 1px #333333;
+}
+/* line 9, ../components/service_row_summary/servicerowsummary.scss */
+.service-summary .service-summary-row:hover, .service-summary .service-summary-row.toggle {
+  background-color: #262626;
+}
+/* line 17, ../components/service_row_summary/servicerowsummary.scss */
+.service-summary .service-summary-row > div {
+  margin-right: 1px;
+  padding: 10px 5px;
+}
+/* line 22, ../components/service_row_summary/servicerowsummary.scss */
+.service-summary .service-summary-row.running {
+  color: #38b44a;
+}
+/* line 26, ../components/service_row_summary/servicerowsummary.scss */
+.service-summary .service-summary-row.stopped {
+  color: #df382c;
+}
+/* line 30, ../components/service_row_summary/servicerowsummary.scss */
+.service-summary .service-summary-row.restarted {
+  color: #efb73e;
+}
+/* line 34, ../components/service_row_summary/servicerowsummary.scss */
+.service-summary .service-summary-row:last-child {
+  margin-right: 0;
+}
+
+/* line 1, ../components/service_row_info/servicerowinfo.scss */
+.service-info {
+  background-color: #1a1a1a;
+  -webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: solid 1px #333333;
+}
+/* line 6, ../components/service_row_info/servicerowinfo.scss */
+.service-info .header {
+  border-bottom: solid 1px #333333;
+  padding-bottom: 10px;
+}
+/* line 10, ../components/service_row_info/servicerowinfo.scss */
+.service-info .header .service-name {
+  font-weight: 400;
+}
+/* line 15, ../components/service_row_info/servicerowinfo.scss */
+.service-info .service-info-table {
+  border-bottom: solid 1px #333333;
+}
+/* line 21, ../components/service_row_info/servicerowinfo.scss */
+.service-info .service-info-table .service-info-row .service-info-item {
+  border-right: solid 1px #333333;
+}
+/* line 24, ../components/service_row_info/servicerowinfo.scss */
+.service-info .service-info-table .service-info-row .service-info-item:last-child {
+  border-right: none;
+}
+/* line 33, ../components/service_row_info/servicerowinfo.scss */
+.service-info .monitor-table .monitor-item {
+  border-right: solid 1px #333333;
+}
+/* line 37, ../components/service_row_info/servicerowinfo.scss */
+.service-info .monitor-table .monitor-item:last-child {
+  border-right: none;
+}
+
 /*
  *  Directives
  */
@@ -8840,7 +9174,7 @@ header .header-inner h1 span {
  */
 /* line 1, ../pages/root/root.scss */
 .root-container {
-  padding: 20px;
+  padding: 0 20px;
 }
 /* line 5, ../pages/root/root.scss */
 .root-container ul {
@@ -8852,4 +9186,10 @@ header .header-inner h1 span {
   cursor: pointer;
   padding: 5px 0;
   border-bottom: solid 1px #5e2750;
+}
+/* line 15, ../pages/root/root.scss */
+.root-container .title {
+  color: #5e2750;
+  font-weight: 100;
+  font-size: 22px;
 }

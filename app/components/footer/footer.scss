@@ -1,0 +1,144 @@
+footer {
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  .footer-inner {
+
+    .header {
+      background-color: $cool-grey;
+      border-top: solid 1px adjust-lightness($cool-grey, 5%);
+      padding: 5px;
+      cursor: pointer;
+
+      .title {
+        color: $warm-grey;
+        font-weight: 400;
+      }
+    }
+
+    .content {
+      background-color: adjust-lightness($cool-grey, -13%);
+      @include box-shadow(inset 0 1px 2px 0 rgba(0,0,0,0.2));
+
+      .tab-panel {
+        overflow: hidden;
+        position: relative;
+        background-color: adjust-lightness($cool-grey, -10%);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        padding: 5px;
+        padding-bottom: 0;
+
+        .tab-item {
+          @include transition(background 200ms);
+          @include border-radius(4px 4px 0 0);
+          display: table;
+          margin-right: 2px;
+          padding: 5px 12px;
+          background-color: adjust-lightness($cool-grey, -5%);
+          cursor: pointer;
+
+          &:hover {
+            background-color: adjust-lightness($cool-grey, -2%);
+          }
+
+          &.active {
+            background-color: adjust-lightness($cool-grey, -13%);
+          }
+        }
+      }
+
+      .content-inner {
+
+        .log {
+
+          position: relative;
+
+          &:hover {
+            .tail-log {
+              display: block;
+            }
+
+            .clear-log {
+              display: block;
+            }
+          }
+
+          .clear-log {
+            z-index: 1;
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 35px;
+            right: 15px;
+
+            &:hover {
+              color: $red;
+            }
+          }
+
+          .tail-log {
+            z-index: 1;
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+
+            &:hover {
+              color: adjust-lightness($green, -10%);
+            }
+
+            &.active {
+              color: $green;
+              display: block;
+            }
+          }
+
+          ul {
+            @include transition(height 200ms);
+            position: relative;
+            overflow: hidden;
+            padding: 5px;
+
+            &:hover {
+              li {
+                @include opacity(0.6);
+              }
+            }
+
+            li {
+
+              @include transition(all 100ms);
+
+              &:nth-child(even) {
+                background-color: adjust-lightness($cool-grey, -12%);
+              }
+
+              &:nth-child(odd) {
+                background-color: adjust-lightness($cool-grey, -13%);
+              }
+
+              &:hover {
+                @include opacity(1);
+              }
+            }
+          }
+
+          pre {
+            color: inherit;
+            border: none;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+          }
+        }
+      }
+    }
+
+  }
+}

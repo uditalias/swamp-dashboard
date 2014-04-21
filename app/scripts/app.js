@@ -6,6 +6,7 @@ var app = angular.module('swamp', [
     'ngResource',
     'ngSanitize',
     'ui.router',
+    'ui.bootstrap',
     'Scope.safeApply',
     'Scope.onReady',
     'swamp.filters',

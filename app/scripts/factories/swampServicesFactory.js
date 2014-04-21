@@ -13,6 +13,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
             this.script = params.script;
             this.isRunning = params.isRunning;
             this.runningEnvironment = params.runningEnvironment;
+            this.selectedEnvironment = params.runningEnvironment;
             this.pid = params.pid;
             this.options = params.options;
             this.environments = params.environments;
@@ -55,11 +56,15 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             start: function(environment) {
 
+                environment = environment || this.selectedEnvironment;
+
                 $rootScope.$broadcast(CLIENT_REQUEST.REQUEST_START_SERVICE, this, environment);
 
             },
 
             restart: function(environment) {
+
+                environment = environment || this.selectedEnvironment;
 
                 $rootScope.$broadcast(CLIENT_REQUEST.REQUEST_RESTART_SERVICE, this, environment);
 

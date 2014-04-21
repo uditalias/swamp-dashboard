@@ -58,7 +58,7 @@ angular.module('swamp.services').service('swampServicesManager', [
 
         this.startAllServices = function() {
 
-            //todo: need to implement with selected env's for each service
+            $rootScope.$broadcast(SOCKET_EVENTS.SWAMP_START_ALL);
 
         }
 
@@ -80,6 +80,8 @@ angular.module('swamp.services').service('swampServicesManager', [
                 this.addServiceByRaw(service);
 
             }.bind(this));
+
+            $rootScope.$broadcast(EVENTS.SWAMP_SERVICES_MANAGER_INITIALIZED);
         }
 
         function _onServiceMonitorUpdate(event, serviceName, monitorData) {

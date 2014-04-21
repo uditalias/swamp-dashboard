@@ -75,6 +75,8 @@ angular.module('swamp.services').service('swampManager', [
 
             }
 
+            $rootScope.$broadcast(EVENTS.SWAMP_MANAGER_INITIALIZED);
+
         }
 
         $rootScope.$on(EVENTS.SWAMP_OUT, _onSwampOut.bind(this));

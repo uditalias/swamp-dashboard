@@ -1,6 +1,6 @@
 .root-container {
 
-  padding: 20px;
+  padding: 0 20px;
 
   ul {
     list-style-type: none;
@@ -12,5 +12,10 @@
     }
   }
 
+  .title {
+    color: $mid-aubergine;
+    font-weight: 100;
+    font-size: 22px;
+  }
 
 }

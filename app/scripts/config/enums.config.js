@@ -29,7 +29,12 @@ angular.module('swamp.config')
         "SERVICE_STOP": "event::service.stop",
         "SERVICE_RESTART": "event::service.restart",
         "SERVICE_OUT": "event::service.out",
-        "SERVICE_ERROR": "event::service.error"
+        "SERVICE_ERROR": "event::service.error",
+
+        "SWAMP_MANAGER_INITIALIZED": "event::swamp.manager.initialized",
+        "SWAMP_SERVICES_MANAGER_INITIALIZED": "event::swamp.services.manager.initialized",
+        "OPEN_FOOTER_PANEL": "event::open.footer.panel",
+        "FOOTER_PANEL_STATE_CHANGE": "event::footer.panel.state.change"
     })
     .constant('SERVICE_STATE', {
         "STOP": "service.state.stop",

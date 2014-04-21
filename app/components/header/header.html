@@ -6,13 +6,13 @@
         </h1>
     </div>
 
-    <div class="">
+    <div class="flex flex-pack-center">
 
-        <button class="btn btn-green margin-right-2" ng-click="startAll()"><i class="fa fa-play"></i> Start all</button>
+        <button class="btn btn-green margin-right-2" ng-click="startAll()" tooltip="Start all swamp services" tooltip-placement="bottom"><i class="fa fa-play"></i> Start all</button>
 
-        <button class="btn btn-yellow margin-right-2" ng-click="restartAll()"><i class="fa fa-refresh"></i> Restart all running</button>
+        <button class="btn btn-red margin-right-2" ng-click="stopAll()" tooltip="Stop all running services" tooltip-placement="bottom"><i class="fa fa-stop"></i> Stop all running</button>
 
-        <button class="btn btn-red" ng-click="stopAll()"><i class="fa fa-stop"></i> Stop all running</button>
+        <button class="btn btn-yellow" ng-click="restartAll()" tooltip="Restart all running services" tooltip-placement="bottom"><i class="fa fa-refresh"></i> Restart all running</button>
 
     </div>
 

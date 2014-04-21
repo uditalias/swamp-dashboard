@@ -1,0 +1,43 @@
+.service-info {
+  background-color: adjust-lightness($cool-grey, -10%);
+  @include box-shadow(inset 0 1px 2px 0 rgba(0,0,0,0.2));
+  border-bottom: solid 1px $cool-grey;
+
+  .header {
+    border-bottom: solid 1px $cool-grey;
+    padding-bottom: 10px;
+
+    .service-name {
+      font-weight: 400;
+    }
+  }
+
+  .service-info-table {
+
+    border-bottom: solid 1px $cool-grey;
+
+    .service-info-row {
+
+      .service-info-item {
+        border-right: solid 1px $cool-grey;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  .monitor-table {
+
+    .monitor-item {
+
+      border-right: solid 1px $cool-grey;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+  }
+}

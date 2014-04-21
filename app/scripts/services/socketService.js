@@ -56,8 +56,8 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                             serialized.push(serializeService.serializeSwampService(raw));
                         });
 
-                        $rootScope.$broadcast(EVENTS.SWAMP_SERVICES_RECEIVED, serialized);
                         $rootScope.$broadcast(EVENTS.SWAMP_DATA_RECEIVED, message.data.swamp);
+                        $rootScope.$broadcast(EVENTS.SWAMP_SERVICES_RECEIVED, serialized);
 
                         break;
 
@@ -139,5 +139,6 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
         $rootScope.$on(SOCKET_EVENTS.SERVICE_RESTART, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.SWAMP_STOP_ALL, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.SWAMP_RESTART_ALL, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SWAMP_START_ALL, this._emit.bind(this));
 
     }]);

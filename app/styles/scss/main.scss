@@ -2,6 +2,7 @@
 @import "../../lib/sass-bootstrap/lib/bootstrap";
 
 @import "globals/vars";
+@import "globals/colors";
 @import "globals/fonts";
 @import "globals/mixins";
 @import "globals/flex";
@@ -16,6 +17,7 @@
 @import "../../components/footer/footer";
 @import "../../components/header/header";
 @import "../../components/service_row_summary/servicerowsummary";
+@import "../../components/service_row_info/servicerowinfo";
 
 
 /*

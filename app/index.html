@@ -31,6 +31,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="lib/sass-bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="lib/normalize-css/normalize.css" />
+    <link rel="stylesheet" href="scripts/lib/perfect-scrollbar/perfect-scrollbar-0.4.8.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -38,7 +39,7 @@
     <link rel="stylesheet" href="/styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="swamp" ng-controller="mainController">
+  <body ng-app="swamp" ng-class="{ 'footer-panel-open': footerOpen }" ng-controller="mainController">
 
     <div class="app-wrapper">
         <header ng-controller="headerController" ng-include="'components/header/header.html'"></header>
@@ -63,6 +64,8 @@
     <script src="lib/angularjs-scope.onready/src/scope.onready.js"></script>
     <script src="lib/angularjs-scope.safeapply/src/Scope.SafeApply.js"></script>
     <script src="lib/socket.io-client/dist/socket.io.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="scripts/lib/perfect-scrollbar/perfect-scrollbar-0.4.8.with-mousewheel.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -78,6 +81,7 @@
     <script src="/scripts/config/environment.config.js"></script>
     <script src="/scripts/config/location.config.js"></script>
     <script src="/scripts/config/enums.config.js"></script>
+    <script src="/scripts/config/ui.bootstrap.config.js"></script>
     <!-- config -->
 
 
@@ -87,7 +91,7 @@
 
 
     <!-- filters -->
-
+    <script src="/scripts/filters/trim.js"></script>
     <!-- filters -->
 
 
@@ -113,6 +117,8 @@
 
 
     <!-- directives -->
+    <script src="/directives/perfect_scrollbar/perfectScrollbar.js"></script>
+    <script src="/directives/scroll/scroll.js"></script>
     <!-- directives -->
 
 

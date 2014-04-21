@@ -1,15 +1,33 @@
 <div class="root-container">
 
+    <div class="title margin-top-2">
+        Services
+    </div>
+
+    <div class="table-header flex">
+        <div class="flex-1">Name</div>
+        <div class="flex-1 hidden-md">Environment</div>
+        <div class="flex-1">CPU Usage</div>
+        <div class="flex-1">Memory Usage</div>
+        <div class="flex-1">Status</div>
+        <div class="flex-1">Started</div>
+        <div class="flex-1">Actions</div>
+    </div>
+
     <div ng-repeat="(id,service) in services">
         <ng-include src="'components/service_row_summary/serviceRowSummary.html'" />
     </div>
 
-    <ul>
+    <!--<ul>
         <li ng-repeat="err in errorLogs">{{err.time.format('DD/MM/YYYY HH:mm')}} - {{err.text}}</li>
     </ul>
     --
     <ul>
         <li ng-repeat="out in outLogs">{{out.time.format('DD/MM/YYYY HH:mm')}} - {{out.text}}</li>
-    </ul>
+    </ul>-->
+
+    <div class="title margin-top-6">
+        Remote Services
+    </div>
 
 </div>

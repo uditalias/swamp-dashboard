@@ -4,6 +4,7 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
 
     function AggregatedData(type, maxItems) {
 
+        this.id = _.guid();
         this.type = type || AGGREGATED_LIST_TYPE.FIFO;
         this.maxItems = maxItems || 0;
 
@@ -61,10 +62,10 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
         _automatedRemove: function() {
             switch(this.type) {
                 case AGGREGATED_LIST_TYPE.FIFO:
-                    this.remove(this.count() - 1);
+                    this.remove(0);
                     break;
                 case AGGREGATED_LIST_TYPE.LIFO:
-                    this.remove(0);
+                    this.remove(this.count() - 1);
                     break;
             }
         }

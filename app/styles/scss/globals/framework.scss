@@ -61,6 +61,10 @@
   width: 100%;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .text-8 {
   @include text-size(8px);
 }
@@ -173,4 +177,17 @@
 
 .box-shadow {
   @include box-shadow($global-box-shadow);
+}
+
+.top-shadow {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    z-index: 1;
+    @include box-shadow(inset 0 1px 5px rgba(0, 0, 0, 0.2));
+  }
 }

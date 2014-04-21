@@ -1,0 +1,38 @@
+.service-summary {
+
+  .service-summary-row {
+
+    @include transition(background-color 100ms);
+    cursor: pointer;
+    border-bottom: solid 1px $cool-grey;
+
+    &:hover, &.toggle {
+      background-color: adjust-lightness($cool-grey, -5%);
+    }
+
+    &.toggle {
+
+    }
+
+    >div {
+      margin-right: 1px;
+      padding: 10px 5px;
+    }
+
+    &.running {
+      color: $green;
+    }
+
+    &.stopped {
+      color: $red;
+    }
+
+    &.restarted {
+      color: $yellow;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
