@@ -57,6 +57,9 @@ pre {
     &:hover {
       .order-by {
         @include opacity(1);
+        &:before {
+          @include opacity(0.2);
+        }
       }
     }
     &.order {
@@ -69,7 +72,21 @@ pre {
   }
 
   .order-by {
+    position: relative;
     @include transition(all 100ms);
     @include opacity(0);
+
+    i { z-index: 2; position: relative; }
+
+    &:before {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "\f0dc";
+      font-family: 'FontAwesome';
+      @include transition(all 100ms);
+      @include opacity(0);
+    }
   }
 }

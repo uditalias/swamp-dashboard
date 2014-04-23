@@ -30,7 +30,9 @@
                 <div class="flex-1 flex color-white">
                     <div class="flex-1">{{service.runningEnvironment}}</div>
                     <div>
-                        <i class="fa fa-list-alt cursor-pointer" popover-append-to-body="true" popover-placement="left" popover="{{service.environments[service.runningEnvironment]|json}}" popover-title="Environment variables" popover-trigger="mouseover"></i>
+                        <i class="fa fa-list-alt cursor-pointer" popover-append-to-body="true" popover-placement="left"
+                           popover="{{(service.environments[service.runningEnvironment]|json)}}"
+                           popover-title="Environment variables" popover-trigger="mouseover"></i>
                     </div>
                 </div>
             </div>

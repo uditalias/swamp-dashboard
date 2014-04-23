@@ -7630,6 +7630,11 @@ td.visible-print {
     display: none !important;
   }
 }
+/* line 3, scss/globals/overrides.scss */
+.popover .popover-content {
+  word-break: break-all;
+}
+
 /* line 1, scss/globals/colors.scss */
 .color-orange {
   color: #dd4814;
@@ -8881,17 +8886,41 @@ pre {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 62, scss/globals/common.scss */
+/* line 60, scss/globals/common.scss */
+.table-header > div:hover .order-by:before {
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+/* line 65, scss/globals/common.scss */
 .table-header > div.order {
   background-color: #2b2b2b;
 }
-/* line 64, scss/globals/common.scss */
+/* line 67, scss/globals/common.scss */
 .table-header > div.order .order-by {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 71, scss/globals/common.scss */
+/* line 74, scss/globals/common.scss */
 .table-header .order-by {
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+/* line 79, scss/globals/common.scss */
+.table-header .order-by i {
+  z-index: 2;
+  position: relative;
+}
+/* line 81, scss/globals/common.scss */
+.table-header .order-by:before {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "\f0dc";
+  font-family: 'FontAwesome';
   -webkit-transition: all 100ms;
   transition: all 100ms;
   opacity: 0;
