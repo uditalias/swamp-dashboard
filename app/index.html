@@ -42,7 +42,8 @@
   <body ng-app="swamp" ng-class="{ 'footer-panel-open': footerOpen }" ng-controller="mainController">
 
     <div class="app-wrapper">
-        <header ng-controller="headerController" ng-include="'components/header/header.html'"></header>
+        <header ng-controller="headerController" ng-class="{ 'scrolled': handler.pageScrolled }" sw-scroll-state scroll-offset="40" on-page-scroll="onPageScrolled(state)" ng-include="'components/header/header.html'"></header>
+        <aside ng-controller="asideController" ng-include="'components/aside/aside.html'"></aside>
         <div ui-view></div>
         <footer ng-controller="footerController" ng-include="'components/footer/footer.html'"></footer>
     </div>
@@ -119,12 +120,14 @@
     <!-- directives -->
     <script src="/directives/perfect_scrollbar/perfectScrollbar.js"></script>
     <script src="/directives/scroll/scroll.js"></script>
+    <script src="/directives/scroll_state/scrollState.js"></script>
     <!-- directives -->
 
 
     <!-- components -->
     <script src="/components/header/headerController.js"></script>
     <script src="/components/footer/footerController.js"></script>
+    <script src="/components/aside/asideController.js"></script>
     <!-- components -->
 
 

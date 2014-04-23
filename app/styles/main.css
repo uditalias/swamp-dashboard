@@ -8831,14 +8831,15 @@ html, body {
 
 /* line 16, scss/globals/common.scss */
 body {
+  margin-top: 100px;
   margin-bottom: 50px;
 }
-/* line 19, scss/globals/common.scss */
+/* line 20, scss/globals/common.scss */
 body.footer-panel-open {
   margin-bottom: 384px;
 }
 
-/* line 25, scss/globals/common.scss */
+/* line 26, scss/globals/common.scss */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Ubuntu', sans-serif !important;
@@ -8847,19 +8848,19 @@ h1, h2, h3, h4, h5, h6,
   color: inherit;
 }
 
-/* line 32, scss/globals/common.scss */
+/* line 33, scss/globals/common.scss */
 ul {
   margin: 0;
   padding: 0;
 }
 
-/* line 37, scss/globals/common.scss */
+/* line 38, scss/globals/common.scss */
 pre {
   font-family: 'Ubuntu Mono';
   font-weight: 400;
 }
 
-/* line 43, scss/globals/common.scss */
+/* line 44, scss/globals/common.scss */
 .table-header > div {
   color: #aea79f;
   font-weight: 400;
@@ -8869,10 +8870,32 @@ pre {
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   border-top: solid 1px #404040;
+  cursor: pointer;
 }
-/* line 51, scss/globals/common.scss */
+/* line 54, scss/globals/common.scss */
 .table-header > div:last-child {
   margin-right: 0;
+}
+/* line 58, scss/globals/common.scss */
+.table-header > div:hover .order-by {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+/* line 62, scss/globals/common.scss */
+.table-header > div.order {
+  background-color: #2b2b2b;
+}
+/* line 64, scss/globals/common.scss */
+.table-header > div.order .order-by {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+/* line 71, scss/globals/common.scss */
+.table-header .order-by {
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 /* line 1, scss/globals/buttons.scss */
@@ -8941,26 +8964,27 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  z-index: 1500;
 }
-/* line 10, ../components/footer/footer.scss */
+/* line 11, ../components/footer/footer.scss */
 footer .footer-inner .header {
   background-color: #333333;
   border-top: solid 1px #404040;
   padding: 5px;
   cursor: pointer;
 }
-/* line 16, ../components/footer/footer.scss */
+/* line 17, ../components/footer/footer.scss */
 footer .footer-inner .header .title {
   color: #aea79f;
   font-weight: 400;
 }
-/* line 22, ../components/footer/footer.scss */
+/* line 23, ../components/footer/footer.scss */
 footer .footer-inner .content {
   background-color: #121212;
   -webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 26, ../components/footer/footer.scss */
+/* line 27, ../components/footer/footer.scss */
 footer .footer-inner .content .tab-panel {
   overflow: hidden;
   position: relative;
@@ -8971,7 +8995,7 @@ footer .footer-inner .content .tab-panel {
   padding: 5px;
   padding-bottom: 0;
 }
-/* line 36, ../components/footer/footer.scss */
+/* line 37, ../components/footer/footer.scss */
 footer .footer-inner .content .tab-panel .tab-item {
   -webkit-transition: background 200ms;
   transition: background 200ms;
@@ -8986,27 +9010,27 @@ footer .footer-inner .content .tab-panel .tab-item {
   background-color: #262626;
   cursor: pointer;
 }
-/* line 45, ../components/footer/footer.scss */
+/* line 46, ../components/footer/footer.scss */
 footer .footer-inner .content .tab-panel .tab-item:hover {
   background-color: #2e2e2e;
 }
-/* line 49, ../components/footer/footer.scss */
+/* line 50, ../components/footer/footer.scss */
 footer .footer-inner .content .tab-panel .tab-item.active {
   background-color: #121212;
 }
-/* line 57, ../components/footer/footer.scss */
+/* line 58, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log {
   position: relative;
 }
-/* line 62, ../components/footer/footer.scss */
+/* line 63, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log:hover .tail-log {
   display: block;
 }
-/* line 66, ../components/footer/footer.scss */
+/* line 67, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log:hover .clear-log {
   display: block;
 }
-/* line 71, ../components/footer/footer.scss */
+/* line 72, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .clear-log {
   z-index: 1;
   cursor: pointer;
@@ -9015,11 +9039,11 @@ footer .footer-inner .content .content-inner .log .clear-log {
   top: 35px;
   right: 15px;
 }
-/* line 79, ../components/footer/footer.scss */
+/* line 80, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .clear-log:hover {
   color: #df382c;
 }
-/* line 84, ../components/footer/footer.scss */
+/* line 85, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log {
   z-index: 1;
   cursor: pointer;
@@ -9028,16 +9052,16 @@ footer .footer-inner .content .content-inner .log .tail-log {
   top: 15px;
   right: 15px;
 }
-/* line 92, ../components/footer/footer.scss */
+/* line 93, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log:hover {
   color: #2c8d3a;
 }
-/* line 96, ../components/footer/footer.scss */
+/* line 97, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log.active {
   color: #38b44a;
   display: block;
 }
-/* line 102, ../components/footer/footer.scss */
+/* line 103, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul {
   -webkit-transition: height 200ms;
   transition: height 200ms;
@@ -9045,30 +9069,30 @@ footer .footer-inner .content .content-inner .log ul {
   overflow: hidden;
   padding: 5px;
 }
-/* line 109, ../components/footer/footer.scss */
+/* line 110, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul:hover li {
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
-/* line 114, ../components/footer/footer.scss */
+/* line 115, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li {
   -webkit-transition: all 100ms;
   transition: all 100ms;
 }
-/* line 118, ../components/footer/footer.scss */
+/* line 119, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:nth-child(even) {
   background-color: #141414;
 }
-/* line 122, ../components/footer/footer.scss */
+/* line 123, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:nth-child(odd) {
   background-color: #121212;
 }
-/* line 126, ../components/footer/footer.scss */
+/* line 127, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 132, ../components/footer/footer.scss */
+/* line 133, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log pre {
   color: inherit;
   border: none;
@@ -9079,21 +9103,111 @@ footer .footer-inner .content .content-inner .log pre {
 
 /* line 1, ../components/header/header.scss */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   padding: 20px;
   background: #2c001e;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
 }
-/* line 8, ../components/header/header.scss */
+/* line 12, ../components/header/header.scss */
+header.scrolled {
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+/* line 18, ../components/header/header.scss */
 header .header-inner h1 {
   font-size: 42px;
   color: white;
   font-weight: 400;
   margin: 0;
 }
-/* line 14, ../components/header/header.scss */
+/* line 24, ../components/header/header.scss */
 header .header-inner h1 span {
   color: #5e2750;
   font-size: 32px;
   font-weight: 300;
+}
+/* line 31, ../components/header/header.scss */
+header .header-inner .search-container {
+  position: relative;
+}
+/* line 35, ../components/header/header.scss */
+header .header-inner .search-container input {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: width 200ms, background 200ms;
+  transition: width 200ms, background 200ms;
+  padding: 10px 30px 10px 10px;
+  width: 300px;
+  border: none;
+  background-color: #3a1831;
+  color: #aea79f;
+}
+/* line 45, ../components/header/header.scss */
+header .header-inner .search-container input:focus, header .header-inner .search-container input.filtered {
+  outline: none;
+  width: 400px;
+  background-color: #411b37;
+}
+/* line 52, ../components/header/header.scss */
+header .header-inner .search-container i {
+  position: absolute;
+  font-size: 22px;
+  cursor: pointer;
+  top: 12px;
+  right: 6px;
+  color: #2c001e;
+}
+
+/* line 1, ../components/aside/aside.scss */
+aside {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+}
+/* line 10, ../components/aside/aside.scss */
+aside .aside-inner {
+  width: 100%;
+  margin-top: 105px;
+}
+/* line 15, ../components/aside/aside.scss */
+aside .aside-inner .aside-box {
+  padding: 0 20px;
+}
+/* line 19, ../components/aside/aside.scss */
+aside .aside-inner .aside-box .aside-title {
+  font-weight: 700;
+}
+/* line 23, ../components/aside/aside.scss */
+aside .aside-inner .aside-box .aside-content {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 28, ../components/aside/aside.scss */
+aside .aside-inner .aside-box .aside-content li {
+  margin: 5px;
+}
+/* line 31, ../components/aside/aside.scss */
+aside .aside-inner .aside-box .aside-content li span {
+  cursor: pointer;
+}
+/* line 34, ../components/aside/aside.scss */
+aside .aside-inner .aside-box .aside-content li span i {
+  margin-right: 3px;
+  font-size: 12px;
 }
 
 /* line 3, ../components/service_row_summary/servicerowsummary.scss */
@@ -9174,20 +9288,21 @@ header .header-inner h1 span {
  */
 /* line 1, ../pages/root/root.scss */
 .root-container {
+  margin-left: 250px;
   padding: 0 20px;
 }
-/* line 5, ../pages/root/root.scss */
+/* line 6, ../pages/root/root.scss */
 .root-container ul {
   list-style-type: none;
 }
-/* line 7, ../pages/root/root.scss */
+/* line 8, ../pages/root/root.scss */
 .root-container ul li {
   color: #dd4814;
   cursor: pointer;
   padding: 5px 0;
   border-bottom: solid 1px #5e2750;
 }
-/* line 15, ../pages/root/root.scss */
+/* line 16, ../pages/root/root.scss */
 .root-container .title {
   color: #5e2750;
   font-weight: 100;

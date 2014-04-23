@@ -8,11 +8,11 @@
 
     <div class="flex flex-pack-center">
 
-        <button class="btn btn-green margin-right-2" ng-click="startAll()" tooltip="Start all swamp services" tooltip-placement="bottom"><i class="fa fa-play"></i> Start all</button>
-
-        <button class="btn btn-red margin-right-2" ng-click="stopAll()" tooltip="Stop all running services" tooltip-placement="bottom"><i class="fa fa-stop"></i> Stop all running</button>
-
-        <button class="btn btn-yellow" ng-click="restartAll()" tooltip="Restart all running services" tooltip-placement="bottom"><i class="fa fa-refresh"></i> Restart all running</button>
+        <div class="search-container flex flex-align-center">
+            <input type="text" ng-model="handler.serviceQuery" placeholder="Filter services..." ng-class="{ 'filtered': handler.serviceQuery.length > 0 }" />
+            <i class="fa fa-filter" ng-if="!handler.serviceQuery.length"></i>
+            <i class="fa fa-times" ng-if="handler.serviceQuery.length > 0" ng-click="clearFilter()"></i>
+        </div>
 
     </div>
 

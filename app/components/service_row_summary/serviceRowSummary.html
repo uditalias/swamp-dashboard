@@ -7,18 +7,15 @@
             {{service.name}} <span ng-if="service.pid">[{{service.pid}}]</span>
         </div>
         <div class="flex-1" ng-click="toggleService = !toggleService">
-            {{service.runningEnvironment || '-'}}
+            <span ng-if="service.state == SERVICE_STATE.RUN">Running</span>
+            <span ng-if="service.state == SERVICE_STATE.RESTART">Restarting...</span>
+            <span ng-if="service.state == SERVICE_STATE.STOP">Stopped</span>
         </div>
         <div class="flex-1" ng-click="toggleService = !toggleService">
             {{service.monitor.cpu|number:2}}%
         </div>
         <div class="flex-1" ng-click="toggleService = !toggleService">
             {{service.monitor.memory|number}}b ({{bytesToSize(service.monitor.memory)}})
-        </div>
-        <div class="flex-1" ng-click="toggleService = !toggleService">
-            <span ng-if="service.state == SERVICE_STATE.RUN">Running</span>
-            <span ng-if="service.state == SERVICE_STATE.RESTART">Restarting...</span>
-            <span ng-if="service.state == SERVICE_STATE.STOP">Stopped</span>
         </div>
         <div class="flex-1" ng-click="toggleService = !toggleService">
             {{service.uptime || '-'}}

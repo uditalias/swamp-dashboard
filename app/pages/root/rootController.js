@@ -4,9 +4,17 @@ angular.module('swamp.controllers').controller('rootController', [
     '$scope', '$rootScope', 'swampServicesManager', 'swampManager', 'SERVICE_STATE', 'EVENTS',
     function($scope, $rootScope, swampServicesManager, swampManager, SERVICE_STATE, EVENTS) {
 
+        $scope.handler = {
+            servicesFilter: '',
+            orderBy: 'name',
+            orderByDir: '',
+            filteredServices: [],
+            isLoading: true
+        }
+
         $scope.SERVICE_STATE = SERVICE_STATE;
 
-        $scope.services = swampServicesManager.getAll();
+        $scope.services = [];
 
         $scope.serviceActions = {
             start: function(service, env) {
@@ -37,5 +45,32 @@ angular.module('swamp.controllers').controller('rootController', [
         }
 
         $scope.bytesToSize = _.bytesToSize;
+
+        $scope.orderBy = function(column) {
+            if($scope.handler.orderBy == column) {
+                $scope.handler.orderByDir = $scope.handler.orderByDir == '-' ? '' : '-';
+            } else {
+                $scope.handler.orderByDir = '';
+            }
+
+            $scope.handler.orderBy = column;
+        }
+
+        function _onServicesFilterChange(event, filter) {
+
+            $scope.handler.servicesFilter = filter;
+
+        }
+
+        function _onSwampServicesManagerInitialized() {
+
+            $scope.services = _.toArray(swampServicesManager.getAll());
+
+            $scope.handler.isLoading = false;
+
+        }
+
+        $rootScope.$on(EVENTS.SERVICES_FILTER_CHANGE, _onServicesFilterChange);
+        $rootScope.$on(EVENTS.SWAMP_SERVICES_MANAGER_INITIALIZED, _onSwampServicesManagerInitialized);
 
     }]);

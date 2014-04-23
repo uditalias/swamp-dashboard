@@ -77,9 +77,6 @@ _.mixin({ 'arrayRemoveItem': function (arr,item) {
     }
 }});
 
-_.mixin({ 'toFixed': function(number,precision){
-    return (parseFloat(number.toPrecision(precision || 12)))
-}});
 
 _.mixin({'getUrls' : function(text) {
     var URL_REGEXP =/((ftp|https?):\/\/|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>]/,
@@ -106,4 +103,17 @@ _.mixin({ 'bytesToSize': function(bytes) {
     if (bytes === 0) return '0 Bytes';
     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)),10);
     return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
+}});
+
+_.mixin({ 'toArray': function(object) {
+
+    var result = [],
+        object = object || {};
+
+    _.forEach(object, function(value, key) {
+        result.push(value);
+    });
+
+    return result;
+
 }});

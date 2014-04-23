@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  margin-top: 100px;
   margin-bottom: 50px;
 
   &.footer-panel-open {
@@ -48,8 +49,27 @@ pre {
     background-color: $cool-grey;
     @include box-shadow(0 1px 2px 0 rgba(0,0,0,0.3));
     border-top: solid 1px adjust-lightness($cool-grey, 5%);
+    cursor: pointer;
+
     &:last-child {
       margin-right: 0;
     }
+    &:hover {
+      .order-by {
+        @include opacity(1);
+      }
+    }
+    &.order {
+      background-color: adjust-lightness($cool-grey, -3%);
+      .order-by {
+        @include opacity(1);
+      }
+
+    }
+  }
+
+  .order-by {
+    @include transition(all 100ms);
+    @include opacity(0);
   }
 }

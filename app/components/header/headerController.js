@@ -1,22 +1,33 @@
 'use strict';
 
-angular.module('swamp.controllers').controller('headerController', ['$scope', 'swampServicesManager',
-    function($scope, swampServicesManager) {
+angular.module('swamp.controllers').controller('headerController', ['$scope', '$rootScope', 'EVENTS',
+    function($scope, $rootScope, EVENTS) {
 
-
-        $scope.restartAll = function() {
-            swampServicesManager.restartAllRunningServices();
+        $scope.handler = {
+            pageScrolled: false,
+            serviceQuery: ''
         }
 
+        $scope.onPageScrolled = function(state) {
 
+            $scope.handler.pageScrolled = state;
 
-        $scope.stopAll = function() {
-            swampServicesManager.stopAllRunningServices();
         }
 
+        $scope.clearFilter = function() {
 
-        $scope.startAll = function() {
-            swampServicesManager.startAllServices();
+            $scope.handler.serviceQuery = '';
+
         }
+
+        $scope.$watch(function() {
+
+            return $scope.handler.serviceQuery;
+
+        }, function(newVal) {
+
+            $rootScope.$broadcast(EVENTS.SERVICES_FILTER_CHANGE, newVal);
+
+        });
 
     }]);
