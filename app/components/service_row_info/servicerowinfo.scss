@@ -37,6 +37,37 @@
       &:last-child {
         border-right: none;
       }
+
+      .monitor-title {
+
+      }
+
+      .monitor-content {
+
+        width: 100%;
+        height: 70px;
+
+        &.memory {
+          border-bottom: solid 1px $blue;
+        }
+
+        &.cpu {
+          border-bottom: solid 1px $green;
+        }
+
+        .memory-chart-item {
+          border-top: solid 1px $blue;
+          border-left: solid 1px $blue;
+          border-right: solid 1px $blue;
+        }
+
+        .cpu-chart-item {
+          border-top: solid 1px $green;
+          border-left: solid 1px $green;
+          border-right: solid 1px $green;
+        }
+
+      }
     }
 
   }

@@ -14,6 +14,8 @@ angular.module('swamp.controllers').controller('rootController', [
 
         $scope.SERVICE_STATE = SERVICE_STATE;
 
+        $scope.totalSwampMemory = 0;
+
         $scope.services = [];
 
         $scope.serviceActions = {
@@ -56,6 +58,14 @@ angular.module('swamp.controllers').controller('rootController', [
             $scope.handler.orderBy = column;
         }
 
+        $scope.formatMemoryValue = function(value) {
+            return value ? _.bytesToSize(value) : '';
+        }
+
+        $scope.formatCpuValue = function(value) {
+            return !isNaN(value) ? value + '%' : '';ß
+        }
+
         function _onServicesFilterChange(event, filter) {
 
             $scope.handler.servicesFilter = filter;
@@ -63,6 +73,8 @@ angular.module('swamp.controllers').controller('rootController', [
         }
 
         function _onSwampServicesManagerInitialized() {
+
+            $scope.totalSwampMemory = swampManager.getInfo().totalmem;
 
             $scope.services = _.toArray(swampServicesManager.getAll());
 

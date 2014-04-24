@@ -165,9 +165,9 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             _createMonitorDataContainers: function() {
 
-                this.cpuData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, 100);
+                this.cpuData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, 20);
 
-                this.memoryData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, 100);
+                this.memoryData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, 20);
 
             },
 

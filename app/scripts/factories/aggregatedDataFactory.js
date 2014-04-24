@@ -59,6 +59,10 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
 
         },
 
+        getLast: function() {
+            return this.get(this.count() - 1);
+        },
+
         _automatedRemove: function() {
             switch(this.type) {
                 case AGGREGATED_LIST_TYPE.FIFO:

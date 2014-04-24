@@ -9308,10 +9308,69 @@ aside .aside-inner .aside-box .aside-content li span i {
 .service-info .monitor-table .monitor-item:last-child {
   border-right: none;
 }
+/* line 45, ../components/service_row_info/servicerowinfo.scss */
+.service-info .monitor-table .monitor-item .monitor-content {
+  width: 100%;
+  height: 70px;
+}
+/* line 50, ../components/service_row_info/servicerowinfo.scss */
+.service-info .monitor-table .monitor-item .monitor-content.memory {
+  border-bottom: solid 1px #19b6ee;
+}
+/* line 54, ../components/service_row_info/servicerowinfo.scss */
+.service-info .monitor-table .monitor-item .monitor-content.cpu {
+  border-bottom: solid 1px #38b44a;
+}
+/* line 58, ../components/service_row_info/servicerowinfo.scss */
+.service-info .monitor-table .monitor-item .monitor-content .memory-chart-item {
+  border-top: solid 1px #19b6ee;
+  border-left: solid 1px #19b6ee;
+  border-right: solid 1px #19b6ee;
+}
+/* line 64, ../components/service_row_info/servicerowinfo.scss */
+.service-info .monitor-table .monitor-item .monitor-content .cpu-chart-item {
+  border-top: solid 1px #38b44a;
+  border-left: solid 1px #38b44a;
+  border-right: solid 1px #38b44a;
+}
 
 /*
  *  Directives
  */
+/* line 1, ../directives/aggregated_data_chart/aggregateddatachart.scss */
+.sw-aggregated-data-chart {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+/* line 8, ../directives/aggregated_data_chart/aggregateddatachart.scss */
+.sw-aggregated-data-chart ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 18, ../directives/aggregated_data_chart/aggregateddatachart.scss */
+.sw-aggregated-data-chart ul li {
+  float: left;
+  width: 20px;
+  height: 100%;
+}
+/* line 23, ../directives/aggregated_data_chart/aggregateddatachart.scss */
+.sw-aggregated-data-chart ul li:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+/* line 27, ../directives/aggregated_data_chart/aggregateddatachart.scss */
+.sw-aggregated-data-chart ul li .chart-bar {
+  border-top: solid 1px #38b44a;
+  width: 100%;
+}
+
 /*
  *  Pages
  */
@@ -9321,17 +9380,6 @@ aside .aside-inner .aside-box .aside-content li span i {
   padding: 0 20px;
 }
 /* line 6, ../pages/root/root.scss */
-.root-container ul {
-  list-style-type: none;
-}
-/* line 8, ../pages/root/root.scss */
-.root-container ul li {
-  color: #dd4814;
-  cursor: pointer;
-  padding: 5px 0;
-  border-bottom: solid 1px #5e2750;
-}
-/* line 16, ../pages/root/root.scss */
 .root-container .title {
   color: #5e2750;
   font-weight: 100;

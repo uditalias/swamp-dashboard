@@ -7,6 +7,14 @@ angular.module('swamp.services').service('swampManager', [
         this.outLogData = null;
         this.errorLogData = null;
 
+        this._info = {
+            totalmem: 0
+        }
+
+        this.getInfo = function() {
+            return this._info;
+        }
+
         this.log = function(logType, log) {
 
             var serialized = serializeService.serializeLogData(logType, log);
@@ -73,6 +81,10 @@ angular.module('swamp.services').service('swampManager', [
 
                 });
 
+            }
+
+            if(swampData.info) {
+                this._info = swampData.info;
             }
 
             $rootScope.$broadcast(EVENTS.SWAMP_MANAGER_INITIALIZED);
