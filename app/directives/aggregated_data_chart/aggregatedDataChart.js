@@ -19,6 +19,7 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
             var maxValue        = $scope.maxValue ? parseInt($scope.maxValue) : 100;
             var maxItems        = $scope.maxItems ? parseInt($scope.maxItems) : -1;
             var itemCssClass    = $attrs.itemCssClass || '';
+            var firstTick       = true;
 
             var $ul = $element.find('ul');
 
@@ -53,7 +54,13 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
 
             $scope.$watchCollection('dataItems', function() {
 
-                _insertItem($scope.model.getLast());
+                var newValue = $scope.model.getLast();
+                var prevNewValue = $scope.model.get($scope.model.count() - 2);
+
+                if(newValue != prevNewValue || firstTick) {
+                    firstTick = false;
+                    _insertItem(newValue);
+                }
 
             });
 
