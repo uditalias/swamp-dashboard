@@ -49,10 +49,12 @@
 
         &.memory {
           border-bottom: solid 1px $blue;
+          border-top: dashed 1px $blue;
         }
 
         &.cpu {
           border-bottom: solid 1px $green;
+          border-top: dashed 1px $green;
         }
 
         .memory-chart-item {
