@@ -64,6 +64,14 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
 
             });
 
+            (function initialize() {
+
+                _.forEach($scope.dataItems, function(value) {
+                    _insertItem(value);
+                });
+
+            })();
+
         }
     }
 }]);
