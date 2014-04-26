@@ -8,6 +8,7 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
             minValue: '=',
             maxValue: '=',
             maxItems: '=',
+            lineColor: '@',
             formatValue: '&'
         },
         replace: true,
@@ -18,8 +19,8 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
             var minValue        = $scope.minValue ? parseInt($scope.minValue) : 0;
             var maxValue        = $scope.maxValue ? parseInt($scope.maxValue) : 100;
             var maxItems        = $scope.maxItems ? parseInt($scope.maxItems) : -1;
+            var lineColor       = $scope.lineColor ? '#' + $scope.lineColor : '#ffffff';
             var itemCssClass    = $attrs.itemCssClass || '';
-            var firstTick       = true;
 
             var $ul = $element.find('ul');
 
@@ -28,7 +29,6 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
             function _insertItem(value) {
 
                 var scope = $scope.$new(true);
-
 
                 var label = $scope.formatValue && $scope.formatValue({ value: value }) || '';
 
@@ -41,7 +41,9 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
 
                 var height = (value / maxValue) * 100;
 
+                $el.css('border-color', lineColor);
                 $el.css('height', (height) + '%');
+                $el.css('background-color', lineColor);
 
                 $ul.append($li);
 
@@ -50,24 +52,23 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
                 }
 
                 $ul.css('width', $ul.find('li').length * 20);
+
             }
 
             $scope.$watchCollection('dataItems', function() {
 
                 var newValue = $scope.model.getLast();
-                var prevNewValue = $scope.model.get($scope.model.count() - 2);
 
-                if(newValue != prevNewValue || firstTick) {
-                    firstTick = false;
-                    _insertItem(newValue);
-                }
+                _insertItem(newValue);
 
             });
 
             (function initialize() {
 
                 _.forEach($scope.dataItems, function(value) {
+
                     _insertItem(value);
+
                 });
 
             })();

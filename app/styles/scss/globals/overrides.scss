@@ -6,3 +6,57 @@
 
   }
 }
+
+.dropdown {
+
+  .dropdown-toggle {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: $warm-grey;
+    background-color: adjust-lightness($cool-grey, -2%);
+    padding: 5px;
+    min-width: 160px;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      content: "\f078";
+      font-family: 'FontAwesome';
+    }
+
+
+  }
+
+  &.open {
+    .dropdown-toggle {
+      &:before {
+        content: "\f077";
+      }
+    }
+  }
+
+  .dropdown-menu {
+    margin: 0;
+    border: none;
+    background-color: adjust-lightness($cool-grey, -2%);
+    @include border-radius(0);
+    @include box-shadow(none);
+    top: auto;
+    list-style-type: none;
+
+    li {
+      cursor: pointer;
+      a {
+        color: $white;
+        padding: 5px;
+
+        &:hover {
+          color: $dark-aubergine;
+        }
+      }
+    }
+  }
+}

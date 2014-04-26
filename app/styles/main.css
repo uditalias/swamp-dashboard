@@ -7635,6 +7635,58 @@ td.visible-print {
   word-break: break-all;
 }
 
+/* line 12, scss/globals/overrides.scss */
+.dropdown .dropdown-toggle {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: #aea79f;
+  background-color: #2e2e2e;
+  padding: 5px;
+  min-width: 160px;
+  position: relative;
+}
+/* line 22, scss/globals/overrides.scss */
+.dropdown .dropdown-toggle:before {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  content: "\f078";
+  font-family: 'FontAwesome';
+}
+/* line 35, scss/globals/overrides.scss */
+.dropdown.open .dropdown-toggle:before {
+  content: "\f077";
+}
+/* line 41, scss/globals/overrides.scss */
+.dropdown .dropdown-menu {
+  margin: 0;
+  border: none;
+  background-color: #2e2e2e;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  top: auto;
+  list-style-type: none;
+}
+/* line 50, scss/globals/overrides.scss */
+.dropdown .dropdown-menu li {
+  cursor: pointer;
+}
+/* line 52, scss/globals/overrides.scss */
+.dropdown .dropdown-menu li a {
+  color: white;
+  padding: 5px;
+}
+/* line 56, scss/globals/overrides.scss */
+.dropdown .dropdown-menu li a:hover {
+  color: #2c001e;
+}
+
 /* line 1, scss/globals/colors.scss */
 .color-orange {
   color: #dd4814;
@@ -9316,22 +9368,12 @@ aside .aside-inner .aside-box .aside-content li span i {
 /* line 50, ../components/service_row_info/servicerowinfo.scss */
 .service-info .monitor-table .monitor-item .monitor-content.memory {
   border-bottom: solid 1px #19b6ee;
+  border-top: dashed 1px #19b6ee;
 }
-/* line 54, ../components/service_row_info/servicerowinfo.scss */
+/* line 55, ../components/service_row_info/servicerowinfo.scss */
 .service-info .monitor-table .monitor-item .monitor-content.cpu {
   border-bottom: solid 1px #38b44a;
-}
-/* line 58, ../components/service_row_info/servicerowinfo.scss */
-.service-info .monitor-table .monitor-item .monitor-content .memory-chart-item {
-  border-top: solid 1px #19b6ee;
-  border-left: solid 1px #19b6ee;
-  border-right: solid 1px #19b6ee;
-}
-/* line 64, ../components/service_row_info/servicerowinfo.scss */
-.service-info .monitor-table .monitor-item .monitor-content .cpu-chart-item {
-  border-top: solid 1px #38b44a;
-  border-left: solid 1px #38b44a;
-  border-right: solid 1px #38b44a;
+  border-top: dashed 1px #38b44a;
 }
 
 /*
@@ -9360,15 +9402,22 @@ aside .aside-inner .aside-box .aside-content li span i {
   float: left;
   width: 20px;
   height: 100%;
+  position: relative;
 }
-/* line 23, ../directives/aggregated_data_chart/aggregateddatachart.scss */
+/* line 24, ../directives/aggregated_data_chart/aggregateddatachart.scss */
 .sw-aggregated-data-chart ul li:hover {
   background: rgba(0, 0, 0, 0.2);
 }
-/* line 27, ../directives/aggregated_data_chart/aggregateddatachart.scss */
+/* line 28, ../directives/aggregated_data_chart/aggregateddatachart.scss */
 .sw-aggregated-data-chart ul li .chart-bar {
-  border-top: solid 1px #38b44a;
+  border-top-style: solid;
+  border-top-width: 1px;
   width: 100%;
+}
+/* line 34, ../directives/aggregated_data_chart/aggregateddatachart.scss */
+.sw-aggregated-data-chart ul li .vsep {
+  position: absolute;
+  width: 1px;
 }
 
 /*

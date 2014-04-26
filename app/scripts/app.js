@@ -5,6 +5,7 @@ var app = angular.module('swamp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
+    'angular-md5',
     'ui.router',
     'ui.bootstrap',
     'Scope.safeApply',

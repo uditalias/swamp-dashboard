@@ -53,7 +53,7 @@
     </div>
 
     <div class="padding-6 text-16 flex flex-pack-center flex-align-center color-yellow" ng-if="!handler.isLoading && handler.filteredServices.length == 0">
-        No services found for `{{ handler.servicesFilter }}`
+        No services found for query `{{ handler.servicesFilter }}`
     </div>
 
     <div class="padding-6 text-16 flex flex-pack-center flex-align-center color-blue" ng-if="handler.isLoading">
@@ -64,10 +64,5 @@
     (services|orderBy:handler.orderByDir + handler.orderBy|filter:{ name: handler.servicesFilter })">
         <ng-include src="'components/service_row_summary/serviceRowSummary.html'" />
     </div>
-
-    <!-- comming soon -->
-    <!--<div class="title margin-top-6">
-        Remote Services
-    </div>-->
 
 </div>

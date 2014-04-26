@@ -55,11 +55,22 @@
 
                 <div class="flex flex-1 service-info-item padding-2">
                     <div class="flex-1">Change Env</div>
-                    <div class="flex-1">
-                        <select ng-model="service.selectedEnvironment" ng-options="k as k for (k,v) in service.environments"></select>
-                            <span class="margin-left-1" ng-if="service.selectedEnvironment != service.runningEnvironment">
-                                <a class="color-yellow cursor-pointer" ng-click="serviceActions.restart(service)"><i class="fa fa-refresh"></i> Restart</a>
-                            </span>
+                    <div class="flex-1 flex-align-center">
+
+                        <div class="dropdown">
+                            <a class="dropdown-toggle">
+                                {{service.selectedEnvironment || 'Select Environment...'}}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="(key,value) in service.environments" ng-click="service.selectedEnvironment = key">
+                                    <a>{{key}}</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <span class="margin-left-1" ng-if="service.selectedEnvironment != service.runningEnvironment">
+                            <a class="color-yellow cursor-pointer" ng-click="serviceActions.restart(service)"><i class="fa fa-refresh"></i> Restart</a>
+                        </span>
                     </div>
                 </div>
 
@@ -73,11 +84,11 @@
 
                 <div class="monitor-title flex">
                     <div class="flex-1">Process Memory</div>
-                    <div class="color-white">{{service.monitor.memory|number}}b ({{bytesToSize(service.monitor.memory)}})</div>
+                    <div class="color-white">{{service.monitor.memory|number}}b ({{bytesToSize(service.monitor.memory)}}) <span class="text-12 color-warm-grey" tooltip="Total server memory">/ {{totalSwampMemory|number}} ({{bytesToSize(totalSwampMemory)}})</span></div>
                 </div>
 
                 <div class="monitor-content memory margin-top-2">
-                    <sw-aggregated-data-chart format-value="formatMemoryValue(value)" max-items="40" min-value="0" max-value="totalSwampMemory" item-css-class="memory-chart-item" ng-model="service.memoryData"></sw-aggregated-data-chart>
+                    <sw-aggregated-data-chart line-color="19B6EE" format-value="formatMemoryValue(value)" max-items="40" min-value="0" max-value="totalSwampMemory" item-css-class="memory-chart-item" ng-model="service.memoryData"></sw-aggregated-data-chart>
                 </div>
 
             </div>
@@ -90,7 +101,7 @@
                 </div>
 
                 <div class="monitor-content cpu margin-top-2">
-                    <sw-aggregated-data-chart format-value="formatCpuValue(value)" max-items="40" item-css-class="cpu-chart-item" ng-model="service.cpuData"></sw-aggregated-data-chart>
+                    <sw-aggregated-data-chart line-color="38B44A" format-value="formatCpuValue(value)" max-items="40" item-css-class="cpu-chart-item" ng-model="service.cpuData"></sw-aggregated-data-chart>
                 </div>
 
             </div>

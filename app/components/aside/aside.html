@@ -17,7 +17,7 @@
         </ul>
     </div>
 
-    <div class="aside-box">
+    <div class="aside-box margin-bottom-4">
         <div class="aside-title">
             Swamp logs
         </div>
@@ -27,6 +27,17 @@
             </li>
             <li>
                 <span class="color-red" ng-click="showLog('error')"><i class="fa fa-terminal"></i> Error log</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="aside-box">
+        <div class="aside-title">
+            Swamp options
+        </div>
+        <ul class="aside-content">
+            <li>
+                <sw-checkbox ng-model="handler.tailCheckState" on-check-state-change="onCheckStateChange(state)" checkbox-label="'Auto scroll all logs'"></sw-checkbox>
             </li>
         </ul>
     </div>

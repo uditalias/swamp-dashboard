@@ -19,14 +19,21 @@
       float: left;
       width: 20px;
       height: 100%;
+      position: relative;
 
       &:hover {
         background: rgba(0,0,0,0.2);
       }
 
       .chart-bar {
-        border-top: solid 1px $green;
+        border-top-style: solid;
+        border-top-width: 1px;
         width: 100%;
+      }
+
+      .vsep {
+        position: absolute;
+        width: 1px;
       }
 
     }

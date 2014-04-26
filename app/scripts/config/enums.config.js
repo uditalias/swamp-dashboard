@@ -35,7 +35,8 @@ angular.module('swamp.config')
         "SWAMP_SERVICES_MANAGER_INITIALIZED": "event::swamp.services.manager.initialized",
         "OPEN_FOOTER_PANEL": "event::open.footer.panel",
         "FOOTER_PANEL_STATE_CHANGE": "event::footer.panel.state.change",
-        "SERVICES_FILTER_CHANGE": "event::services.filter.change"
+        "SERVICES_FILTER_CHANGE": "event::services.filter.change",
+        "TAIL_LOGS_STATE_CHANGE": "event::tail.logs.state.change"
     })
     .constant('SERVICE_STATE', {
         "STOP": "service.state.stop",

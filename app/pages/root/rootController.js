@@ -80,6 +80,8 @@ angular.module('swamp.controllers').controller('rootController', [
 
             $scope.handler.isLoading = false;
 
+            $rootScope.$safeApply();
+
         }
 
         $rootScope.$on(EVENTS.SERVICES_FILTER_CHANGE, _onServicesFilterChange);
