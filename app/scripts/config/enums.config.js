@@ -36,7 +36,8 @@ angular.module('swamp.config')
         "OPEN_FOOTER_PANEL": "event::open.footer.panel",
         "FOOTER_PANEL_STATE_CHANGE": "event::footer.panel.state.change",
         "SERVICES_FILTER_CHANGE": "event::services.filter.change",
-        "TAIL_LOGS_STATE_CHANGE": "event::tail.logs.state.change"
+        "TAIL_LOGS_STATE_CHANGE": "event::tail.logs.state.change",
+        "VERTICAL_SCROLL_INTO_VIEW": "event::vertical.scroll.into.view"
     })
     .constant('SERVICE_STATE', {
         "STOP": "service.state.stop",

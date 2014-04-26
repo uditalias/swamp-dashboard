@@ -9071,12 +9071,10 @@ footer .footer-inner .content .tab-panel {
   position: relative;
   background-color: #1a1a1a;
   margin: 0;
-  padding: 0;
   width: 100%;
-  padding: 5px;
-  padding-bottom: 0;
+  padding: 5px 5px 0 5px;
 }
-/* line 37, ../components/footer/footer.scss */
+/* line 35, ../components/footer/footer.scss */
 footer .footer-inner .content .tab-panel .tab-item {
   -webkit-transition: background 200ms;
   transition: background 200ms;
@@ -9085,33 +9083,33 @@ footer .footer-inner .content .tab-panel .tab-item {
   -ms-border-radius: 4px 4px 0 0;
   -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
-  display: table;
+  display: inline-block;
   margin-right: 2px;
   padding: 5px 12px;
   background-color: #262626;
   cursor: pointer;
 }
-/* line 46, ../components/footer/footer.scss */
+/* line 44, ../components/footer/footer.scss */
 footer .footer-inner .content .tab-panel .tab-item:hover {
   background-color: #2e2e2e;
 }
-/* line 50, ../components/footer/footer.scss */
+/* line 48, ../components/footer/footer.scss */
 footer .footer-inner .content .tab-panel .tab-item.active {
   background-color: #121212;
 }
-/* line 58, ../components/footer/footer.scss */
+/* line 56, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log {
   position: relative;
 }
-/* line 63, ../components/footer/footer.scss */
+/* line 61, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log:hover .tail-log {
   display: block;
 }
-/* line 67, ../components/footer/footer.scss */
+/* line 65, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log:hover .clear-log {
   display: block;
 }
-/* line 72, ../components/footer/footer.scss */
+/* line 70, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .clear-log {
   z-index: 1;
   cursor: pointer;
@@ -9120,11 +9118,11 @@ footer .footer-inner .content .content-inner .log .clear-log {
   top: 35px;
   right: 15px;
 }
-/* line 80, ../components/footer/footer.scss */
+/* line 78, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .clear-log:hover {
   color: #df382c;
 }
-/* line 85, ../components/footer/footer.scss */
+/* line 83, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log {
   z-index: 1;
   cursor: pointer;
@@ -9133,16 +9131,16 @@ footer .footer-inner .content .content-inner .log .tail-log {
   top: 15px;
   right: 15px;
 }
-/* line 93, ../components/footer/footer.scss */
+/* line 91, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log:hover {
   color: #2c8d3a;
 }
-/* line 97, ../components/footer/footer.scss */
+/* line 95, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log.active {
   color: #38b44a;
   display: block;
 }
-/* line 103, ../components/footer/footer.scss */
+/* line 101, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul {
   -webkit-transition: height 200ms;
   transition: height 200ms;
@@ -9150,30 +9148,30 @@ footer .footer-inner .content .content-inner .log ul {
   overflow: hidden;
   padding: 5px;
 }
-/* line 110, ../components/footer/footer.scss */
+/* line 108, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul:hover li {
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
-/* line 115, ../components/footer/footer.scss */
+/* line 113, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li {
   -webkit-transition: all 100ms;
   transition: all 100ms;
 }
-/* line 119, ../components/footer/footer.scss */
+/* line 117, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:nth-child(even) {
   background-color: #141414;
 }
-/* line 123, ../components/footer/footer.scss */
+/* line 121, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:nth-child(odd) {
   background-color: #121212;
 }
-/* line 127, ../components/footer/footer.scss */
+/* line 125, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 133, ../components/footer/footer.scss */
+/* line 131, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log pre {
   color: inherit;
   border: none;
@@ -9418,6 +9416,73 @@ aside .aside-inner .aside-box .aside-content li span i {
 .sw-aggregated-data-chart ul li .vsep {
   position: absolute;
   width: 1px;
+}
+
+/* line 4, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller]:hover .sw-scroller-arrow {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+/* line 6, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller]:hover .sw-scroller-arrow.sw-right-arrow {
+  right: 0;
+}
+/* line 10, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller]:hover .sw-scroller-arrow.sw-left-arrow {
+  left: 0;
+}
+/* line 16, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller] .sw-vertical-scroller-wrapper {
+  position: absolute;
+  left: 0;
+  -webkit-transition: left 200ms;
+  transition: left 200ms;
+}
+/* line 22, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller] .sw-scroller-arrow {
+  top: 0;
+  height: 100%;
+  position: absolute;
+  padding: 0 10px;
+  cursor: pointer;
+  background-color: black;
+  z-index: 1;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+/* line 33, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller] .sw-scroller-arrow:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+/* line 37, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller] .sw-scroller-arrow.sw-right-arrow {
+  right: -50px;
+  -webkit-box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.7);
+}
+/* line 40, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller] .sw-scroller-arrow.sw-right-arrow:before {
+  content: "\f054";
+  font-family: 'FontAwesome';
+}
+/* line 46, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller] .sw-scroller-arrow.sw-left-arrow {
+  left: -50px;
+  -webkit-box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7);
+}
+/* line 49, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller] .sw-scroller-arrow.sw-left-arrow:before {
+  content: "\f053";
+  font-family: 'FontAwesome';
+}
+
+/* line 2, ../directives/checkbox/checkbox.scss */
+.sw-checkbox i {
+  width: 14px;
 }
 
 /*

@@ -12,9 +12,10 @@
 
     <div class="content" collapse="handler.collapsed">
 
-        <div class="tab-panel flex" sw-perfect-scrollbar suppress-scroll-y="true">
-            <div class="tab-item active" ng-if="handler.initializing">Initializing...</div>
-            <div class="tab-item" ng-click="setActive(tab.id)" ng-class="{ 'active': tab.active }" ng-repeat="tab in tabsContent"><i class="fa fa-terminal"></i> {{tab.name}}</div>
+        <div class="tab-panel flex" item-selector=".tab-item" wrapper-position="bottom" sw-vertical-scroller ng-if="!handler.collapsed">
+            <div class="sw-vertical-scroller-wrapper">
+                <div id="{{'tab_item_' + tab.id}}" class="tab-item" ng-click="setActive(tab.id)" ng-class="{ 'active': tab.active }" ng-repeat="tab in tabsContent"><i class="fa fa-terminal"></i> {{tab.name}}</div>
+            </div>
         </div>
 
         <div class="content-inner">

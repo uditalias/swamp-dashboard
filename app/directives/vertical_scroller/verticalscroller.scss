@@ -1,0 +1,56 @@
+[sw-vertical-scroller] {
+
+  &:hover {
+    .sw-scroller-arrow {
+      @include opacity(0.8);
+      &.sw-right-arrow {
+        right: 0;
+      }
+
+      &.sw-left-arrow {
+        left: 0;
+      }
+    }
+  }
+
+  .sw-vertical-scroller-wrapper {
+    position: absolute;
+    left: 0;
+    @include transition(left 200ms);
+  }
+
+  .sw-scroller-arrow {
+    top: 0;
+    height: 100%;
+    position: absolute;
+    padding: 0 10px;
+    cursor: pointer;
+    background-color: adjust-lightness($cool-grey, -20%);
+    z-index: 1;
+    @include transition(all 200ms);
+    @include opacity(0);
+
+    &:hover {
+      @include opacity(1);
+    }
+
+    &.sw-right-arrow {
+      right: -50px;
+      @include box-shadow(-5px 0 10px 0 rgba(0, 0, 0, 0.7));
+      &:before {
+        content: "\f054";
+        font-family: 'FontAwesome';
+      }
+    }
+
+    &.sw-left-arrow {
+      left: -50px;
+      @include box-shadow(5px 0 10px 0 rgba(0, 0, 0, 0.7));
+      &:before {
+        content: "\f053";
+        font-family: 'FontAwesome';
+      }
+    }
+  }
+
+}

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('swamp.controllers').controller('footerController', ['$scope', '$rootScope', 'EVENTS', 'swampManager', 'swampServicesManager',
-    function($scope, $rootScope, EVENTS, swampManager, swampServicesManager) {
+angular.module('swamp.controllers').controller('footerController', ['$scope', '$rootScope', 'EVENTS', 'swampManager', 'swampServicesManager', '$timeout',
+    function($scope, $rootScope, EVENTS, swampManager, swampServicesManager, $timeout) {
 
         $scope.handler = {
             collapsed: true,
@@ -15,6 +15,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
         var tailAllLogsState = false;
 
         $scope.setActive = function(id) {
+
             _.forEach($scope.tabsContent, function(tab) {
 
                 tab.active = id == tab.id;
@@ -66,6 +67,12 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
             $scope.setActive(panelId);
 
             $scope.handler.collapsed = false;
+
+            $timeout(function() {
+
+                $rootScope.$broadcast(EVENTS.VERTICAL_SCROLL_INTO_VIEW, '#tab_item_' + panelId);
+
+            }, 10);
 
         }
 
