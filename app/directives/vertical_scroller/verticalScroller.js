@@ -104,13 +104,20 @@ angular.module('swamp.directives').directive('swVerticalScroller', ['$timeout', 
 
                         var currentLeft = parseInt($wrapper.css('left'));
 
-                        $wrapper.css('left', currentLeft + Math.abs(offset.left));
+                        var newLeft = currentLeft + Math.abs(offset.left);
+
+                        $wrapper.css('left', newLeft);
 
                     } else if(offset.left + $el.outerWidth() > $element.outerWidth()) {
-
                         var currentLeft = parseInt($wrapper.css('left'));
 
-                        $wrapper.css('left', currentLeft - Math.abs(offset.left));
+                        var newLeft = currentLeft - Math.abs(offset.left);
+
+                        if(newLeft - $wrapper.outerWidth() < $element.outerWidth()) {
+                            newLeft = ($wrapper.outerWidth() - $element.outerWidth()) * -1;
+                        }
+
+                        $wrapper.css('left', newLeft);
 
                     }
 
