@@ -52,7 +52,7 @@
         No Services found in the Swamp
     </div>
 
-    <div class="padding-6 text-16 flex flex-pack-center flex-align-center color-yellow" ng-if="!handler.isLoading && handler.filteredServices.length == 0">
+    <div class="padding-6 text-16 flex flex-pack-center flex-align-center color-yellow" ng-if="!handler.isLoading && handler.filteredServices.length == 0 && services.length > 0">
         No services found for query `{{ handler.servicesFilter }}`
     </div>
 
