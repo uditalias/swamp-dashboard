@@ -334,7 +334,7 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt}',
                         '*.html',
                         'images/{,*/}*.{webp}',
-                        'assets/*',
+                        'assets/**/*',
                         'pages/**/*.html',
                         'components/**/*.html',
                         'directives/**/*.html'
