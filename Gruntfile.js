@@ -441,7 +441,7 @@ module.exports = function (grunt) {
 
             gitCommitSwampDashboard: {
                 cwd: '../swamp',
-                cmd: 'git commit dashboard/* -m "Build"'
+                cmd: 'git commit dashboard/* -m "Build Dashboard"'
             }
         }
     });
