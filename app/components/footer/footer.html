@@ -2,7 +2,7 @@
 
     <div class="flex header">
         <div class="title flex-1" ng-click="handler.collapsed = !handler.collapsed">
-            <i class="fa fa-terminal"></i> Swamp <span ng-if="handler.title"> - {{handler.title}}</span>
+            <i class="fa fa-terminal"></i> Swamp <span class="swamp-version">(v{{handler.swampVersion}})</span> <span ng-if="handler.title"> - {{handler.title}}</span>
         </div>
         <div class="panel-actions" ng-if="!handler.collapsed" ng-click="toggleView()">
             <i class="fa fa-toggle-up" ng-if="!handler.maximized" tooltip="Maximize" tooltip-placement="left"></i>

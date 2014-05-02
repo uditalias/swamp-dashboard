@@ -8,7 +8,8 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
             initializing: true,
             title: '',
             maximized: false,
-            panelContentHeight: 300
+            panelContentHeight: 300,
+            swampVersion: window.swampVersion
         };
         $scope.tabsContent = [];
 
