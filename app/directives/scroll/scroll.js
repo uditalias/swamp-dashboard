@@ -11,7 +11,6 @@ angular.module('swamp.directives').directive('swScroll', [function() {
 
             var currentScrollPos    = $elem.scrollTop(),
                 updateInterval      = 100,
-                scrollSpeed         = 50,
                 elementHeight       = $elem.height(),
                 scrollInt           = null,
                 scrollBottomInt     = null;
@@ -35,7 +34,7 @@ angular.module('swamp.directives').directive('swScroll', [function() {
             function _tailElement() {
                 scrollBottomInt = setTimeout(function() {
 
-                    $elem.animate({ 'scrollTop': $elem[0].scrollHeight}, scrollSpeed, 'swing');
+                    $elem.scrollTop($elem.outerHeight());
 
                     _tailElement();
                 }, updateInterval);
@@ -48,7 +47,7 @@ angular.module('swamp.directives').directive('swScroll', [function() {
 
             function autoScrollBottom(scroll) {
                 if(scroll) {
-                    $elem.animate({ 'scrollTop': $elem[0].scrollHeight}, scrollSpeed, 'swing');
+                    $elem.scrollTop($elem.outerHeight());
                     _tailElement();
                 } else {
                     _untailElement();
