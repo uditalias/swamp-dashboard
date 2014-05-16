@@ -69,6 +69,29 @@ footer {
             .clear-log {
               display: block;
             }
+
+            .pause-log {
+              display: block;
+            }
+          }
+
+          .pause-log {
+            z-index: 1;
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 15px;
+            right: 16px;
+
+            &:hover {
+              color: $yellow;
+            }
+
+            &.active {
+              @include animation(animate-fade-in-out 1000ms ease-in infinite forwards);
+              color: $yellow;
+              display: block;
+            }
           }
 
           .clear-log {
@@ -76,7 +99,7 @@ footer {
             cursor: pointer;
             display: none;
             position: absolute;
-            top: 35px;
+            top: 55px;
             right: 15px;
 
             &:hover {
@@ -89,7 +112,7 @@ footer {
             cursor: pointer;
             display: none;
             position: absolute;
-            top: 15px;
+            top: 35px;
             right: 15px;
 
             &:hover {

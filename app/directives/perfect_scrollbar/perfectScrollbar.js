@@ -45,6 +45,10 @@ angular.module('swamp.directives').directive('swPerfectScrollbar', ['$parse', fu
             $elem.find($attr.refreshOnChange).resize(function(){
                 $elem.scrollTop(0).perfectScrollbar('update');
             });
+
+            $scope.updateScroll = function() {
+                $elem.scrollTop(0).perfectScrollbar('update');
+            }
         }
     }
 }]);

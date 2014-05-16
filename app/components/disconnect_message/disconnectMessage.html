@@ -1,0 +1,19 @@
+<div class="disconnect-message flex flex-align-center flex-pack-center">
+    <div>
+        <div class="message color-white text-center">
+            <div class="text-70 color-yellow">
+                <i class="fa fa-wrench"></i>
+            </div>
+            <div class="text-50 color-yellow">"Houston, we have a problem"</div>
+            <div class="text-30">It's seems like the Swamp just stopped or restarted...</div>
+            <div class="text-20 margin-top-4">
+                Reconnecting in <span ng-bind="handler.reconnectTimeout"></span> seconds...
+            </div>
+            <div class="margin-top-3">
+                <button class="btn btn-blue text-40" ng-click="reconnect()">
+                    <i class="fa fa-refresh"></i> Reconnect now!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

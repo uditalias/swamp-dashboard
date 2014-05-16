@@ -20,18 +20,9 @@
 
         <div class="content-inner">
             <div class="log top-shadow" ng-repeat="tab in tabsContent" ng-if="tab.active">
-                <div class="tail-log" tooltip-placement="left" tooltip="{{tab.tailed ? 'Turn auto scroll off' : 'Turn auto scroll on'}}" ng-click="tab.tailed = !tab.tailed" ng-class="{ 'active': tab.tailed }">
-                    <i ng-if="tab.tailed" class="fa fa-dot-circle-o text-16"></i>
-                    <i ng-if="!tab.tailed" class="fa fa-circle-o text-16"></i>
-                </div>
-                <div class="clear-log" tooltip-placement="left" tooltip="Clear log" ng-click="tab.content.clear()">
-                    <i class="fa fa-times-circle-o text-16"></i>
-                </div>
-                <ul sw-perfect-scrollbar ng-style="{ 'height': handler.panelContentHeight + 'px' }" suppress-scroll-x="true" sw-scroll auto-scroll-bottom="tab.tailed">
-                    <li ng-repeat="content in tab.content.getAll()" class="{{tab.itemcls}}">
-                        <pre>{{content.time.format('DD/MM/YYYY HH:mm')}} - {{content.text}}</pre>
-                    </li>
-                </ul>
+
+                <sw-footer-log-unit ng-model="tab" unit-height="handler.panelContentHeight"></sw-footer-log-unit>
+
             </div>
         </div>
 

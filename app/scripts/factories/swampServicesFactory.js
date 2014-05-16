@@ -173,9 +173,9 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             _createLogDataContainers: function(maxLength) {
 
-                this.outLogData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, maxLength);
+                this.outLogData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, -1);
 
-                this.errorLogData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, maxLength);
+                this.errorLogData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, -1);
 
             },
 

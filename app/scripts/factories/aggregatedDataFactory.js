@@ -8,6 +8,8 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
         this.type = type || AGGREGATED_LIST_TYPE.FIFO;
         this.maxItems = maxItems || 0;
 
+        this._freezed = false;
+        this._queuedData = [];
         this._data = [];
     }
 
@@ -15,13 +17,20 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
 
         add: function(item) {
 
-            this._data.push(item);
+            if(this._freezed) {
 
-            if(this.maxItems > 0 && this.count() > this.maxItems) {
-                return this._automatedRemove();
+                this._queuedData.push(item);
+
+            } else {
+
+                this._data.push(item);
+
+                if(this.maxItems > 0 && this.count() > this.maxItems) {
+                    return this._automatedRemove();
+                }
+
+                $rootScope.$safeApply();
             }
-
-            $rootScope.$safeApply();
 
         },
 
@@ -51,6 +60,39 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
 
             $rootScope.$safeApply();
 
+        },
+
+        toggleFreeze: function() {
+
+            if(this._freezed) {
+
+                this.unfreeze();
+
+            } else {
+
+                this.freeze();
+
+            }
+
+        },
+
+        freeze: function() {
+            if(!this._freezed) {
+
+                this._freezed = true;
+
+            }
+        },
+
+        unfreeze: function() {
+            if(this._freezed) {
+
+                this._freezed = false;
+
+                _.pushAll(this._data, this._queuedData);
+
+                this._queuedData.length = 0;
+            }
         },
 
         count: function() {

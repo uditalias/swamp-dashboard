@@ -27,10 +27,10 @@ _.mixin({ 'deepFind': function (obj, keyPath, value) {
 _.mixin({ 'pushAll': function (arr, arr2) {
     arr.push.apply(arr, arr2);
 }});
+
 _.mixin({ 'emptyArray': function (arr) {
     arr.length = 0;
 }});
-
 
 _.mixin({ 'nextPrevPageParser': function (obj) {
 

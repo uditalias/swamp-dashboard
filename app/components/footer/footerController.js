@@ -83,6 +83,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                 id: swampManager.outLogData.id,
                 active: true,
                 tailed: tailAllLogsState,
+                paused: false,
                 itemcls: 'color-green',
                 name: 'Swamp out log',
                 content: swampManager.outLogData
@@ -92,6 +93,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                 id: swampManager.errorLogData.id,
                 active: false,
                 tailed: tailAllLogsState,
+                paused: false,
                 itemcls: 'color-red',
                 name: 'Swamp error log',
                 content: swampManager.errorLogData
@@ -107,6 +109,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                     id: service.outLogData.id,
                     active: false,
                     tailed: tailAllLogsState,
+                    paused: false,
                     itemcls: 'color-green',
                     name: service.name + ' out log',
                     content: service.outLogData
@@ -116,6 +119,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                     id: service.errorLogData.id,
                     active: false,
                     tailed: tailAllLogsState,
+                    paused: false,
                     itemcls: 'color-red',
                     name: service.name + ' error log',
                     content: service.errorLogData
@@ -126,7 +130,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
             $scope.handler.initializing = false;
         }
 
-        function _onTailLogsStateCahnge(event, state) {
+        function _onTailLogsStateChange(event, state) {
 
             tailAllLogsState = state;
 
@@ -151,7 +155,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
         $rootScope.$on(EVENTS.OPEN_FOOTER_PANEL, _onOpenFooterPanelRequest)
         $rootScope.$on(EVENTS.SWAMP_MANAGER_INITIALIZED, _initializeSwampTabs);
         $rootScope.$on(EVENTS.SWAMP_SERVICES_MANAGER_INITIALIZED, _initializeSwampServicesTabs);
-        $rootScope.$on(EVENTS.TAIL_LOGS_STATE_CHANGE, _onTailLogsStateCahnge);
+        $rootScope.$on(EVENTS.TAIL_LOGS_STATE_CHANGE, _onTailLogsStateChange);
 
 
     }]);
