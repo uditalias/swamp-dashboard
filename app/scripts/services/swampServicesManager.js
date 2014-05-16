@@ -18,6 +18,10 @@ angular.module('swamp.services').service('swampServicesManager', [
 
         }
 
+        this.count = function() {
+            return Object.keys(this._services).length;
+        }
+
         this.getAll = function() {
             return this._services;
         }

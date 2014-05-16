@@ -4,24 +4,21 @@ angular.module('swamp.controllers').controller('asideController', ['$scope', '$r
     function($scope, $rootScope, EVENTS, swampManager, swampServicesManager) {
 
         $scope.handler = {
-            tailCheckState: false
+            tailCheckState: false,
+            servicesCount: swampServicesManager.count
         }
 
         $scope.restartAll = function() {
             swampServicesManager.restartAllRunningServices();
         }
 
-
-
         $scope.stopAll = function() {
             swampServicesManager.stopAllRunningServices();
         }
 
-
         $scope.startAll = function() {
             swampServicesManager.startAllServices();
         }
-
 
         $scope.showLog = function(type) {
 
@@ -41,5 +38,11 @@ angular.module('swamp.controllers').controller('asideController', ['$scope', '$r
             $rootScope.$broadcast(EVENTS.TAIL_LOGS_STATE_CHANGE, state);
 
         }
+
+        function _onSwampServicesManagerInitialized(event) {
+            $scope.handler.servicesCount = swampServicesManager.count();
+        }
+
+        $rootScope.$on(EVENTS.SWAMP_SERVICES_MANAGER_INITIALIZED, _onSwampServicesManagerInitialized);
 
     }]);
