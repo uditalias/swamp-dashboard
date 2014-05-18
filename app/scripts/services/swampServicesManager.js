@@ -19,7 +19,11 @@ angular.module('swamp.services').service('swampServicesManager', [
         }
 
         this.count = function() {
-            return Object.keys(this._services).length;
+            if(this._services) {
+                return Object.keys(this._services).length;
+            }
+
+            return 0;
         }
 
         this.getAll = function() {
