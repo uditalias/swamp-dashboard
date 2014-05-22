@@ -24,7 +24,6 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             this.startTime = params.startTime;
             this.uptime = null;
-            this._uptimeInterval = null;
 
             this._createMonitorDataContainers();
             this._createLogDataContainers(this.options.maxLogsToSave);
@@ -190,20 +189,12 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             _startUptimeMessageSync: function() {
 
-                this.uptime = moment(new Date()).from(this.startTime);
-
-                this._uptimeInterval = setTimeout(function() {
-
-                    this._startUptimeMessageSync();
-
-                }.bind(this), env.serviceUptimeTickInterval);
+                this.uptime = moment(this.startTime);
 
             },
 
             _stopUptimeMessageSync: function() {
 
-                clearTimeout(this._uptimeInterval);
-                this._uptimeInterval = null;
                 this.uptime = null;
 
             }

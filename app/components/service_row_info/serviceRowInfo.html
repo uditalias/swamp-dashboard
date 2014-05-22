@@ -19,7 +19,7 @@
 
                 <div class="flex flex-1 service-info-item margin-right-2 padding-2">
                     <div class="flex-1">Started</div>
-                    <div class="flex-1 color-white">{{service.uptime}}</div>
+                    <div class="flex-1 color-white">{{service.uptime.fromNow() || '-'}}</div>
                 </div>
 
                 <div class="flex flex-1 service-info-item margin-right-2 padding-2">
