@@ -37,7 +37,14 @@
         </div>
         <ul class="aside-content">
             <li>
-                <sw-checkbox ng-model="handler.tailCheckState" on-check-state-change="onCheckStateChange(state)" checkbox-label="'Auto scroll all logs'"></sw-checkbox>
+                <div class="tail-all-logs">
+                    <sw-checkbox ng-class="{ 'color-green': handler.tailCheckState }" ng-model="handler.tailCheckState" on-check-state-change="onCheckStateChange(state)" checkbox-label="'Auto scroll all logs'"></sw-checkbox>
+                </div>
+            </li>
+            <li>
+                <div class="clear-all-logs" ng-click="clearAllLogs()">
+                    <i class="fa fa-times-circle-o"></i> Clear all logs
+                </div>
             </li>
         </ul>
     </div>

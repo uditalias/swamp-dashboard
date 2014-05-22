@@ -9358,6 +9358,14 @@ aside .aside-inner .aside-box .aside-content li span i {
   margin-right: 3px;
   font-size: 12px;
 }
+/* line 40, ../components/aside/aside.scss */
+aside .aside-inner .aside-box .aside-content li .clear-all-logs {
+  cursor: pointer;
+}
+/* line 42, ../components/aside/aside.scss */
+aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
+  width: 15px;
+}
 
 /* line 3, ../components/service_row_summary/servicerowsummary.scss */
 .service-summary .service-summary-row {

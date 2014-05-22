@@ -36,10 +36,15 @@ aside {
               font-size: 12px;
             }
           }
+
+          .clear-all-logs {
+           cursor: pointer;
+            i {
+              width: 15px;
+            }
+          }
         }
       }
     }
-
   }
-
 }

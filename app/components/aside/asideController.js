@@ -39,6 +39,12 @@ angular.module('swamp.controllers').controller('asideController', ['$scope', '$r
 
         }
 
+        $scope.clearAllLogs = function() {
+
+            $rootScope.$broadcast(EVENTS.CLEAR_ALL_LOGS);
+
+        }
+
         function _onSwampServicesManagerInitialized(event) {
             $scope.handler.servicesCount = swampServicesManager.count();
         }

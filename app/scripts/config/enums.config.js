@@ -37,6 +37,7 @@ angular.module('swamp.config')
         "FOOTER_PANEL_STATE_CHANGE": "event::footer.panel.state.change",
         "SERVICES_FILTER_CHANGE": "event::services.filter.change",
         "TAIL_LOGS_STATE_CHANGE": "event::tail.logs.state.change",
+        "CLEAR_ALL_LOGS": "event::clear.all.logs",
         "VERTICAL_SCROLL_INTO_VIEW": "event::vertical.scroll.into.view"
     })
     .constant('SERVICE_STATE', {

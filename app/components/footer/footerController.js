@@ -141,6 +141,16 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
             });
         }
 
+        function _onClearAllLogs(event) {
+
+            _.forEach($scope.tabsContent, function(tabContent) {
+
+                tabContent.content.clear();
+
+            });
+
+        }
+
         $scope.$watch(function() {
             return $scope.handler.collapsed;
         }, function(newVal) {
@@ -156,6 +166,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
         $rootScope.$on(EVENTS.SWAMP_MANAGER_INITIALIZED, _initializeSwampTabs);
         $rootScope.$on(EVENTS.SWAMP_SERVICES_MANAGER_INITIALIZED, _initializeSwampServicesTabs);
         $rootScope.$on(EVENTS.TAIL_LOGS_STATE_CHANGE, _onTailLogsStateChange);
+        $rootScope.$on(EVENTS.CLEAR_ALL_LOGS, _onClearAllLogs)
 
 
     }]);
