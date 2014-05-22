@@ -9,13 +9,15 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
             maxValue: '=',
             maxItems: '=',
             lineColor: '@',
-            formatValue: '&'
+            formatValue: '&',
+            hideData: '=showNaMessage'
         },
         replace: true,
         templateUrl: 'directives/aggregated_data_chart/aggregatedDataChart.html',
         link: function($scope, $element, $attrs) {
 
             var itemTpl         = '<li tooltip="{{label}}" tooltip-append-to-body="true" class="flex flex-align-end"><div class="chart-bar {{itemCssClass}}"></div></li>';
+            var noDataTpl       = '<div class="no-data-container flex flex-align-center flex-pack-center text-30">N/A</div>';
             var minValue        = $scope.minValue ? parseInt($scope.minValue) : 0;
             var maxValue        = $scope.maxValue ? parseInt($scope.maxValue) : 100;
             var maxItems        = $scope.maxItems ? parseInt($scope.maxItems) : -1;
@@ -59,15 +61,35 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
 
                 var newValue = $scope.model.getLast();
 
-                _insertItem(newValue);
+                if(newValue != false && newValue !== undefined) {
+                    _insertItem(newValue);
+                }
 
+            });
+
+            $scope.$watch(function() {
+
+                return $scope.hideData;
+
+            }, function(newValue) {
+                if(newValue) {
+
+                    $element.append(noDataTpl);
+
+                } else {
+
+                    $element.find('.no-data-container').remove();
+
+                }
             });
 
             (function initialize() {
 
                 _.forEach($scope.dataItems, function(value) {
 
-                    _insertItem(value);
+                    if(value != false && value !== undefined) {
+                        _insertItem(value);
+                    }
 
                 });
 

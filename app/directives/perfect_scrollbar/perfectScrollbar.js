@@ -6,8 +6,9 @@ angular.module('swamp.directives').directive('swPerfectScrollbar', ['$parse', fu
         priority: 100,
         link: function($scope, $elem, $attr) {
 
-            var updateInterval  = 500,
-                isVisible       = false;
+            var updateInterval              = 500,
+                displayScrollBarInterval    = null,
+                isVisible                   = false;
 
             $elem.perfectScrollbar({
                 wheelSpeed: $parse($attr.wheelSpeed)() || 50,
@@ -26,7 +27,7 @@ angular.module('swamp.directives').directive('swPerfectScrollbar', ['$parse', fu
             }
 
             function displayScrollbar() {
-                setTimeout(function() {
+                displayScrollBarInterval = setTimeout(function() {
                     if($elem.is(':visible')) {
                         isVisible = true;
                         $elem.find('.ps-scrollbar-x-rail, .ps-scrollbar-y-rail').css({ 'display': 'block', 'opacity': '0.9' });
@@ -49,6 +50,11 @@ angular.module('swamp.directives').directive('swPerfectScrollbar', ['$parse', fu
             $scope.updateScroll = function() {
                 $elem.scrollTop(0).perfectScrollbar('update');
             }
+
+            $scope.$on('$destroy', function() {
+                $elem.perfectScrollbar('destroy');
+                $elem.remove();
+            });
         }
     }
 }]);

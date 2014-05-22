@@ -60,6 +60,13 @@ angular.module('swamp.directives').directive('swScroll', [function() {
 
             $elem.on('scroll', _onElementScroll);
 
+            $scope.$on('$destroy', function() {
+                $elem.off('scroll', _onElementScroll);
+                clearTimeout(scrollInt);
+                clearTimeout(scrollBottomInt);
+                $elem.remove();
+            })
+
         }
     }
 }]);

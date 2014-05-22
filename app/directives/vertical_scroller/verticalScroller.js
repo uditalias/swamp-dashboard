@@ -129,7 +129,10 @@ angular.module('swamp.directives').directive('swVerticalScroller', ['$timeout', 
             _appendArrows();
             _bindEvents();
 
-            $scope.$on('$destroy', _unbindEvents);
+            $scope.$on('$destroy', function() {
+                _unbindEvents();
+                $element.remove();
+            });
 
             vscrollBindFn = $rootScope.$on(EVENTS.VERTICAL_SCROLL_INTO_VIEW, _onVerticalScrollIntoView)
 

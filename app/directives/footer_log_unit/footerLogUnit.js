@@ -24,6 +24,10 @@ angular.module('swamp.directives').directive('swFooterLogUnit', [function() {
                 }
             }
 
+            $scope.$on('$destroy', function() {
+                $element.remove();
+            });
+
         }
     }
 }]);

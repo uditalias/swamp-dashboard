@@ -42,8 +42,17 @@ angular.module('swamp.services').factory('swampServicesFactory', [
             updateMonitorData: function(monitorData) {
                 this.monitor = monitorData;
 
-                this.cpuData.add(this.monitor.cpu);
-                this.memoryData.add(this.monitor.memory);
+                if(!isNaN(this.monitor.cpu)) {
+
+                    this.cpuData.add(this.monitor.cpu);
+
+                }
+
+                if(!isNaN(this.monitor.memory)) {
+
+                    this.memoryData.add(this.monitor.memory);
+
+                }
 
                 $rootScope.$safeApply();
             },
@@ -84,9 +93,9 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
                 this.memoryData.clear();
 
-                this.monitor.cpu = 0;
+                this.monitor.cpu = false;
 
-                this.monitor.memory = 0;
+                this.monitor.memory = false;
 
                 this.state = SERVICE_STATE.STOP;
 

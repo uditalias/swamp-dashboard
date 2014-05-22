@@ -20,8 +20,8 @@ angular.module('swamp.services').service('serializeService', [function() {
             monitorMemory : data.monitor.memory,
             logs: data.logs,
             monitor: {
-                cpu: 0,
-                memory: 0
+                cpu: false,
+                memory: false
             }
         }
 
@@ -29,10 +29,20 @@ angular.module('swamp.services').service('serializeService', [function() {
 
     this.serializeMonitorData = function(data) {
 
-        return {
-            cpu: data.monitor.cpu,
-            memory: data.monitor.memory
+        var dto = {
+            cpu: false,
+            memory: false
+        };
+
+        if(!isNaN(data.monitor.cpu)) {
+            dto.cpu = data.monitor.cpu;
         }
+
+        if(!isNaN(data.monitor.memory)) {
+            dto.memory = data.monitor.memory;
+        }
+
+        return dto;
 
     };
 
