@@ -9508,27 +9508,35 @@ aside .aside-inner .aside-box .aside-content li span i {
   width: 1px;
 }
 
-/* line 4, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 1, ../directives/vertical_scroller/verticalscroller.scss */
+[sw-vertical-scroller] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+/* line 6, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller]:hover .sw-scroller-arrow {
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
-/* line 6, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 8, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller]:hover .sw-scroller-arrow.sw-right-arrow {
   right: 0;
 }
-/* line 10, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 12, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller]:hover .sw-scroller-arrow.sw-left-arrow {
   left: 0;
 }
-/* line 16, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 18, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller] .sw-vertical-scroller-wrapper {
   position: absolute;
   left: 0;
   -webkit-transition: left 200ms;
   transition: left 200ms;
 }
-/* line 22, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 24, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller] .sw-scroller-arrow {
   top: 0;
   height: 100%;
@@ -9542,29 +9550,29 @@ aside .aside-inner .aside-box .aside-content li span i {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-/* line 33, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 35, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller] .sw-scroller-arrow:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 37, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 39, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller] .sw-scroller-arrow.sw-right-arrow {
   right: -50px;
   -webkit-box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.7);
   box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.7);
 }
-/* line 40, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 42, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller] .sw-scroller-arrow.sw-right-arrow:before {
   content: "\f054";
   font-family: 'FontAwesome';
 }
-/* line 46, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 48, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller] .sw-scroller-arrow.sw-left-arrow {
   left: -50px;
   -webkit-box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7);
   box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7);
 }
-/* line 49, ../directives/vertical_scroller/verticalscroller.scss */
+/* line 51, ../directives/vertical_scroller/verticalscroller.scss */
 [sw-vertical-scroller] .sw-scroller-arrow.sw-left-arrow:before {
   content: "\f053";
   font-family: 'FontAwesome';

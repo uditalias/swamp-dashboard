@@ -1,5 +1,7 @@
 [sw-vertical-scroller] {
 
+  @include user-select(none);
+
   &:hover {
     .sw-scroller-arrow {
       @include opacity(0.8);
