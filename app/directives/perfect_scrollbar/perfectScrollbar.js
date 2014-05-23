@@ -54,6 +54,7 @@ angular.module('swamp.directives').directive('swPerfectScrollbar', ['$parse', fu
             $scope.$on('$destroy', function() {
                 $elem.perfectScrollbar('destroy');
                 $elem.remove();
+                $elem = null;
             });
         }
     }

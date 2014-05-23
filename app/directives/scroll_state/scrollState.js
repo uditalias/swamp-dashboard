@@ -27,6 +27,8 @@ angular.module('swamp.directives').directive('swScrollState', ['EVENTS',
 
                 $scope.$on('$destroy', function() {
                     $(window).off('scroll', _onWindowScroll);
+                    $element.remove();
+                    $element = null;
                 });
 
             }

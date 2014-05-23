@@ -8,7 +8,7 @@
 <div class="pause-log" tooltip-placement="left" tooltip="{{tab.paused ? 'Resume logs' : 'Pause logs'}}" ng-click="pauseTabLog()" ng-class="{ 'active': tab.paused }">
     <i class="fa fa-pause"></i>
 </div>
-<ul sw-perfect-scrollbar ng-style="{ 'height': height + 'px' }" suppress-scroll-x="true" sw-scroll auto-scroll-bottom="tab.tailed">
+<ul class="log-items-list" sw-perfect-scrollbar ng-style="{ 'height': height + 'px' }" suppress-scroll-x="true" sw-scroll auto-scroll-bottom="tab.tailed">
     <li ng-repeat="content in tab.content.getAll()" class="{{tab.itemcls}}">
         <pre>{{content.time.format('DD/MM/YYYY HH:mm:ss')}} - {{content.text}}</pre>
     </li>

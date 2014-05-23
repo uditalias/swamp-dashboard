@@ -19,7 +19,7 @@
         </div>
 
         <div class="content-inner">
-            <div class="log top-shadow" ng-repeat="tab in tabsContent" ng-if="tab.active">
+            <div class="log top-shadow" ng-repeat="tab in tabsContent" ng-if="tab.active && !handler.collapsed">
 
                 <sw-footer-log-unit ng-model="tab" unit-height="handler.panelContentHeight"></sw-footer-log-unit>
 

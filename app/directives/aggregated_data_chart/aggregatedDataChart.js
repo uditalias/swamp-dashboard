@@ -83,6 +83,12 @@ angular.module('swamp.directives').directive('swAggregatedDataChart', ['$compile
                 }
             });
 
+            $scope.$on('$destroy', function() {
+                $element.empty();
+                $element.remove();
+                $element = null;
+            });
+
             (function initialize() {
 
                 _.forEach($scope.dataItems, function(value) {

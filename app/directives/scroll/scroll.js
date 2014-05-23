@@ -65,6 +65,7 @@ angular.module('swamp.directives').directive('swScroll', [function() {
                 clearTimeout(scrollInt);
                 clearTimeout(scrollBottomInt);
                 $elem.remove();
+                $elem = null;
             })
 
         }

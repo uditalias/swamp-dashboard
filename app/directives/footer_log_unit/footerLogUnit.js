@@ -22,10 +22,12 @@ angular.module('swamp.directives').directive('swFooterLogUnit', [function() {
                     $scope.tab.content.unfreeze();
 
                 }
-            }
+            };
 
             $scope.$on('$destroy', function() {
+                $element.empty();
                 $element.remove();
+                $element = null;
             });
 
         }
