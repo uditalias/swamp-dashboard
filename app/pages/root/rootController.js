@@ -18,6 +18,12 @@ angular.module('swamp.controllers').controller('rootController', [
 
         $scope.services = [];
 
+        $scope.totalRunning = 0;
+
+        $scope.totalStopped = 0;
+
+        $scope.totalRestarting = 0;
+
         $scope.serviceActions = {
             start: function(service, env) {
 
@@ -63,7 +69,7 @@ angular.module('swamp.controllers').controller('rootController', [
         }
 
         $scope.formatCpuValue = function(value) {
-            return !isNaN(value) ? value + '%' : '';ß
+            return !isNaN(value) ? value + '%' : '';
         }
 
         function _onServicesFilterChange(event, filter) {
@@ -80,11 +86,23 @@ angular.module('swamp.controllers').controller('rootController', [
 
             $scope.handler.isLoading = false;
 
-            $rootScope.$safeApply();
+            _refreshServicesCountSummary();
+        }
 
+        function _refreshServicesCountSummary() {
+            $scope.totalRunning = swampServicesManager.countRunning();
+
+            $scope.totalStopped = swampServicesManager.countStopped();
+
+            $scope.totalRestarting = swampServicesManager.countRestarting();
+
+            $rootScope.$safeApply();
         }
 
         $rootScope.$on(EVENTS.SERVICES_FILTER_CHANGE, _onServicesFilterChange);
         $rootScope.$on(EVENTS.SWAMP_SERVICES_MANAGER_INITIALIZED, _onSwampServicesManagerInitialized);
+        $rootScope.$on(EVENTS.SERVICE_START, _refreshServicesCountSummary);
+        $rootScope.$on(EVENTS.SERVICE_STOP, _refreshServicesCountSummary);
+        $rootScope.$on(EVENTS.SERVICE_RESTART, _refreshServicesCountSummary);
 
     }]);

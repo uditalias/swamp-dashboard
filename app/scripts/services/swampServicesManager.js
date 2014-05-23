@@ -26,6 +26,30 @@ angular.module('swamp.services').service('swampServicesManager', [
             return 0;
         }
 
+        this.countRunning = function() {
+            if(this._services) {
+                return _.where(this._services, { state: SERVICE_STATE.RUN }).length;
+            }
+
+            return 0;
+        }
+
+        this.countStopped = function() {
+            if(this._services) {
+                return _.where(this._services, { state: SERVICE_STATE.STOP }).length;
+            }
+
+            return 0;
+        }
+
+        this.countRestarting = function() {
+            if(this._services) {
+                return _.where(this._services, { state: SERVICE_STATE.RESTART }).length;
+            }
+
+            return 0;
+        }
+
         this.getAll = function() {
             return this._services;
         }

@@ -4,9 +4,13 @@
   padding: 0 20px;
 
   .title {
-    color: $mid-aubergine;
+    color: $warm-grey;
     font-weight: 100;
     font-size: 22px;
+
+    .services-summary-row {
+      font-weight: 100;
+    }
   }
 
 }

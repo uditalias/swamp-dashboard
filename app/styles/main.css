@@ -9612,7 +9612,11 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
 }
 /* line 6, ../pages/root/root.scss */
 .root-container .title {
-  color: #5e2750;
+  color: #aea79f;
   font-weight: 100;
   font-size: 22px;
+}
+/* line 11, ../pages/root/root.scss */
+.root-container .title .services-summary-row {
+  font-weight: 100;
 }
