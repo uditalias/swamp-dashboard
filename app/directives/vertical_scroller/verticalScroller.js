@@ -56,6 +56,11 @@ angular.module('swamp.directives').directive('swVerticalScroller', ['$timeout', 
             }
 
             function _left() {
+
+                if($wrapper.outerWidth() < $element.outerWidth()) {
+                    return;
+                }
+
                 var currentLeft = parseInt($wrapper.css('left'));
 
                 var newLeft = currentLeft + arrowJumpSpace;
@@ -68,6 +73,10 @@ angular.module('swamp.directives').directive('swVerticalScroller', ['$timeout', 
             }
 
             function _right() {
+
+                if($wrapper.outerWidth() < $element.outerWidth()) {
+                    return;
+                }
 
                 var currentLeft = parseInt($wrapper.css('left'));
 
