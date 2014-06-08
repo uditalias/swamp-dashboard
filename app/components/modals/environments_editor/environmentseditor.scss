@@ -1,0 +1,100 @@
+.environments-editor {
+
+  .environment-selector-wrapper {
+    background-color: adjust-lightness($cool-grey, -13%);
+  }
+
+  .environments-variables-wrapper {
+    overflow-y: auto;
+    max-height:450px;
+
+    ul {
+      li {
+        position: relative;
+        border-bottom: solid 1px adjust-lightness($cool-grey, 5%);
+
+        &.disabled {
+          >div {
+            @include opacity(0.3);
+          }
+        }
+
+        &:hover {
+          .remove-button{
+            display: block;
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        > div {
+          padding: 5px 10px;
+
+          &.value {
+            background-color: adjust-lightness($cool-grey, -7%);
+          }
+
+          input[type='text'] {
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            border: none;
+            font-weight: inherit;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+
+        .no-variables {
+          border: dashed 5px adjust-lightness($cool-grey, -7%);
+          @include border-radius(10px);
+          min-width: 300px;
+          min-height: 170px;
+        }
+
+        .action-buttons {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+
+        .remove-button {
+          display: none;
+          cursor: pointer;
+
+          &:hover {
+            color: $red;
+          }
+        }
+
+        .undo-button {
+          cursor: pointer;
+
+          &:hover {
+            color: $yellow;
+          }
+        }
+
+        .save-button {
+          cursor: pointer;
+          button {
+            line-height: 12px;
+
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .environment-actions-wrapper {
+    background-color: adjust-lightness($cool-grey, -13%);
+  }
+}

@@ -32,9 +32,10 @@
                     <div class="flex-1 flex color-white">
                         <div class="flex-1">{{service.runningEnvironment}}</div>
                         <div>
-                            <i class="fa fa-list-alt cursor-pointer" popover-append-to-body="true" popover-placement="left"
-                               popover="{{(service.environments[service.runningEnvironment]|json)}}"
+                            <i class="fa fa-list-alt cursor-pointer" popover-append-to-body="true"
+                               popover-placement="left" popover="{{(service.environments[service.runningEnvironment]|json)}}"
                                popover-title="Environment variables" popover-trigger="mouseover"></i>
+                            <i class="fa fa-gear cursor-pointer margin-left-2" tooltip="Environments editor" tooltip-placement="left" ng-click="serviceActions.openEnvironmentsEditor(service)"></i>
                         </div>
                     </div>
                 </div>
@@ -62,7 +63,7 @@
                                 {{service.selectedEnvironment || 'Select Environment...'}}
                             </a>
                             <ul class="dropdown-menu">
-                                <li ng-repeat="(key,value) in service.environments" ng-click="service.selectedEnvironment = key">
+                                <li ng-repeat="(key,value) in service.environments track by $index" ng-click="service.selectedEnvironment = key">
                                     <a>{{key}}</a>
                                 </li>
                             </ul>

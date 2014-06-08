@@ -1,0 +1,14 @@
+.sw-modal-content {
+
+  background-color: adjust-lightness($cool-grey, -10%);
+  @include box-shadow(0 5px 20px rgba(0,0,0,0.5));
+
+  .sw-modal-title {
+
+    color: $white;
+    font-weight: 400;
+    background-color: $cool-grey;
+    @include box-shadow(0 1px 2px 0 rgba(0,0,0,0.3));
+    border-top: solid 1px adjust-lightness($cool-grey, 5%);
+  }
+}

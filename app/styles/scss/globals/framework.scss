@@ -144,6 +144,9 @@
   @include text-size(70px);
 }
 
+.text-italic {
+  font-style: italic;
+}
 
 .bold,.text-bold {
   font-weight: bold;

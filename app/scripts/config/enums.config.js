@@ -16,7 +16,8 @@ angular.module('swamp.config')
         "SERVICE_RESTART": "service.restart",
         "SERVICE_ERROR": "service.error",
         "SERVICE_OUT": "service.out",
-        "SERVICE_MONITOR": "service.monitor"
+        "SERVICE_MONITOR": "service.monitor",
+        "MODIFY_SERVICE_ENVIRONMENTS": "service.modifyEnvironments"
     })
     .constant('EVENTS', {
         "SWAMP_SERVICES_RECEIVED": "event::swamp.services.received",
@@ -30,6 +31,7 @@ angular.module('swamp.config')
         "SERVICE_RESTART": "event::service.restart",
         "SERVICE_OUT": "event::service.out",
         "SERVICE_ERROR": "event::service.error",
+        "MODIFY_SERVICE_ENVIRONMENTS": "event::service.modify.environments",
 
         "SWAMP_MANAGER_INITIALIZED": "event::swamp.manager.initialized",
         "SWAMP_SERVICES_MANAGER_INITIALIZED": "event::swamp.services.manager.initialized",
@@ -53,6 +55,9 @@ angular.module('swamp.config')
     .constant('AGGREGATED_LIST_TYPE', {
         "LIFO": 1,
         "FIFO": 2
+    })
+    .constant('MODAL_TYPE', {
+        "SERVICE_ENVIRONMENTS_EDITOR": 'modal::service.environments.editor'
     })
     .constant('LOG_TYPE', {
         "OUT": "log.out",

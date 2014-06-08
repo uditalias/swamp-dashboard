@@ -56,14 +56,8 @@ angular.module('swamp.services').service('swampServicesManager', [
 
         this.getByName = function(name) {
 
-            for(var serviceId in this._services) {
+            return _.first(_.where(this._services, { name: name }));
 
-                if(this._services[serviceId].name == name) {
-                    return this.getById(serviceId);
-                }
-            }
-
-            return null;
         }
 
         this.getById = function(id) {
@@ -91,6 +85,24 @@ angular.module('swamp.services').service('swampServicesManager', [
         this.startAllServices = function() {
 
             $rootScope.$broadcast(SOCKET_EVENTS.SWAMP_START_ALL);
+
+        }
+
+        this.modifyServiceEnvironments = function(serviceName, environmentsPackage, restartAfterModify) {
+
+            var service = this.getByName(serviceName);
+
+            if(service) {
+
+                var params = {
+                    name: service.name,
+                    environments: environmentsPackage,
+                    restart: restartAfterModify
+                }
+
+                $rootScope.$broadcast(SOCKET_EVENTS.MODIFY_SERVICE_ENVIRONMENTS, params);
+
+            }
 
         }
 
@@ -169,6 +181,16 @@ angular.module('swamp.services').service('swampServicesManager', [
 
         }
 
+        function _onServiceModifyEnvironments(event, serviceName, environments) {
+
+            var service = this.getByName(serviceName);
+
+            if(service) {
+                service.setEnvironments(environments);
+            }
+
+        }
+
         function _onClientRequestStartService(event, service, environment) {
 
             var params = {
@@ -215,6 +237,7 @@ angular.module('swamp.services').service('swampServicesManager', [
         $rootScope.$on(EVENTS.SERVICE_RESTART, _onServiceRestart.bind(this));
         $rootScope.$on(EVENTS.SERVICE_OUT, _onServiceOut.bind(this));
         $rootScope.$on(EVENTS.SERVICE_ERROR, _onServiceError.bind(this));
+        $rootScope.$on(EVENTS.MODIFY_SERVICE_ENVIRONMENTS, _onServiceModifyEnvironments.bind(this));
 
         $rootScope.$on(CLIENT_REQUEST.REQUEST_START_SERVICE, _onClientRequestStartService.bind(this));
         $rootScope.$on(CLIENT_REQUEST.REQUEST_STOP_SERVICE, _onClientRequestStopService.bind(this));

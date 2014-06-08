@@ -8,7 +8,7 @@
        \ `\____\ `\___x___/\ \_\ \_\ \_\\ \_\ \_\
         \/_____/'\/__//__/  \/_/\/_/\/_/ \/_/\/_/
 
-    The tool for running, managing and monitoring multiple node.js services
+    The tool for running, managing and monitoring processes
 
     By Udi Talias (udi.talias@gmail.com)
 
@@ -52,6 +52,7 @@
 
     <!-- build:js /scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="lib/radio/radio.js"></script>
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/es5-shim/es5-shim.js"></script>
     <script src="lib/angular/angular.js"></script>
@@ -75,6 +76,7 @@
     <!-- build:js({.tmp,app}) /scripts/scripts.js -->
     <!-- globals -->
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/run/rootScope.run.js"></script>
     <script src="/scripts/run/initializer.js"></script>
     <!-- globals -->
 
@@ -84,6 +86,7 @@
     <script src="/scripts/config/environment.config.js"></script>
     <script src="/scripts/config/location.config.js"></script>
     <script src="/scripts/config/enums.config.js"></script>
+    <script src="/scripts/config/modal.config.js"></script>
     <script src="/scripts/config/ui.bootstrap.config.js"></script>
     <!-- config -->
 
@@ -108,6 +111,7 @@
     <!-- factories -->
     <script src="/scripts/factories/swampServicesFactory.js"></script>
     <script src="/scripts/factories/aggregatedDataFactory.js"></script>
+    <script src="/scripts/factories/modalParamsFactory.js"></script>
     <!-- factories -->
 
 
@@ -116,6 +120,7 @@
     <script src="/scripts/services/socketService.js"></script>
     <script src="/scripts/services/swampManager.js"></script>
     <script src="/scripts/services/swampServicesManager.js"></script>
+    <script src="/scripts/services/modalService.js"></script>
     <!-- services -->
 
     <!-- providers -->
@@ -131,6 +136,8 @@
     <script src="/directives/vertical_scroller/verticalScroller.js"></script>
     <script src="/directives/full_screen_message/fullScreenMessage.js"></script>
     <script src="/directives/footer_log_unit/footerLogUnit.js"></script>
+    <script src="/directives/modal_content/modalContent.js"></script>
+    <script src="/directives/focus_bool/focusBool.js"></script>
     <!-- directives -->
 
 
@@ -139,6 +146,7 @@
     <script src="/components/footer/footerController.js"></script>
     <script src="/components/aside/asideController.js"></script>
     <script src="/components/disconnect_message/disconnectMessageController.js"></script>
+    <script src="/components/modals/environments_editor/environmentsEditorController.js"></script>
     <!-- components -->
 
 

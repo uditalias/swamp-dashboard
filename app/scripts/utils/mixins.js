@@ -5,7 +5,6 @@ String.prototype.format = function() {
     });
 }
 
-
 _.mixin({ 'deepFind': function (obj, keyPath, value) {
     var keys, keyLen, i = 0, key;
 

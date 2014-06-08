@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('swamp.controllers').controller('rootController', [
-    '$scope', '$rootScope', 'swampServicesManager', 'swampManager', 'SERVICE_STATE', 'EVENTS',
-    function($scope, $rootScope, swampServicesManager, swampManager, SERVICE_STATE, EVENTS) {
+    '$scope', '$rootScope', 'swampServicesManager', 'swampManager', 'SERVICE_STATE', 'EVENTS', 'modalService', 'MODAL_TYPE',
+    function($scope, $rootScope, swampServicesManager, swampManager, SERVICE_STATE, EVENTS, modalService, MODAL_TYPE) {
 
         $scope.handler = {
             servicesFilter: '',
@@ -48,6 +48,11 @@ angular.module('swamp.controllers').controller('rootController', [
             showServiceErrorLog: function(service) {
 
                 $rootScope.$broadcast(EVENTS.OPEN_FOOTER_PANEL, service.errorLogData.id);
+
+            },
+            openEnvironmentsEditor: function(service) {
+
+                modalService.open(MODAL_TYPE.SERVICE_ENVIRONMENTS_EDITOR, service);
 
             }
         }

@@ -1,0 +1,77 @@
+<sw-modal-content modal-title="'Environments Editor / ' + service.name" class="environments-editor">
+    <div class="flex flex-align-center padding-2 environment-selector-wrapper">
+        <div>
+            <div class="dropdown" is-open="handler.isEnvMenuOpen">
+                <a class="dropdown-toggle">
+                    {{editedEnvironment || 'Select Environment...'}}
+                </a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="(key,value) in serviceEnvironments track by $index" ng-click="loadEnvironment(key); handler.isEnvMenuOpen = !handler.isEnvMenuOpen;">
+                        <a>{{key}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="environments-variables-wrapper">
+        <ul>
+            <li class="flex" ng-repeat="(key, value) in handler.selectedEnvironment = (serviceEnvironments[editedEnvironment]) track by $index" ng-click="editEnvironmentVariable(key, value)" ng-if="key != 'NODE_ENV'">
+                <div class="flex-1" alt="{{key}}" title="{{key}}">{{key}}</div>
+
+                <div ng-show="editedVariable == key" class="flex-1 value">
+                    <input type="text" ng-model="handler.selectedEnvironment[key]" class="color-blue text-italic" sw-focus-bool="editedVariable == key" />
+                </div>
+                <div ng-hide="editedVariable == key" ng-class="{ 'color-yellow': handler.selectedEnvironment[key] != service.environments[editedEnvironment][key] }" class="flex-1 color-white value" alt="{{value}}" title="{{value}}">{{value}}</div>
+                <div class="action-buttons flex">
+                    <div class="remove-button" ng-click="removeVariable($event, key)">
+                        <i class="fa fa-times-circle"></i>
+                    </div>
+                    <div class="undo-button margin-left-1" ng-click="undoVariableEdit($event, key)" ng-if="handler.selectedEnvironment[key] != service.environments[editedEnvironment][key]">
+                        <i class="fa fa-undo"></i>
+                    </div>
+                </div>
+            </li>
+
+            <li class="flex" ng-if="handler.showAddVariable">
+                <div class="flex-1">
+                    <input placeholder="Key..." type="text" ng-model="handler.addedVariable.key" class="color-blue text-italic" />
+                </div>
+
+                <div class="flex-1 value">
+                    <input placeholder="Value..." type="text" ng-model="handler.addedVariable.value" class="color-blue text-italic" />
+                </div>
+
+                <div class="action-buttons flex">
+                    <div class="save-button">
+                        <button class="btn btn-link" ng-disabled="!handler.addedVariable.key.length || !handler.addedVariable.value.length" ng-click="saveVariable($event)">
+                            <span class="text-12">Save</span>
+                        </button>
+                    </div>
+                </div>
+            </li>
+
+            <!-- no variables message -->
+            <li class="flex padding-5 flex-align-center flex-pack-center" ng-if="__len__(handler.selectedEnvironment) <= 1 && !handler.showAddVariable">
+                <span class="no-variables text-center padding-5">
+                    <div class="text-24 color-white">No variables :(</div>
+                    <div class="text-14 color-warm-grey margin-top-2 margin-bottom-2">
+                        Add some variables to the <i class="color-orange">`{{editedEnvironment}}`</i> environment.
+                    </div>
+                    <button class="btn btn-small btn-green" ng-click="addVariable()"><i class="fa fa-plus"></i> Add variable</button>
+                </span>
+            </li>
+            <!-- no variables message -->
+
+        </ul>
+    </div>
+    <div class="flex environment-actions-wrapper padding-2">
+        <div class="flex-1 flex flex-align-center">
+            <button class="btn btn-small btn-green" ng-click="addVariable()"><i class="fa fa-plus"></i> Add variable</button>
+        </div>
+        <div>
+            <button class="btn btn-small btn-red" ng-click="close()">Cancel</button>
+            <button class="btn btn-small btn-blue" ng-click="save(false)">Save</button>
+            <button class="btn btn-small btn-yellow" ng-click="save(true)"><i class="fa fa-refresh"></i> Save & Restart</button>
+        </div>
+    </div>
+</sw-modal-content>

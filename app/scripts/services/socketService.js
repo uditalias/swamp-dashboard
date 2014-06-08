@@ -130,6 +130,15 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                         $rootScope.$broadcast(EVENTS.SERVICE_ERROR, serviceName, logMessage);
 
                         break;
+
+                    case SOCKET_EVENTS.MODIFY_SERVICE_ENVIRONMENTS:
+
+                        var serialized = serializeService.serializeServiceEnvironments(message.data);
+                        var serviceName = message.data.name;
+
+                        $rootScope.$broadcast(EVENTS.MODIFY_SERVICE_ENVIRONMENTS, serviceName, serialized);
+
+                        break;
                 }
             }
         }
@@ -140,5 +149,6 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
         $rootScope.$on(SOCKET_EVENTS.SWAMP_STOP_ALL, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.SWAMP_RESTART_ALL, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.SWAMP_START_ALL, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.MODIFY_SERVICE_ENVIRONMENTS, this._emit.bind(this));
 
     }]);

@@ -122,7 +122,7 @@ angular.module('swamp.services').factory('aggregatedDataFactory', ['AGGREGATED_L
 
         return new AggregatedData(type, maxItems);
 
-    };
+    }
 
     return {
         create: _create

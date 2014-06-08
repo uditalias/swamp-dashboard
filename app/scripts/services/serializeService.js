@@ -74,6 +74,12 @@ angular.module('swamp.services').service('serializeService', [function() {
             time: moment(log.time)
         }
 
-    }
+    };
+
+    this.serializeServiceEnvironments = function(data) {
+
+        return data.environments;
+
+    };
 
 }]);

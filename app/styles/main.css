@@ -7645,8 +7645,9 @@ td.visible-print {
   padding: 5px;
   min-width: 160px;
   position: relative;
+  z-index: 10;
 }
-/* line 22, scss/globals/overrides.scss */
+/* line 23, scss/globals/overrides.scss */
 .dropdown .dropdown-toggle:before {
   position: absolute;
   right: 5px;
@@ -7654,13 +7655,14 @@ td.visible-print {
   content: "\f078";
   font-family: 'FontAwesome';
 }
-/* line 35, scss/globals/overrides.scss */
+/* line 36, scss/globals/overrides.scss */
 .dropdown.open .dropdown-toggle:before {
   content: "\f077";
 }
-/* line 41, scss/globals/overrides.scss */
+/* line 42, scss/globals/overrides.scss */
 .dropdown .dropdown-menu {
   margin: 0;
+  padding: 0;
   border: none;
   background-color: #2e2e2e;
   -webkit-border-radius: 0;
@@ -7668,23 +7670,60 @@ td.visible-print {
   -ms-border-radius: 0;
   -o-border-radius: 0;
   border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   top: auto;
   list-style-type: none;
+  z-index: 5;
 }
-/* line 50, scss/globals/overrides.scss */
+/* line 53, scss/globals/overrides.scss */
 .dropdown .dropdown-menu li {
   cursor: pointer;
 }
-/* line 52, scss/globals/overrides.scss */
+/* line 55, scss/globals/overrides.scss */
 .dropdown .dropdown-menu li a {
   color: white;
   padding: 5px;
 }
-/* line 56, scss/globals/overrides.scss */
+/* line 59, scss/globals/overrides.scss */
 .dropdown .dropdown-menu li a:hover {
   color: #2c001e;
+}
+
+/* line 67, scss/globals/overrides.scss */
+.modal {
+  overflow: auto;
+}
+/* line 70, scss/globals/overrides.scss */
+.modal .modal-content {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: transparent;
+}
+/* line 77, scss/globals/overrides.scss */
+.modal.modal-size_80 .modal-dialog {
+  width: 80%;
+}
+/* line 83, scss/globals/overrides.scss */
+.modal.modal-size_70 .modal-dialog {
+  width: 70%;
+}
+/* line 89, scss/globals/overrides.scss */
+.modal.modal-size_60 .modal-dialog {
+  width: 60%;
+}
+/* line 95, scss/globals/overrides.scss */
+.modal.modal-size_50 .modal-dialog {
+  width: 50%;
+}
+/* line 101, scss/globals/overrides.scss */
+.modal.modal-size_40 .modal-dialog {
+  width: 40%;
 }
 
 /* line 1, scss/globals/colors.scss */
@@ -8816,39 +8855,44 @@ td.visible-print {
   line-height: 70px;
 }
 
-/* line 148, scss/globals/framework.scss */
+/* line 147, scss/globals/framework.scss */
+.text-italic {
+  font-style: italic;
+}
+
+/* line 151, scss/globals/framework.scss */
 .bold, .text-bold {
   font-weight: bold;
 }
 
-/* line 152, scss/globals/framework.scss */
+/* line 155, scss/globals/framework.scss */
 .text-truncate {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* line 158, scss/globals/framework.scss */
+/* line 161, scss/globals/framework.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 162, scss/globals/framework.scss */
+/* line 165, scss/globals/framework.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 166, scss/globals/framework.scss */
+/* line 169, scss/globals/framework.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 170, scss/globals/framework.scss */
+/* line 173, scss/globals/framework.scss */
 .vertical-text-top {
   vertical-align: text-top;
 }
 
-/* line 174, scss/globals/framework.scss */
+/* line 177, scss/globals/framework.scss */
 .border-radius {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -8857,13 +8901,13 @@ td.visible-print {
   border-radius: 4px;
 }
 
-/* line 178, scss/globals/framework.scss */
+/* line 181, scss/globals/framework.scss */
 .box-shadow {
   -webkit-box-shadow: 0 2px 2px 0 #c2c2c2;
   box-shadow: 0 2px 2px 0 #c2c2c2;
 }
 
-/* line 183, scss/globals/framework.scss */
+/* line 186, scss/globals/framework.scss */
 .top-shadow:before {
   content: '';
   position: absolute;
@@ -8886,17 +8930,22 @@ html, body {
   color: #aea79f;
 }
 
-/* line 16, scss/globals/common.scss */
+/* line 13, scss/globals/common.scss */
+html {
+  overflow-y: scroll;
+}
+
+/* line 17, scss/globals/common.scss */
 body {
   margin-top: 100px;
   margin-bottom: 50px;
 }
-/* line 20, scss/globals/common.scss */
+/* line 21, scss/globals/common.scss */
 body.footer-panel-open {
   margin-bottom: 384px;
 }
 
-/* line 26, scss/globals/common.scss */
+/* line 27, scss/globals/common.scss */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Ubuntu', sans-serif !important;
@@ -8905,19 +8954,19 @@ h1, h2, h3, h4, h5, h6,
   color: inherit;
 }
 
-/* line 33, scss/globals/common.scss */
+/* line 34, scss/globals/common.scss */
 ul {
   margin: 0;
   padding: 0;
 }
 
-/* line 38, scss/globals/common.scss */
+/* line 39, scss/globals/common.scss */
 pre {
   font-family: 'Ubuntu Mono';
   font-weight: 400;
 }
 
-/* line 44, scss/globals/common.scss */
+/* line 45, scss/globals/common.scss */
 .table-header > div {
   color: #aea79f;
   font-weight: 400;
@@ -8929,30 +8978,30 @@ pre {
   border-top: solid 1px #404040;
   cursor: pointer;
 }
-/* line 54, scss/globals/common.scss */
+/* line 55, scss/globals/common.scss */
 .table-header > div:last-child {
   margin-right: 0;
 }
-/* line 58, scss/globals/common.scss */
+/* line 59, scss/globals/common.scss */
 .table-header > div:hover .order-by {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 60, scss/globals/common.scss */
+/* line 61, scss/globals/common.scss */
 .table-header > div:hover .order-by:before {
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
-/* line 65, scss/globals/common.scss */
+/* line 66, scss/globals/common.scss */
 .table-header > div.order {
   background-color: #2b2b2b;
 }
-/* line 67, scss/globals/common.scss */
+/* line 68, scss/globals/common.scss */
 .table-header > div.order .order-by {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 74, scss/globals/common.scss */
+/* line 75, scss/globals/common.scss */
 .table-header .order-by {
   position: relative;
   -webkit-transition: all 100ms;
@@ -8960,12 +9009,12 @@ pre {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-/* line 79, scss/globals/common.scss */
+/* line 80, scss/globals/common.scss */
 .table-header .order-by i {
   z-index: 2;
   position: relative;
 }
-/* line 81, scss/globals/common.scss */
+/* line 82, scss/globals/common.scss */
 .table-header .order-by:before {
   z-index: 1;
   position: absolute;
@@ -8977,6 +9026,22 @@ pre {
   transition: all 100ms;
   opacity: 0;
   filter: alpha(opacity=0);
+}
+
+/* line 95, scss/globals/common.scss */
+.middle-dotted-separator {
+  position: relative;
+}
+/* line 98, scss/globals/common.scss */
+.middle-dotted-separator:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  border-bottom: dotted 2px #aea79f;
+}
+/* line 106, scss/globals/common.scss */
+.middle-dotted-separator.separator-dark:after {
+  border-color: #333333;
 }
 
 /* line 1, scss/globals/buttons.scss */
@@ -9034,6 +9099,13 @@ pre {
 .btn.btn-blue {
   background-color: #19b6ee;
   border-bottom-color: #0b7196;
+}
+/* line 50, scss/globals/buttons.scss */
+.btn.btn-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 @keyframes animate-fade-in-out {
@@ -9462,6 +9534,105 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
   font-size: 22px;
 }
 
+/* line 3, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environment-selector-wrapper {
+  background-color: #121212;
+}
+/* line 7, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper {
+  overflow-y: auto;
+  max-height: 450px;
+}
+/* line 12, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li {
+  position: relative;
+  border-bottom: solid 1px #404040;
+}
+/* line 17, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li.disabled > div {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+/* line 23, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li:hover .remove-button {
+  display: block;
+}
+/* line 28, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li:last-child {
+  border-bottom: none;
+}
+/* line 32, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li > div {
+  padding: 5px 10px;
+}
+/* line 35, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li > div.value {
+  background-color: #212121;
+}
+/* line 39, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li > div input[type='text'] {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border: none;
+  font-weight: inherit;
+}
+/* line 47, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li > div input[type='text']:focus {
+  outline: none;
+}
+/* line 53, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .no-variables {
+  border: dashed 5px #212121;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  min-width: 300px;
+  min-height: 170px;
+}
+/* line 60, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .action-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 66, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .remove-button {
+  display: none;
+  cursor: pointer;
+}
+/* line 70, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .remove-button:hover {
+  color: #df382c;
+}
+/* line 75, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .undo-button {
+  cursor: pointer;
+}
+/* line 78, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .undo-button:hover {
+  color: #efb73e;
+}
+/* line 83, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .save-button {
+  cursor: pointer;
+}
+/* line 85, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .save-button button {
+  line-height: 12px;
+}
+/* line 88, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environments-variables-wrapper ul li .save-button button:hover {
+  color: #38b44a;
+}
+/* line 97, ../components/modals/environments_editor/environmentseditor.scss */
+.environments-editor .environment-actions-wrapper {
+  background-color: #121212;
+}
+
 /*
  *  Directives
  */
@@ -9600,6 +9771,22 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
   top: 0;
   left: 0;
   z-index: 2147483647;
+}
+
+/* line 1, ../directives/modal_content/modalcontent.scss */
+.sw-modal-content {
+  background-color: #1a1a1a;
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+/* line 6, ../directives/modal_content/modalcontent.scss */
+.sw-modal-content .sw-modal-title {
+  color: white;
+  font-weight: 400;
+  background-color: #333333;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  border-top: solid 1px #404040;
 }
 
 /*

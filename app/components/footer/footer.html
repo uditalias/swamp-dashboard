@@ -14,12 +14,12 @@
 
         <div class="tab-panel flex" item-selector=".tab-item" wrapper-position="bottom" sw-vertical-scroller ng-if="!handler.collapsed">
             <div class="sw-vertical-scroller-wrapper">
-                <div id="{{'tab_item_' + tab.id}}" class="tab-item" ng-click="setActive(tab.id)" ng-class="{ 'active': tab.active }" ng-repeat="tab in tabsContent"><i class="fa fa-terminal"></i> {{tab.name}}</div>
+                <div id="{{'tab_item_' + tab.id}}" class="tab-item" ng-click="setActive(tab.id)" ng-class="{ 'active': tab.active }" ng-repeat="tab in tabsContent track by $index"><i class="fa fa-terminal"></i> {{tab.name}}</div>
             </div>
         </div>
 
         <div class="content-inner">
-            <div class="log top-shadow" ng-repeat="tab in tabsContent" ng-if="tab.active && !handler.collapsed">
+            <div class="log top-shadow" ng-repeat="tab in tabsContent track by $index" ng-if="tab.active && !handler.collapsed">
 
                 <sw-footer-log-unit ng-model="tab" unit-height="handler.panelContentHeight"></sw-footer-log-unit>
 

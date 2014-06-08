@@ -38,6 +38,14 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
         SwampService.prototype = {
 
+            setEnvironments: function(environments) {
+
+                this.environments = environments;
+
+                $rootScope.$safeApply();
+
+            },
+
             updateMonitorData: function(monitorData) {
                 this.monitor = monitorData;
 

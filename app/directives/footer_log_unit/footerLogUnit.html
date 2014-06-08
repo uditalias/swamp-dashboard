@@ -9,7 +9,7 @@
     <i class="fa fa-pause"></i>
 </div>
 <ul class="log-items-list" sw-perfect-scrollbar ng-style="{ 'height': height + 'px' }" suppress-scroll-x="true" sw-scroll auto-scroll-bottom="tab.tailed">
-    <li ng-repeat="content in tab.content.getAll()" class="{{tab.itemcls}}">
+    <li ng-repeat="content in tab.content.getAll() track by $index" class="{{tab.itemcls}}">
         <pre>{{content.time.format('DD/MM/YYYY HH:mm:ss')}} - {{content.text}}</pre>
     </li>
 </ul>
