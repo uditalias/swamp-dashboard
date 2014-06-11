@@ -3,7 +3,7 @@
     <i ng-if="!tab.tailed" class="fa fa-circle-o text-16"></i>
 </div>
 <div class="clear-log" tooltip-placement="left" tooltip="Clear log" ng-click="tab.content.clear(); updateScroll()">
-    <i class="fa fa-times-circle-o text-16"></i>
+    <i class="fa fa-trash-o text-16"></i>
 </div>
 <div class="pause-log" tooltip-placement="left" tooltip="{{tab.paused ? 'Resume logs' : 'Pause logs'}}" ng-click="pauseTabLog()" ng-class="{ 'active': tab.paused }">
     <i class="fa fa-pause"></i>
