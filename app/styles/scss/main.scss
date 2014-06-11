@@ -1,4 +1,5 @@
 @import "compass";
+@import "font-awesome/font-awesome";
 @import "../../lib/sass-bootstrap/lib/bootstrap";
 
 @import "globals/vars";
@@ -23,6 +24,7 @@
 @import "../../components/service_row_info/servicerowinfo";
 @import "../../components/disconnect_message/disconnectmessage";
 @import "../../components/modals/environments_editor/environmentseditor";
+@import "../../components/modals/logs_selector/logsselector";
 
 
 /*

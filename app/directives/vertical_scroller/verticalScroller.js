@@ -5,14 +5,15 @@ angular.module('swamp.directives').directive('swVerticalScroller', ['$timeout', 
         restrict: 'A',
         link: function($scope, $element, $attrs) {
 
-            var arrow               = '<div class="sw-scroller-arrow flex flex-align-center"></div>',
-                $leftArrow          = $(arrow).addClass('sw-left-arrow'),
-                $rightArrow         = $(arrow).addClass('sw-right-arrow'),
-                vscrollBindFn       = null,
-                arrowJumpSpace      = 100,
-                itemSelector        = $attrs.itemSelector,
-                wrapperPosition     = $attrs.wrapperPosition || 'top',
-                $wrapper            = $element.find('.sw-vertical-scroller-wrapper');
+            var arrow                   = '<div class="sw-scroller-arrow flex flex-align-center"></div>',
+                $leftArrow              = $(arrow).addClass('sw-left-arrow'),
+                $rightArrow             = $(arrow).addClass('sw-right-arrow'),
+                vscrollIntoViewBindFn   = null,
+                vscrollRecalcBindFn     = null,
+                arrowJumpSpace          = 100,
+                itemSelector            = $attrs.itemSelector,
+                wrapperPosition         = $attrs.wrapperPosition || 'top',
+                $wrapper                = $element.find('.sw-vertical-scroller-wrapper');
 
             function _getChildrenTotalWidth() {
 
@@ -98,7 +99,8 @@ angular.module('swamp.directives').directive('swVerticalScroller', ['$timeout', 
                 $leftArrow.off('mousedown', _left);
                 $rightArrow.off('mousedown', _right);
 
-                vscrollBindFn && vscrollBindFn();
+                vscrollIntoViewBindFn && vscrollIntoViewBindFn();
+                vscrollRecalcBindFn && vscrollRecalcBindFn();
             }
 
             function _onVerticalScrollIntoView(event, selector) {
@@ -143,7 +145,8 @@ angular.module('swamp.directives').directive('swVerticalScroller', ['$timeout', 
                 $element.remove();
             });
 
-            vscrollBindFn = $rootScope.$on(EVENTS.VERTICAL_SCROLL_INTO_VIEW, _onVerticalScrollIntoView)
+            vscrollIntoViewBindFn = $rootScope.$on(EVENTS.VERTICAL_SCROLL_INTO_VIEW, _onVerticalScrollIntoView)
+            vscrollRecalcBindFn = $rootScope.$on(EVENTS.VERTICAL_SCROLL_RECALCULATE_DIMENSIONS, _calculateDimensions);
 
         }
     }

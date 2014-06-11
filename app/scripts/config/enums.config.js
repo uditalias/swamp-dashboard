@@ -40,7 +40,8 @@ angular.module('swamp.config')
         "SERVICES_FILTER_CHANGE": "event::services.filter.change",
         "TAIL_LOGS_STATE_CHANGE": "event::tail.logs.state.change",
         "CLEAR_ALL_LOGS": "event::clear.all.logs",
-        "VERTICAL_SCROLL_INTO_VIEW": "event::vertical.scroll.into.view"
+        "VERTICAL_SCROLL_INTO_VIEW": "event::vertical.scroll.into.view",
+        "VERTICAL_SCROLL_RECALCULATE_DIMENSIONS": "event::vertical.scroll.recalculate.dimensions"
     })
     .constant('SERVICE_STATE', {
         "STOP": "service.state.stop",
@@ -57,7 +58,8 @@ angular.module('swamp.config')
         "FIFO": 2
     })
     .constant('MODAL_TYPE', {
-        "SERVICE_ENVIRONMENTS_EDITOR": 'modal::service.environments.editor'
+        "SERVICE_ENVIRONMENTS_EDITOR": 'modal::service.environments.editor',
+        "LOGS_SELECTOR": 'modal::logs.selector'
     })
     .constant('LOG_TYPE', {
         "OUT": "log.out",

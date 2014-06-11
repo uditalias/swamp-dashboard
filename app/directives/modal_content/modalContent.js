@@ -11,8 +11,8 @@ angular.module('swamp.directives').directive('swModalContent', ['modalService', 
         },
         link: function($scope, $element, $attrs) {
 
-            $scope.close = function() {
-                modalService.close();
+            $scope.dismiss = function() {
+                modalService.dismiss();
             }
 
 

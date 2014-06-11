@@ -6,20 +6,38 @@ angular.module('swamp.services').service('modalService', ['$modal', 'MODAL_TYPE'
 
     this.open = function(type, payload) {
 
+        this.close();
+
         var modalParams = modalParamsFactory.create(type, payload);
 
         _currentInstance = $modal.open(modalParams);
 
+        return _currentInstance;
+
     }
 
-    this.close = function() {
+    this.dismiss = function(data) {
 
-        if(_currentInstance) {
+        if(_currentInstance && _currentInstance.dismiss) {
 
-            _currentInstance.close();
+            _currentInstance.dismiss(data);
 
             _currentInstance = null;
 
+        }
+
+    }
+
+    this.close = function(data) {
+
+        if(_currentInstance && _currentInstance.close) {
+            try {
+                _currentInstance.close(data);
+            }
+            catch(e) {}
+            finally {
+                _currentInstance = null;
+            }
         }
     }
 

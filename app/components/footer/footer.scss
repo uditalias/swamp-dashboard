@@ -4,7 +4,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  z-index: 1500;
+  z-index: 1030;
 
   .footer-inner {
 
@@ -41,12 +41,27 @@ footer {
           @include border-radius(4px 4px 0 0);
           display: inline-block;
           margin-right: 2px;
-          padding: 5px 12px;
+          padding: 5px 20px 5PX 12PX;
           background-color: adjust-lightness($cool-grey, -5%);
+          position: relative;
           cursor: pointer;
+
+          .close-btn {
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            @include opacity(0);
+            @include transition(top 200ms, opacity 200ms);
+            @include text-shadow(0 0 10px #000);
+          }
 
           &:hover {
             background-color: adjust-lightness($cool-grey, -2%);
+
+            .close-btn {
+              top: 5px;
+              @include opacity(1);
+            }
           }
 
           &.active {
@@ -56,6 +71,13 @@ footer {
       }
 
       .content-inner {
+
+        .no-tabs-content {
+          border: dashed 5px adjust-lightness($cool-grey, -7%);
+          @include border-radius(10px);
+          min-width: 300px;
+          min-height: 170px;
+        }
 
         .log {
 

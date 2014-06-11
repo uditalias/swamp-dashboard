@@ -2,26 +2,50 @@
 
     <div class="flex header">
         <div class="title flex-1" ng-click="handler.collapsed = !handler.collapsed">
-            <i class="fa fa-terminal"></i> Swamp <span class="swamp-version">(v{{handler.swampVersion}})</span> <span ng-if="handler.title"> - {{handler.title}}</span>
+            <i class="fa fa-terminal"></i> Swamp <span class="swamp-version">(v{{handler.swampVersion}})</span> <span ng-if="handler.title && !handler.collapsed"> - {{handler.title}}</span>
         </div>
-        <div class="panel-actions" ng-if="!handler.collapsed" ng-click="toggleView()">
-            <i class="fa fa-toggle-up" ng-if="!handler.maximized" tooltip="Maximize" tooltip-placement="left"></i>
-            <i class="fa fa-toggle-down" ng-if="handler.maximized" tooltip="Minimize" tooltip-placement="left"></i>
+        <div class="flex panel-actions" ng-if="!handler.collapsed && enabledTabsContent.length > 0">
+            <div ng-click="toggleView()">
+                <i class="fa fa-toggle-up" ng-if="!handler.maximized" tooltip="Maximize" tooltip-placement="left"></i>
+                <i class="fa fa-toggle-down" ng-if="handler.maximized" tooltip="Minimize" tooltip-placement="left"></i>
+            </div>
+            <div class="margin-left-2">
+                <i class="fa fa-plus" tooltip="Add logs" tooltip-placement="left" ng-click="openLogsWindow()"></i>
+            </div>
         </div>
     </div>
 
     <div class="content" ng-hide="handler.collapsed">
 
-        <div class="tab-panel flex" item-selector=".tab-item" wrapper-position="bottom" sw-vertical-scroller ng-if="!handler.collapsed">
-            <div class="sw-vertical-scroller-wrapper">
-                <div id="{{'tab_item_' + tab.id}}" class="tab-item" ng-click="setActive(tab.id)" ng-class="{ 'active': tab.active }" ng-repeat="tab in tabsContent track by $index"><i class="fa fa-terminal"></i> {{tab.name}}</div>
+        <div class="tab-panel flex" item-selector=".tab-item" wrapper-position="bottom" sw-vertical-scroller ng-if="!handler.collapsed && enabledTabsContent.length > 0">
+            <div class="sw-vertical-scroller-wrapper" ui-sortable ng-model="enabledTabsContent">
+                <div id="{{'tab_item_' + tab.id}}" class="tab-item" ng-click="setActive(tab.id)" ng-class="{ 'active': tab.active }" ng-repeat="tab in enabledTabsContent track by $index">
+                    <i class="fa fa-terminal"></i> {{tab.name}}
+
+                    <div class="close-btn" ng-click="closeTabPanel($event, tab.id)">
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="content-inner">
-            <div class="log top-shadow" ng-repeat="tab in tabsContent track by $index" ng-if="tab.active && !handler.collapsed">
+            <div class="log top-shadow" ng-repeat="tab in enabledTabsContent track by $index" ng-if="tab.active && !handler.collapsed">
 
                 <sw-footer-log-unit ng-model="tab" unit-height="handler.panelContentHeight"></sw-footer-log-unit>
+
+            </div>
+
+            <div class="top-shadow flex flex-align-center flex-pack-center" ng-style="{ 'height': handler.panelContentHeight }" ng-if="enabledTabsContent.length == 0 && !handler.collapsed">
+
+                <div class="no-tabs-content padding-5">
+                    <span class="no-variables padding-5 flex flex-vbox flex-pack-center text-center">
+                        <div class="text-24 color-white margin-bottom-2">No logs in here :(</div>
+
+                        <button class="btn btn-green" ng-click="openLogsWindow()"><i class="fa fa-plus"></i> Add logs</button>
+
+                    </span>
+                </div>
 
             </div>
         </div>

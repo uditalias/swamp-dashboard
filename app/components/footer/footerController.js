@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('swamp.controllers').controller('footerController', ['$scope', '$rootScope', 'EVENTS', 'swampManager', 'swampServicesManager', '$timeout',
-    function($scope, $rootScope, EVENTS, swampManager, swampServicesManager, $timeout) {
+angular.module('swamp.controllers').controller('footerController', ['$scope', '$rootScope', 'EVENTS', 'swampManager', 'swampServicesManager', '$timeout', 'modalService', 'MODAL_TYPE',
+    function($scope, $rootScope, EVENTS, swampManager, swampServicesManager, $timeout, modalService, MODAL_TYPE) {
 
         $scope.handler = {
             collapsed: true,
@@ -12,6 +12,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
             swampVersion: window.swampVersion
         };
         $scope.tabsContent = [];
+        $scope.enabledTabsContent = [];
 
         var tailAllLogsState = false;
 
@@ -47,6 +48,78 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
             $scope.handler.maximized = !$scope.handler.maximized;
         }
 
+        $scope.openLogsWindow = function() {
+
+            var payload = {
+                tabsContent: $scope.tabsContent,
+                enabledTabsContent: $scope.enabledTabsContent
+            }
+
+            modalService.open(MODAL_TYPE.LOGS_SELECTOR, payload).result.then(_onLogsSelected);
+
+        }
+
+        $scope.closeTabPanel = function($event, tabId) {
+
+            $event.stopPropagation();
+            $event.preventDefault();
+
+            var removedTab = _.remove($scope.enabledTabsContent, { id: tabId });
+
+            if($scope.enabledTabsContent.length == 0) {
+
+                $scope.handler.panelContentHeight = 300;
+                $scope.handler.maximized = false;
+                $scope.handler.title = '';
+
+            } else {
+
+                if(removedTab[0].active) {
+
+                    $scope.setActive($scope.enabledTabsContent[0].id);
+
+                }
+
+            }
+
+            $rootScope.$emit(EVENTS.VERTICAL_SCROLL_RECALCULATE_DIMENSIONS);
+
+        }
+
+        function _onLogsSelected(logs, aggregate) {
+
+            if(!logs) { return; }
+
+            _.forEach($scope.tabsContent, function(tab) {
+
+                if(logs[tab.id]) {
+
+                    if(!_.find($scope.enabledTabsContent, { id: tab.id })) {
+
+                        $scope.enabledTabsContent.push(tab);
+
+                    }
+
+                } else {
+
+                    if(!aggregate) {
+
+                        _.remove($scope.enabledTabsContent, { id: tab.id });
+
+                    }
+
+                }
+
+            });
+
+            if($scope.enabledTabsContent.length > 0) {
+                $scope.setActive($scope.enabledTabsContent[0].id);
+
+                $rootScope.$emit(EVENTS.VERTICAL_SCROLL_RECALCULATE_DIMENSIONS);
+            }
+
+        }
+
         function _setPanelMaxHeight() {
             $scope.handler.panelContentHeight = _getPanelMaxHeight();
         }
@@ -57,13 +130,19 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
 
         function _setTitle() {
 
-            var tab = _.where($scope.tabsContent, { active: true });
+            var tab = _.where($scope.enabledTabsContent, { active: true });
 
-            $scope.handler.title = tab[0].name;
+            $scope.handler.title = tab.length ? tab[0].name : '';
 
         }
 
         function _onOpenFooterPanelRequest(event, panelId) {
+
+            if(!_.find($scope.enabledTabsContent, { id: panelId })) {
+                var tabs = {};
+                tabs[panelId] = true;
+                _onLogsSelected(tabs, true);
+            }
 
             $scope.setActive(panelId);
 
@@ -75,13 +154,15 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
 
             }, 10);
 
+            $rootScope.$emit(EVENTS.VERTICAL_SCROLL_RECALCULATE_DIMENSIONS);
+
         }
 
         function _initializeSwampTabs() {
 
             $scope.tabsContent.push({
                 id: swampManager.outLogData.id,
-                active: true,
+                active: false,
                 tailed: tailAllLogsState,
                 paused: false,
                 itemcls: 'color-green',

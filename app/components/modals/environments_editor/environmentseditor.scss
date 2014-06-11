@@ -9,6 +9,9 @@
     max-height:450px;
 
     ul {
+
+      list-style-type: none;
+
       li {
         position: relative;
         border-bottom: solid 1px adjust-lightness($cool-grey, 5%);

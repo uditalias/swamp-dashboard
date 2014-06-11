@@ -1,7 +1,6 @@
 'use strict';
 
 var app = angular.module('swamp', [
-    'swamp.config',
     'ngCookies',
     'ngResource',
     'ngSanitize',
@@ -9,6 +8,7 @@ var app = angular.module('swamp', [
     'ui.bootstrap',
     'Scope.safeApply',
     'Scope.onReady',
+    'swamp.config',
     'swamp.filters',
     'swamp.controllers',
     'swamp.directives',
