@@ -165,6 +165,8 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                 active: false,
                 tailed: tailAllLogsState,
                 paused: false,
+                query: '',
+                inQueryMode: false,
                 itemcls: 'color-green',
                 name: 'Swamp out log',
                 content: swampManager.outLogData
@@ -175,6 +177,8 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                 active: false,
                 tailed: tailAllLogsState,
                 paused: false,
+                query: '',
+                inQueryMode: false,
                 itemcls: 'color-red',
                 name: 'Swamp error log',
                 content: swampManager.errorLogData
@@ -191,6 +195,8 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                     active: false,
                     tailed: tailAllLogsState,
                     paused: false,
+                    query: '',
+                    inQueryMode: false,
                     itemcls: 'color-green',
                     name: service.name + ' out log',
                     content: service.outLogData
@@ -201,6 +207,8 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                     active: false,
                     tailed: tailAllLogsState,
                     paused: false,
+                    query: '',
+                    inQueryMode: false,
                     itemcls: 'color-red',
                     name: service.name + ' error log',
                     content: service.errorLogData

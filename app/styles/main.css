@@ -11771,7 +11771,11 @@ footer .footer-inner .content .content-inner .log:hover .clear-log {
 footer .footer-inner .content .content-inner .log:hover .pause-log {
   display: block;
 }
-/* line 100, ../components/footer/footer.scss */
+/* line 99, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log:hover .search-log {
+  display: block;
+}
+/* line 104, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .pause-log {
   z-index: 1;
   cursor: pointer;
@@ -11780,18 +11784,66 @@ footer .footer-inner .content .content-inner .log .pause-log {
   top: 15px;
   right: 16px;
 }
-/* line 108, ../components/footer/footer.scss */
+/* line 112, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .pause-log:hover {
   color: #efb73e;
 }
-/* line 112, ../components/footer/footer.scss */
+/* line 116, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .pause-log.active {
   -webkit-animation: animate-fade-in-out 1000ms ease-in infinite forwards;
   animation: animate-fade-in-out 1000ms ease-in infinite forwards;
   color: #efb73e;
   display: block;
 }
-/* line 119, ../components/footer/footer.scss */
+/* line 123, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .search-log {
+  z-index: 2;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 75px;
+  right: 15px;
+}
+/* line 131, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .search-log:hover {
+  color: #19b6ee;
+}
+/* line 135, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .search-log.active {
+  color: #19b6ee;
+  display: block;
+}
+/* line 142, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .query-input-holder {
+  z-index: 1;
+  position: absolute;
+  top: 74px;
+  right: 10px;
+  border: solid 1px #19b6ee;
+  background: rgba(25, 182, 238, 0.1);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 151, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .query-input-holder input[type="text"] {
+  font-size: 12px;
+  font-weight: 100;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0 25px 0 7px;
+  margin: 0;
+}
+/* line 160, ../components/footer/footer.scss */
+footer .footer-inner .content .content-inner .log .query-input-holder input[type="text"]:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* line 167, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .clear-log {
   z-index: 1;
   cursor: pointer;
@@ -11800,11 +11852,11 @@ footer .footer-inner .content .content-inner .log .clear-log {
   top: 55px;
   right: 15px;
 }
-/* line 127, ../components/footer/footer.scss */
+/* line 175, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .clear-log:hover {
   color: #df382c;
 }
-/* line 132, ../components/footer/footer.scss */
+/* line 180, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log {
   z-index: 1;
   cursor: pointer;
@@ -11813,16 +11865,16 @@ footer .footer-inner .content .content-inner .log .tail-log {
   top: 35px;
   right: 15px;
 }
-/* line 140, ../components/footer/footer.scss */
+/* line 188, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log:hover {
   color: #2c8d3a;
 }
-/* line 144, ../components/footer/footer.scss */
+/* line 192, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log .tail-log.active {
   color: #38b44a;
   display: block;
 }
-/* line 150, ../components/footer/footer.scss */
+/* line 198, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul {
   -webkit-transition: height 200ms;
   transition: height 200ms;
@@ -11830,30 +11882,30 @@ footer .footer-inner .content .content-inner .log ul {
   overflow: hidden;
   padding: 5px;
 }
-/* line 157, ../components/footer/footer.scss */
+/* line 205, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul:hover li {
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
-/* line 162, ../components/footer/footer.scss */
+/* line 210, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li {
   -webkit-transition: all 100ms;
   transition: all 100ms;
 }
-/* line 166, ../components/footer/footer.scss */
+/* line 214, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:nth-child(even) {
   background-color: #141414;
 }
-/* line 170, ../components/footer/footer.scss */
+/* line 218, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:nth-child(odd) {
   background-color: #121212;
 }
-/* line 174, ../components/footer/footer.scss */
+/* line 222, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log ul li:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 180, ../components/footer/footer.scss */
+/* line 228, ../components/footer/footer.scss */
 footer .footer-inner .content .content-inner .log pre {
   color: inherit;
   border: none;

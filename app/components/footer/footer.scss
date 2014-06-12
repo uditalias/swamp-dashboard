@@ -95,6 +95,10 @@ footer {
             .pause-log {
               display: block;
             }
+
+            .search-log {
+              display: block;
+            }
           }
 
           .pause-log {
@@ -113,6 +117,50 @@ footer {
               @include animation(animate-fade-in-out 1000ms ease-in infinite forwards);
               color: $yellow;
               display: block;
+            }
+          }
+
+          .search-log {
+            z-index: 2;
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 75px;
+            right: 15px;
+
+            &:hover {
+              color: $blue;
+            }
+
+            &.active {
+              color: $blue;
+              display: block;
+            }
+
+          }
+
+          .query-input-holder {
+            z-index: 1;
+            position: absolute;
+            top: 74px;
+            right: 10px;
+            border: solid 1px $blue;
+            background: rgba(25, 182, 238, 0.1);
+            @include border-radius(10px);
+
+            input[type="text"] {
+              font-size: 12px;
+              font-weight: 100;
+              background: transparent;
+              border: none;
+              color: $white;
+              padding: 0 25px 0 7px;
+              margin: 0;
+
+              &:focus {
+                outline: none;
+                @include box-shadow(none);
+              }
             }
           }
 
