@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('swamp.directives').directive('swScrollState', ['EVENTS',
-    function(EVENTS) {
+angular.module('swamp.directives').directive('swScrollState', ['EVENTS', '$rootScope',
+    function(EVENTS, $rootScope) {
         return {
             restrict: 'A',
             scope: {
@@ -20,6 +20,8 @@ angular.module('swamp.directives').directive('swScrollState', ['EVENTS',
                         $scope.onScroll && $scope.onScroll({ state: newState });
 
                         currentScrollState = newState;
+
+                        $rootScope.$safeApply();
                     }
                 }
 
