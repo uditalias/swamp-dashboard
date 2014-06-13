@@ -1,0 +1,40 @@
+.sw-context-menu {
+  position: absolute;
+  z-index: 2000;
+  background-color: adjust-lightness($cool-grey, -10%);
+  min-width: 130px;
+  @include box-shadow(0 5px 20px rgba(0,0,0,0.5));
+  @include border-radius(4px);
+
+  ul {
+
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      color: $warm-grey;
+      cursor: pointer;
+      padding: 5px;
+      border-bottom: solid 1px adjust-lightness($cool-grey, -5%);
+
+      &.disabled {
+        color: adjust-lightness($cool-grey, -3%);
+      }
+
+      &:hover:not(.disabled) {
+        background-color: adjust-lightness($cool-grey, -11%);
+        color: $white;
+      }
+
+      &:first-child {
+        @include border-radius(4px 4px 0 0);
+      }
+
+      &:last-child {
+        @include border-radius(0 0 4px 4px);
+        border-bottom: none;
+      }
+    }
+  }
+}

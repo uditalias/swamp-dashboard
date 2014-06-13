@@ -12456,6 +12456,60 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
   border-top: solid 1px #404040;
 }
 
+/* line 1, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu {
+  position: absolute;
+  z-index: 2000;
+  background-color: #1a1a1a;
+  min-width: 130px;
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 9, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 15, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu ul li {
+  color: #aea79f;
+  cursor: pointer;
+  padding: 5px;
+  border-bottom: solid 1px #262626;
+}
+/* line 21, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu ul li.disabled {
+  color: #2b2b2b;
+}
+/* line 25, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu ul li:hover:not(.disabled) {
+  background-color: #171717;
+  color: white;
+}
+/* line 30, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu ul li:first-child {
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+/* line 34, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu ul li:last-child {
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -ms-border-radius: 0 0 4px 4px;
+  -o-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  border-bottom: none;
+}
+
 /*
  *  Pages
  */

@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('swamp.services').factory('swampServicesFactory', [
-    '$rootScope', 'env', 'SERVICE_STATE', 'CLIENT_REQUEST', 'aggregatedDataFactory', 'AGGREGATED_LIST_TYPE', 'LOG_TYPE', 'serializeService',
-    function($rootScope, env, SERVICE_STATE, CLIENT_REQUEST, aggregatedDataFactory, AGGREGATED_LIST_TYPE, LOG_TYPE, serializeService) {
+    '$rootScope', 'env', 'SERVICE_STATE', 'CLIENT_REQUEST', 'aggregatedDataFactory', 'AGGREGATED_LIST_TYPE', 'LOG_TYPE', 'serializeService', 'EVENTS',
+    function($rootScope, env, SERVICE_STATE, CLIENT_REQUEST, aggregatedDataFactory, AGGREGATED_LIST_TYPE, LOG_TYPE, serializeService, EVENTS) {
 
 
         function SwampService(params) {
@@ -205,6 +205,28 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
                 this.uptime = null;
 
+            },
+
+            getContextMenu: function() {
+                return [{
+                    title: 'Out log',
+                    command: function() { $rootScope.$broadcast(EVENTS.OPEN_FOOTER_PANEL, this.outLogData.id); }.bind(this)
+                }, {
+                    title: 'Error log',
+                    command: function() { $rootScope.$broadcast(EVENTS.OPEN_FOOTER_PANEL, this.errorLogData.id); }.bind(this)
+                }, {
+                    title: 'Restart',
+                    disabled: this.state != SERVICE_STATE.RUN,
+                    command: function() { this.restart(); }.bind(this)
+                }, {
+                    title: 'Start',
+                    disabled: this.state != SERVICE_STATE.STOP,
+                    command: function() { this.start(); }.bind(this)
+                }, {
+                    title: 'Stop',
+                    disabled: this.state != SERVICE_STATE.RUN,
+                    command: function() { this.stop(); }.bind(this)
+                }]
             }
 
         };

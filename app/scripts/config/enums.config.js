@@ -41,7 +41,8 @@ angular.module('swamp.config')
         "TAIL_LOGS_STATE_CHANGE": "event::tail.logs.state.change",
         "CLEAR_ALL_LOGS": "event::clear.all.logs",
         "VERTICAL_SCROLL_INTO_VIEW": "event::vertical.scroll.into.view",
-        "VERTICAL_SCROLL_RECALCULATE_DIMENSIONS": "event::vertical.scroll.recalculate.dimensions"
+        "VERTICAL_SCROLL_RECALCULATE_DIMENSIONS": "event::vertical.scroll.recalculate.dimensions",
+        "DISPOSE_CONTEXT_MENUS": "event::dispose.context.menus"
     })
     .constant('SERVICE_STATE', {
         "STOP": "service.state.stop",
