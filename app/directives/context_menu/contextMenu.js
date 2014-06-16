@@ -108,6 +108,8 @@ angular.module('swamp.directives').directive('swContextMenu', ['$rootScope', 'EV
                         $menu.remove();
                         $menu = null;
                     }
+
+                    $(document).off('click', _onBodyClick);
                 }
 
                 function _onContextMenu(e) {
@@ -124,6 +126,8 @@ angular.module('swamp.directives').directive('swContextMenu', ['$rootScope', 'EV
 
                     _positionContextMenu(_Y, _X);
 
+                    $(document).on('click', _onBodyClick);
+
                 }
 
                 function _onBodyClick(e) {
@@ -136,8 +140,6 @@ angular.module('swamp.directives').directive('swContextMenu', ['$rootScope', 'EV
                 }
 
                 $element.on('contextmenu', _onContextMenu);
-
-                $(document).on('click', _onBodyClick)
 
                 $scope.$on('$destroy', function() {
 
