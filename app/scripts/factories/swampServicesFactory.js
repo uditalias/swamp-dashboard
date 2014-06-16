@@ -167,6 +167,12 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             },
 
+            openIOStreamer: function(type) {
+
+                window.open('/io/' + this.id + '/' + type + '/');
+
+            },
+
             dispose: function() {
 
                 this.forceStop();
@@ -226,6 +232,15 @@ angular.module('swamp.services').factory('swampServicesFactory', [
                     title: 'Stop',
                     disabled: this.state != SERVICE_STATE.RUN,
                     command: function() { this.stop(); }.bind(this)
+                }, {
+                    title: 'Process I/O',
+                    command: [{
+                        title: 'STDOUT',
+                        command: function() { this.openIOStreamer('out'); }.bind(this)
+                    }, {
+                        title: 'STDERR',
+                        command: function() { this.openIOStreamer('error'); }.bind(this)
+                    }]
                 }]
             }
 

@@ -7,8 +7,9 @@ angular.module('swamp.directives').directive('swContextMenu', ['$rootScope', 'EV
         },
         compile: function() {
 
-            var _menuTemplate   = '<div class="sw-context-menu"><ul></ul></div>',
-                _itemTemplate   = '<li></li>';
+            var _menuTemplate       = '<div class="sw-context-menu"><ul></ul></div>',
+                _submenuTemplate    = '<div class="sw-sub-context-menu"><ul></ul></div>',
+                _itemTemplate       = '<li></li>';
 
             return function($scope, $element, $attrs) {
 
@@ -26,10 +27,38 @@ angular.module('swamp.directives').directive('swContextMenu', ['$rootScope', 'EV
 
                         $item.text(item.title);
 
-                        $item.on('click', _onItemClick.bind($scope.$payload, item));
+                        if(item.command instanceof Array) {
 
-                        if(item.disabled) {
-                            $item.addClass('disabled');
+                            $item.addClass('sub-menu-container');
+
+                            var $subMenu = $(_submenuTemplate);
+
+                            _.forEach(item.command, function(subitem) {
+
+                                var $subitem = $(_itemTemplate);
+
+                                $subitem.text(subitem.title);
+
+                                $subitem.on('click', _onItemClick.bind($scope.$payload, subitem));
+
+                                if(subitem.disabled) {
+                                    $subitem.addClass('disabled');
+                                }
+
+                                $subMenu.find('ul').append($subitem);
+
+                            });
+
+                            $item.append($subMenu);
+
+                        } else if(typeof item.command === 'function') {
+
+                            $item.on('click', _onItemClick.bind($scope.$payload, item));
+
+                            if(item.disabled) {
+                                $item.addClass('disabled');
+                            }
+
                         }
 
                         $menu.find('ul').append($item);

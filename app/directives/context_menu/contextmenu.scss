@@ -13,10 +13,21 @@
     margin: 0;
 
     li {
+      position: relative;
       color: $warm-grey;
       cursor: pointer;
       padding: 5px;
       border-bottom: solid 1px adjust-lightness($cool-grey, -5%);
+
+      &.sub-menu-container {
+        &:after {
+          position: absolute;
+          top: 18%;
+          right: 5%;
+          content: '\f105';
+          font-family: 'FontAwesome';
+        }
+      }
 
       &.disabled {
         color: adjust-lightness($cool-grey, -3%);
@@ -35,6 +46,24 @@
         @include border-radius(0 0 4px 4px);
         border-bottom: none;
       }
+
+      &:hover {
+        .sw-sub-context-menu {
+          display: block;
+        }
+      }
     }
+  }
+
+  .sw-sub-context-menu {
+    left: 100%;
+    top: -1px;
+    border-top: solid 1px adjust-lightness($cool-grey, -5%);
+    position: absolute;
+    display: none;
+    background-color: adjust-lightness($cool-grey, -10%);
+    min-width: 130px;
+    @include box-shadow(0 5px 20px rgba(0,0,0,0.5));
+    @include border-radius(0 4px 4px 4px);
   }
 }

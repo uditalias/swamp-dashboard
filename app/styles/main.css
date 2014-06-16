@@ -12478,21 +12478,30 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
 }
 /* line 15, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li {
+  position: relative;
   color: #aea79f;
   cursor: pointer;
   padding: 5px;
   border-bottom: solid 1px #262626;
 }
-/* line 21, ../directives/context_menu/contextmenu.scss */
+/* line 23, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu ul li.sub-menu-container:after {
+  position: absolute;
+  top: 18%;
+  right: 5%;
+  content: '\f105';
+  font-family: 'FontAwesome';
+}
+/* line 32, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li.disabled {
   color: #2b2b2b;
 }
-/* line 25, ../directives/context_menu/contextmenu.scss */
+/* line 36, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li:hover:not(.disabled) {
   background-color: #171717;
   color: white;
 }
-/* line 30, ../directives/context_menu/contextmenu.scss */
+/* line 41, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li:first-child {
   -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
@@ -12500,7 +12509,7 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
   -o-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
 }
-/* line 34, ../directives/context_menu/contextmenu.scss */
+/* line 45, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li:last-child {
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
@@ -12508,6 +12517,27 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
   -o-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
   border-bottom: none;
+}
+/* line 51, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu ul li:hover .sw-sub-context-menu {
+  display: block;
+}
+/* line 58, ../directives/context_menu/contextmenu.scss */
+.sw-context-menu .sw-sub-context-menu {
+  left: 100%;
+  top: -1px;
+  border-top: solid 1px #262626;
+  position: absolute;
+  display: none;
+  background-color: #1a1a1a;
+  min-width: 130px;
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 0 4px 4px 4px;
+  -moz-border-radius: 0 4px 4px 4px;
+  -ms-border-radius: 0 4px 4px 4px;
+  -o-border-radius: 0 4px 4px 4px;
+  border-radius: 0 4px 4px 4px;
 }
 
 /*
