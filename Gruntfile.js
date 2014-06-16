@@ -213,7 +213,7 @@ module.exports = function (grunt) {
                 options: {
                     sassDir: '<%= yeoman.app %>/styles/scss',
                     cssDir: '<%= yeoman.app %>/styles/',
-                    specify: '<%= yeoman.app %>/styles/scss/main.scss'
+                    specify: ['<%= yeoman.app %>/styles/scss/main.scss', '<%= yeoman.app %>/styles/scss/stream.main.scss']
                 }
             },
             dist: {
@@ -221,7 +221,7 @@ module.exports = function (grunt) {
                     generatedImagesDir: '<%= yeoman.dist %>/assets/images/generated',
                     sassDir: '<%= yeoman.app %>/styles/scss',
                     cssDir: '<%= yeoman.app %>/styles/',
-                    specify: '<%= yeoman.app %>/styles/scss/main.scss'
+                    specify: ['<%= yeoman.app %>/styles/scss/main.scss', '<%= yeoman.app %>/styles/scss/stream.main.scss' ]
                 }
             },
             server: {
