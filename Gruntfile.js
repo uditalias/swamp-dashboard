@@ -377,7 +377,8 @@ module.exports = function (grunt) {
                             cwd: '<%= yeoman.dist %>',
                             dest: '../swamp/dashboard/views/',
                             src: [
-                                'index.ejs'
+                                'index.ejs',
+                                'ioStream.ejs'
                             ]
                         }]
                     };
@@ -448,9 +449,11 @@ module.exports = function (grunt) {
 
     // creates the .ejs file from the .html
     grunt.registerTask('converthtml', function() {
-        var html = fs.readFileSync(path.resolve(yeoman.dist, 'index.html'));
+        var index_html = fs.readFileSync(path.resolve(yeoman.dist, 'index.html'));
+        var io_stream = fs.readFileSync(path.resolve(yeoman.dist, 'ioStream.html'));
 
-        fs.writeFileSync(path.resolve(yeoman.dist, 'index.ejs'), html);
+        fs.writeFileSync(path.resolve(yeoman.dist, 'index.ejs'), index_html);
+        fs.writeFileSync(path.resolve(yeoman.dist, 'ioStream.ejs'), io_stream);
 
     });
 
