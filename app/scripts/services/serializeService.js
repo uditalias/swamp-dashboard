@@ -5,7 +5,7 @@ angular.module('swamp.services').service('serializeService', [function() {
     this.serializeSwampService = function (data) {
       
         return {
-            id : _.guid(),
+            id : data.id,
             name : data.name,
             description : data.description,
             path : data.path,
