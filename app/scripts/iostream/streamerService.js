@@ -32,7 +32,7 @@ var streamerService = (function() {
 
     Streamer.prototype._getStreamUri = function() {
 
-        return window.socketConnectionString + '/io/' + this._serviceId + '/' + this._ioType + '/stream/';
+        return window.socketConnectionString + 'io/' + this._serviceId + '/' + this._ioType + '/stream/';
 
     };
 
