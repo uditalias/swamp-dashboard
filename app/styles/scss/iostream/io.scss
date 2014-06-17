@@ -1,12 +1,14 @@
 .io-container {
 
-  margin: 50px 0 0 250px;
+  margin: 48px 0 0 250px;
+  background: $cool-grey;
+  color: $white;
 
   pre {
     font-family: 'Ubuntu Mono';
     font-weight: 100;
     white-space: pre;
     display: block;
-    //unicode-bidi: embed;
+    word-wrap: break-word;
   }
 }

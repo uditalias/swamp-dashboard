@@ -1244,12 +1244,15 @@ aside {
 
 /* line 1, scss/iostream/io.scss */
 .io-container {
-  margin: 50px 0 0 250px;
+  margin: 48px 0 0 250px;
+  background: #333333;
+  color: white;
 }
-/* line 5, scss/iostream/io.scss */
+/* line 7, scss/iostream/io.scss */
 .io-container pre {
   font-family: 'Ubuntu Mono';
   font-weight: 100;
   white-space: pre;
   display: block;
+  word-wrap: break-word;
 }
