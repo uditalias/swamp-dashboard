@@ -34,7 +34,15 @@
         <!-- endbuild -->
     </head>
     <body>
-        io.stream
+        <header>
+            <div class="flex flex-align-center">
+                <div class="padding-2 swamp-io-logo text-24 color-white">Swamp <span class="color-red"> I/O</span></div>
+                <div class="service-name margin-left-2 color-white text-20"><%= serviceName %></div>
+                <div class="margin-left-1 color-white text-20"><%= ioType %></div>
+            </div>
+        </header>
+        <aside class="padding-2"></aside>
+        <div class="io-container padding-2"><pre></pre></div>
 
         <!-- build:js /scripts/stream.vendor.js -->
         <script src="lib/lodash/dist/lodash.compat.js"></script>
@@ -46,5 +54,15 @@
         <!-- build:js({.tmp,app}) /scripts/stream.scripts.js -->
         <script src="/scripts/iostream/app.js"></script>
         <!-- endbuild -->
+
+        <script>
+            //<![CDATA[
+            var socketConnectionString = "<%= socketConnectionString %>";
+            var swampVersion = "<%= swampVersion %>";
+            var serviceName = "<%= serviceName %>";
+            var ioType = "<%= ioType %>";
+            window.document.title = "Swamp (v<%= swampVersion %>) | IO Stream";
+            //]]>
+        </script>
     </body>
 </html>

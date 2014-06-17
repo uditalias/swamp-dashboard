@@ -1,0 +1,26 @@
+header {
+  position: fixed;
+  background: adjust-lightness($dark-aubergine, -3%);
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  @include box-shadow(0 0 0 2px rgba(0,0,0,0.2));
+
+  &.scrolled {
+    @include box-shadow(0 0 5px 6px rgba(0, 0, 0, 0.2));
+  }
+
+  .swamp-io-logo {
+    background: $dark-aubergine;
+    width: 230px;
+    font-weight: 100;
+    span {
+      font-family: 'Ubuntu Mono';
+    }
+  }
+
+  .service-name {
+
+  }
+}
