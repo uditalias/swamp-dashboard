@@ -20,10 +20,10 @@ $(function() {
     function _poll() {
         _clearScreen();
 
-        streamerService.poll(_onStreamerData);
+        streamerService.poll();
     }
 
-    streamerService.initialize(window.serviceId, window.ioType);
+    streamerService.initialize(window.serviceId, window.ioType, _onStreamerData);
 
     streamerService.getSTDFilesList(_onFilesListResponse);
 
