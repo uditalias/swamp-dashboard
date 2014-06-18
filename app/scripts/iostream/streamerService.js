@@ -65,12 +65,12 @@ var streamerService = (function() {
         _streamer       = null;
 
 
-    function _initialize(serviceId, ioType) {
+    function _initialize(serviceId, ioType, callback) {
 
         if(!_initialized) {
             _initialized = true;
 
-            _streamer = new Streamer(serviceId, ioType);
+            _streamer = new Streamer(serviceId, ioType, callback);
         }
     }
 
