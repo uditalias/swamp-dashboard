@@ -4,7 +4,7 @@ $(function() {
     var $stream = $('.io-container pre');
 
     function _onStreamerData(data) {
-        $stream.text(data);
+        $stream.text($stream.text() + data);
     }
 
     function _onFilesListResponse(data) {
