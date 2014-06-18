@@ -48,6 +48,18 @@ var streamerService = (function() {
 
     };
 
+    Streamer.prototype.getIOType = function() {
+
+        return this._ioType;
+
+    };
+
+    Streamer.prototype.getServiceId = function() {
+
+        return this._serviceId;
+
+    };
+
 
     var _initialized    = false,
         _streamer       = null;
@@ -74,7 +86,7 @@ var streamerService = (function() {
 
     function _getSTDFilesList(callback) {
 
-        $.get(window.socketConnectionString + 'io/' + this._serviceId + '/' + this._ioType + '/list/', function(data) {
+        $.get(window.socketConnectionString + 'io/' + _streamer.getServiceId() + '/' + _streamer.getIOType() + '/list/', function(data) {
 
             callback && callback(data);
 
