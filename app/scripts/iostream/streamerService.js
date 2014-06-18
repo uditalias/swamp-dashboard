@@ -2,11 +2,12 @@
 
 var streamerService = (function() {
 
-    function Streamer(serviceId, ioType) {
+    function Streamer(serviceId, ioType, callback) {
 
         this._serviceId = serviceId;
         this._ioType = ioType == 'STDOUT' ? 'out' : 'error';
         this._xhr = null;
+        this._dataCallback = callback || function() {};
 
         this._createXhrObject();
     }
@@ -21,15 +22,13 @@ var streamerService = (function() {
 
     Streamer.prototype.poll = function() {
 
-        $('.io-container pre').text('');
-
         this._xhr.open('GET' ,this._getStreamUri() ,true);
 
         this._xhr.send(null);
     };
 
     Streamer.prototype._onLoad = function() {
-        $('.io-container pre').text(this._xhr.responseText);
+        this._dataCallback && this._dataCallback(this._xhr.responseText);
     };
 
     Streamer.prototype._onLoadEnd = function() {
@@ -61,7 +60,6 @@ var streamerService = (function() {
 
             _streamer = new Streamer(serviceId, ioType);
         }
-
     }
 
     function _poll() {
@@ -74,8 +72,19 @@ var streamerService = (function() {
 
     }
 
+    function _getSTDFilesList(callback) {
+
+        $.get(window.socketConnectionString + 'io/' + this._serviceId + '/' + this._ioType + '/list/', function(data) {
+
+            callback && callback(data);
+
+        });
+
+    }
+
     return {
         initialize: _initialize,
+        getSTDFilesList: _getSTDFilesList,
         poll: _poll
     }
 })();
