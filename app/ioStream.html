@@ -36,13 +36,21 @@
     <body>
         <header>
             <div class="flex flex-align-center">
-                <div class="padding-2 swamp-io-logo text-24 color-white">Swamp <span class="color-red"> I/O</span></div>
-                <div class="service-name margin-left-2 color-white text-20"><%= serviceName %></div>
-                <div class="margin-left-1 color-white text-20"><%= ioType %></div>
+                <div class="padding-2 swamp-io-logo text-24 color-white">Swamp <span class="color-blue"> I/O</span></div>
+                <div class="flex flex-1 margin-left-1">
+                    <div class="service-name margin-left-2 color-white text-20"><%= serviceName %></div>
+                    <div class="margin-left-1 color-white text-20"><%= ioType %></div>
+                </div>
+                <div class="margin-2 cursor-pointer side-menu-toggle">
+                    <i class="fa fa-list color-white text-20"></i>
+                </div>
             </div>
         </header>
-        <aside class="padding-2"></aside>
-        <div class="io-container padding-2"><pre></pre></div>
+        <aside>
+            <div class="aside-title text-24 padding-2 color-white">History</div>
+            <div class=""></div>
+        </aside>
+        <div class="io-container padding-2"><div class="shadow"></div><pre></pre></div>
 
         <!-- build:js /scripts/stream.vendor.js -->
         <script src="lib/lodash/dist/lodash.compat.js"></script>
@@ -53,6 +61,7 @@
 
         <!-- build:js({.tmp,app}) /scripts/stream.scripts.js -->
         <script src="/scripts/iostream/streamerService.js"></script>
+        <script src="/scripts/iostream/sidemenu.js"></script>
         <script src="/scripts/iostream/app.js"></script>
         <!-- endbuild -->
 
