@@ -60,12 +60,12 @@ $(function() {
         if($('html').hasClass('light')) {
             $themeSwitch.find('span').text('ON');
 
-            setCookie && $.cookie(THEME_COOKIE_NAME, 1, { expires: 365 });
+            setCookie && $.cookie(THEME_COOKIE_NAME, 1, { expires: 365, path: '/' });
 
         } else {
             $themeSwitch.find('span').text('OFF');
 
-            setCookie && $.cookie(THEME_COOKIE_NAME, 0, { expires: 365 });
+            setCookie && $.cookie(THEME_COOKIE_NAME, 0, { expires: 365, path: '/' });
         }
     }
 
