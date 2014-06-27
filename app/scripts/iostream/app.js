@@ -3,6 +3,7 @@ $(function() {
 
     var $stream = $('.io-container pre');
     var $filesList = $('.aside-content ul');
+    var $selectedFile = $('.selected-file');
 
     function _onStreamerData(data) {
         $stream.text($stream.text() + data);
@@ -13,6 +14,12 @@ $(function() {
         $filesList.find('li').removeClass('selected');
 
         $(this).addClass('selected');
+
+        $selectedFile.hide();
+
+        $selectedFile.find('span').text(fileName);
+
+        $selectedFile.show();
 
         _poll(fileName);
 
