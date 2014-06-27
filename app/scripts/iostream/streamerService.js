@@ -20,9 +20,9 @@ var streamerService = (function() {
         this._xhr.onreadystatechange = this._onXhrStateChanged.bind(this);
     };
 
-    Streamer.prototype.poll = function() {
+    Streamer.prototype.poll = function(fileName) {
 
-        this._xhr.open('GET' ,this._getStreamUri() ,true);
+        this._xhr.open('GET' ,this._getStreamUri(fileName) ,true);
 
         this._xhr.send(null);
     };
@@ -42,9 +42,9 @@ var streamerService = (function() {
         }
     };
 
-    Streamer.prototype._getStreamUri = function() {
+    Streamer.prototype._getStreamUri = function(fileName) {
 
-        return window.socketConnectionString + 'io/' + this._serviceId + '/' + this._ioType + '/stream/';
+        return window.socketConnectionString + 'io/' + this._serviceId + '/' + this._ioType + '/stream/' + (fileName ? 'fileName=' + fileName : '');
 
     };
 
@@ -74,11 +74,11 @@ var streamerService = (function() {
         }
     }
 
-    function _poll() {
+    function _poll(fileName) {
 
         if(_initialized) {
 
-            _streamer.poll();
+            _streamer.poll(fileName);
 
         }
 
