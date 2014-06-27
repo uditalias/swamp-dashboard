@@ -3715,22 +3715,35 @@ html, body {
 }
 
 /* line 9, scss/iostream/common.scss */
+html.light {
+  background: white;
+}
+/* line 11, scss/iostream/common.scss */
+html.light body {
+  background: white;
+}
+/* line 14, scss/iostream/common.scss */
+html.light body .io-container {
+  color: #2c001e;
+}
+
+/* line 20, scss/iostream/common.scss */
 body.opened {
   overflow: hidden;
 }
-/* line 13, scss/iostream/common.scss */
+/* line 24, scss/iostream/common.scss */
 body.opened .io-container {
   right: 300px;
 }
-/* line 16, scss/iostream/common.scss */
+/* line 27, scss/iostream/common.scss */
 body.opened .io-container .shadow {
   display: block;
 }
-/* line 21, scss/iostream/common.scss */
+/* line 32, scss/iostream/common.scss */
 body.opened header {
   right: 300px;
 }
-/* line 25, scss/iostream/common.scss */
+/* line 36, scss/iostream/common.scss */
 body.opened aside {
   right: 0;
 }

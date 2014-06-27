@@ -6,6 +6,17 @@ html, body {
   background: adjust-lightness($dark-aubergine, -5%);
 }
 
+html.light {
+  background: $white;
+  body {
+    background: $white;
+
+    .io-container {
+      color: $dark-aubergine;
+    }
+  }
+}
+
 body.opened {
 
   overflow: hidden;

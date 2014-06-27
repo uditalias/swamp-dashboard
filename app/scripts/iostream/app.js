@@ -4,6 +4,7 @@ $(function() {
     var $stream = $('.io-container pre');
     var $filesList = $('.aside-content ul');
     var $selectedFile = $('.selected-file');
+    var $themeSwitch = $('.theme-switch');
 
     function _onStreamerData(data) {
         $stream.text($stream.text() + data);
@@ -54,10 +55,34 @@ $(function() {
         streamerService.poll(fileName);
     }
 
-    streamerService.initialize(window.serviceId, window.ioType, _onStreamerData);
+    function _setThemeSwitchLabel() {
+        if($('html').hasClass('light')) {
+            $themeSwitch.find('span').text('ON');
+        } else {
+            $themeSwitch.find('span').text('OFF');
+        }
+    }
 
-    streamerService.getSTDFilesList(_onFilesListResponse);
+    function _initialize() {
 
-    _poll();
+        _setThemeSwitchLabel();
+
+        $themeSwitch.on('click', function() {
+
+            $('html').toggleClass('light');
+
+            _setThemeSwitchLabel();
+
+        });
+
+        streamerService.initialize(window.serviceId, window.ioType, _onStreamerData);
+
+        streamerService.getSTDFilesList(_onFilesListResponse);
+
+        _poll();
+
+    }
+
+    _initialize();
 
 });
