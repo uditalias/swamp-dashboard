@@ -44,7 +44,7 @@ var streamerService = (function() {
 
     Streamer.prototype._getStreamUri = function(fileName) {
 
-        return window.socketConnectionString + 'io/' + this._serviceId + '/' + this._ioType + '/stream/' + (fileName ? 'fileName=' + fileName : '');
+        return window.socketConnectionString + 'io/' + this._serviceId + '/' + this._ioType + '/stream/' + (fileName ? '?fileName=' + fileName : '');
 
     };
 
