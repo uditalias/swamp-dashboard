@@ -10,6 +10,10 @@ $(function() {
 
     function _onFileListItemClick(fileName, event) {
 
+        $filesList.find('li').removeClass('selected');
+
+        $(this).addClass('selected');
+
         _poll(fileName);
 
     }

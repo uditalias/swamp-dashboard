@@ -2,11 +2,10 @@ aside {
 
   @include transition(right 200ms);
   @include box-shadow(inset 2px 0 2px rgba(0,0,0,0.3));
-  overflow-y: auto;
   position: fixed;
   top: 0;
-  right: -250px;
-  width: 250px;
+  right: -300px;
+  width: 300px;
   height: 100%;
   background: adjust-lightness($cool-grey, -5%);
   z-index: 5;
@@ -20,11 +19,31 @@ aside {
 
   .aside-content {
     margin-top: 48px;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
     ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
       li {
+        @include transition(color 200ms);
+        padding: 5px;
+        border-bottom: solid 1px $cool-grey;
         color: #fff;
         cursor: pointer;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &.selected {
+          color: $green;
+        }
       }
     }
   }

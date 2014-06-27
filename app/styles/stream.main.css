@@ -3720,7 +3720,7 @@ body.opened {
 }
 /* line 13, scss/iostream/common.scss */
 body.opened .io-container {
-  right: 250px;
+  right: 300px;
 }
 /* line 16, scss/iostream/common.scss */
 body.opened .io-container .shadow {
@@ -3728,7 +3728,7 @@ body.opened .io-container .shadow {
 }
 /* line 21, scss/iostream/common.scss */
 body.opened header {
-  right: 250px;
+  right: 300px;
 }
 /* line 25, scss/iostream/common.scss */
 body.opened aside {
@@ -3769,16 +3769,15 @@ aside {
   -webkit-box-shadow: inset 2px 0 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: inset 2px 0 2px rgba(0, 0, 0, 0.3);
   box-shadow: inset 2px 0 2px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
   position: fixed;
   top: 0;
-  right: -250px;
-  width: 250px;
+  right: -300px;
+  width: 300px;
   height: 100%;
   background: #262626;
   z-index: 5;
 }
-/* line 14, scss/iostream/aside.scss */
+/* line 13, scss/iostream/aside.scss */
 aside .aside-title {
   position: fixed;
   width: 100%;
@@ -3787,14 +3786,40 @@ aside .aside-title {
   -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 }
-/* line 21, scss/iostream/aside.scss */
+/* line 20, scss/iostream/aside.scss */
 aside .aside-content {
   margin-top: 48px;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
-/* line 25, scss/iostream/aside.scss */
+/* line 29, scss/iostream/aside.scss */
+aside .aside-content ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 33, scss/iostream/aside.scss */
 aside .aside-content ul li {
+  -webkit-transition: color 200ms;
+  -moz-transition: color 200ms;
+  -o-transition: color 200ms;
+  transition: color 200ms;
+  padding: 5px;
+  border-bottom: solid 1px #333333;
   color: #fff;
   cursor: pointer;
+}
+/* line 40, scss/iostream/aside.scss */
+aside .aside-content ul li:last-child {
+  border-bottom: none;
+}
+/* line 44, scss/iostream/aside.scss */
+aside .aside-content ul li.selected {
+  color: #38b44a;
 }
 
 /* line 1, scss/iostream/io.scss */
