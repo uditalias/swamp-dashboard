@@ -3759,6 +3759,10 @@ header .swamp-io-logo {
 header .swamp-io-logo span {
   font-family: 'Ubuntu Mono';
 }
+/* line 25, scss/iostream/header.scss */
+header .selected-file {
+  display: none;
+}
 
 /* line 1, scss/iostream/aside.scss */
 aside {
