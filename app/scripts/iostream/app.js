@@ -5,6 +5,7 @@ $(function() {
     var $filesList = $('.aside-content ul');
     var $selectedFile = $('.selected-file');
     var $themeSwitch = $('.theme-switch');
+    var THEME_COOKIE_NAME = 'iostreamtheme';
 
     function _onStreamerData(data) {
         $stream.text($stream.text() + data);
@@ -55,25 +56,34 @@ $(function() {
         streamerService.poll(fileName);
     }
 
-    function _setThemeSwitchLabel() {
+    function _touchThemeSwitch(setCookie) {
         if($('html').hasClass('light')) {
             $themeSwitch.find('span').text('ON');
+
+            setCookie && $.cookie(THEME_COOKIE_NAME, 1, { expires: 365 });
+
         } else {
             $themeSwitch.find('span').text('OFF');
+
+            setCookie && $.cookie(THEME_COOKIE_NAME, 0, { expires: 365 });
         }
     }
 
     function _initialize() {
 
-        _setThemeSwitchLabel();
+        _touchThemeSwitch(false);
 
         $themeSwitch.on('click', function() {
 
             $('html').toggleClass('light');
-
-            _setThemeSwitchLabel();
+            _touchThemeSwitch(true);
 
         });
+
+        var _theme = $.cookie(THEME_COOKIE_NAME);
+        if(_theme && parseInt(_theme) == 1) {
+            $themeSwitch.trigger('click');
+        }
 
         streamerService.initialize(window.serviceId, window.ioType, _onStreamerData);
 
