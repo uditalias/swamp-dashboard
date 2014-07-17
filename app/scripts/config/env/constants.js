@@ -3,10 +3,9 @@
  angular.module("swamp.config")
 
 .constant("env", {
- "name": "development",
+ "name": "production",
  "serviceUptimeTickInterval": 5000,
- "swampReloadSeconds": 6,
- "socketConnectionString": "http://localhost:2121/"
+ "swampReloadSeconds": 6
 })
 
 ;
