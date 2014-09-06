@@ -11437,7 +11437,7 @@ html, body {
   padding: 0;
   font-family: 'Ubuntu', sans-serif !important;
   font-weight: 300;
-  background: #2c001e;
+  background: #1b1b24;
   color: #aea79f;
 }
 
@@ -11922,7 +11922,7 @@ header {
   width: 100%;
   z-index: 1000;
   padding: 20px;
-  background: #2c001e;
+  background: #1b1b24;
   -webkit-transition: all 100ms;
   transition: all 100ms;
 }
@@ -11940,7 +11940,7 @@ header .header-inner h1 {
 }
 /* line 24, ../components/header/header.scss */
 header .header-inner h1 span {
-  color: #5e2750;
+  color: #3c3c50;
   font-size: 32px;
   font-weight: 300;
 }
@@ -11962,14 +11962,14 @@ header .header-inner .search-container input {
   padding: 10px 30px 10px 10px;
   width: 300px;
   border: none;
-  background-color: #3a1831;
+  background-color: #1f1f2a;
   color: #aea79f;
 }
 /* line 45, ../components/header/header.scss */
 header .header-inner .search-container input:focus, header .header-inner .search-container input.filtered {
   outline: none;
   width: 400px;
-  background-color: #411b37;
+  background-color: #262633;
 }
 /* line 52, ../components/header/header.scss */
 header .header-inner .search-container i {
@@ -11978,7 +11978,7 @@ header .header-inner .search-container i {
   cursor: pointer;
   top: 12px;
   right: 6px;
-  color: #2c001e;
+  color: #17171e;
 }
 
 /* line 1, ../components/aside/aside.scss */
@@ -12557,4 +12557,8 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
 /* line 11, ../pages/root/root.scss */
 .root-container .title .services-summary-row {
   font-weight: 100;
+}
+/* line 16, ../pages/root/root.scss */
+.root-container .fa-filter {
+  color: #3c3c50;
 }

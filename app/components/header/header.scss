@@ -6,7 +6,7 @@ header {
   width: 100%;
   z-index: 1000;
   padding: 20px;
-  background: $dark-aubergine;
+  background: $dark-blue;
   @include transition(all 100ms);
 
   &.scrolled {
@@ -22,7 +22,7 @@ header {
       margin: 0;
 
       span {
-        color: $mid-aubergine;
+        color: adjust-lightness($dark-blue, 15%);
         font-size: 32px;
         font-weight: 300;
       }
@@ -39,13 +39,13 @@ header {
         padding: 10px 30px 10px 10px;
         width: 300px;
         border: none;
-        background-color: adjust-lightness($mid-aubergine, -10%);
+        background-color: adjust-lightness($dark-blue, 2%);
         color: $warm-grey;
 
         &:focus, &.filtered {
           outline: none;
           width: 400px;
-          background-color: adjust-lightness($mid-aubergine, -8%);
+          background-color: adjust-lightness($dark-blue, 5%);
         }
       }
 
@@ -55,7 +55,7 @@ header {
         cursor: pointer;
         top: 12px;
         right: 6px;
-        color: $dark-aubergine;
+        color: adjust-lightness($dark-blue, -2%);
       }
     }
 
