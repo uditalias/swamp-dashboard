@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('swamp.controllers').controller('asideController', ['$scope', '$rootScope', 'EVENTS', 'swampManager', 'swampServicesManager',
-    function($scope, $rootScope, EVENTS, swampManager, swampServicesManager) {
+angular.module('swamp.controllers').controller('asideController', ['$scope', '$rootScope', 'EVENTS', 'swampManager', 'swampServicesManager', 'modalService', 'MODAL_TYPE',
+    function($scope, $rootScope, EVENTS, swampManager, swampServicesManager, modalService, MODAL_TYPE) {
 
         $scope.handler = {
             tailCheckState: false,
@@ -9,15 +9,50 @@ angular.module('swamp.controllers').controller('asideController', ['$scope', '$r
         }
 
         $scope.restartAll = function() {
-            swampServicesManager.restartAllRunningServices();
+
+            if(swampManager.getInfo().mode == 'remote') {
+
+                var modal = modalService.open(MODAL_TYPE.PROMPT, { name: 'running services', action: 'restart all' });
+
+                modal.result.then(function() {
+                    swampServicesManager.restartAllRunningServices();
+                });
+
+            } else {
+                swampServicesManager.restartAllRunningServices();
+            }
         }
 
         $scope.stopAll = function() {
-            swampServicesManager.stopAllRunningServices();
+
+            if(swampManager.getInfo().mode == 'remote') {
+
+                var modal = modalService.open(MODAL_TYPE.PROMPT, { name: 'running services', action: 'stop all' });
+
+                modal.result.then(function() {
+                    swampServicesManager.stopAllRunningServices();
+                });
+
+            } else {
+                swampServicesManager.stopAllRunningServices();
+            }
+
         }
 
         $scope.startAll = function() {
-            swampServicesManager.startAllServices();
+
+            if(swampManager.getInfo().mode == 'remote') {
+
+                var modal = modalService.open(MODAL_TYPE.PROMPT, { name: 'services', action: 'start all' });
+
+                modal.result.then(function() {
+                    swampServicesManager.startAllServices();
+                });
+
+            } else {
+                swampServicesManager.startAllServices();
+            }
+
         }
 
         $scope.showLog = function(type) {

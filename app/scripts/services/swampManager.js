@@ -8,7 +8,8 @@ angular.module('swamp.services').service('swampManager', [
         this.errorLogData = null;
 
         this._info = {
-            totalmem: 0
+            totalmem: 0,
+            mode: 'local'
         }
 
         this.getInfo = function() {

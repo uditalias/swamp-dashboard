@@ -60,7 +60,8 @@ angular.module('swamp.config')
     })
     .constant('MODAL_TYPE', {
         "SERVICE_ENVIRONMENTS_EDITOR": 'modal::service.environments.editor',
-        "LOGS_SELECTOR": 'modal::logs.selector'
+        "LOGS_SELECTOR": 'modal::logs.selector',
+        "PROMPT": "modal::prompt"
     })
     .constant('LOG_TYPE', {
         "OUT": "log.out",

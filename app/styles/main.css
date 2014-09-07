@@ -10236,6 +10236,10 @@ td.visible-print {
 .modal.modal-size_40 .modal-dialog {
   width: 40%;
 }
+/* line 107, scss/globals/overrides.scss */
+.modal.modal-size_30 .modal-dialog {
+  width: 30%;
+}
 
 /* line 1, scss/globals/colors.scss */
 .color-orange {
@@ -12298,6 +12302,21 @@ aside .aside-inner .aside-box .aside-content li .clear-all-logs i {
 /* line 64, ../components/modals/logs_selector/logsselector.scss */
 .logs-selector .logs-selector-actions-wrapper {
   background-color: #121212;
+}
+
+/* line 1, ../components/modals/prompt/prompt.scss */
+.prompt {
+  color: white;
+  font-weight: 300;
+}
+/* line 6, ../components/modals/prompt/prompt.scss */
+.prompt .prompt-action {
+  font-weight: 500;
+  text-decoration: underline;
+}
+/* line 11, ../components/modals/prompt/prompt.scss */
+.prompt .prompt-actions {
+  background: #141414;
 }
 
 /*

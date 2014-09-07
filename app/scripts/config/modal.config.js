@@ -13,6 +13,12 @@ angular.module('swamp.config')
             templateUrl: 'components/modals/logs_selector/logsSelector.html',
             controller: 'logsSelectorController',
             windowClass: 'modal-size_50'
+        },
+
+        "modal::prompt": {
+            templateUrl: 'components/modals/prompt/prompt.html',
+            controller: 'promptController',
+            windowClass: 'modal-size_30'
         }
 
     });

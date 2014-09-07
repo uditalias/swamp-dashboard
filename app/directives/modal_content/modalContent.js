@@ -15,6 +15,9 @@ angular.module('swamp.directives').directive('swModalContent', ['modalService', 
                 modalService.dismiss();
             }
 
+            $scope.confirm = function() {
+                modalService.close();
+            }
 
             function _onDestroy() {
 

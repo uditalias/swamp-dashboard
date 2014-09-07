@@ -1,0 +1,14 @@
+.prompt {
+
+  color: $white;
+  font-weight: 300;
+
+  .prompt-action {
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .prompt-actions {
+    background: adjust-lightness($cool-grey, -12%);
+  }
+}

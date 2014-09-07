@@ -1,0 +1,11 @@
+<sw-modal-content modal-title="'Are you sure?'" class="prompt">
+
+    <div class="padding-4 text-16">
+        Are you sure you want to <span class="prompt-action color-yellow">{{action}}</span> {{name}} ?
+    </div>
+    <div class="flex flex-pack-center padding-2 prompt-actions">
+        <button class="btn btn-primary btn-green margin-right-2" ng-click="confirm()">Yes, I'm sure</button>
+        <button class="btn btn-primary btn-red" ng-click="dismiss()">No, Cancel</button>
+    </div>
+
+</sw-modal-content>

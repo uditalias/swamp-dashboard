@@ -10,7 +10,7 @@ angular.module('swamp.controllers').controller('rootController', [
             orderByDir: '',
             filteredServices: [],
             isLoading: true
-        }
+        };
 
         $scope.SERVICE_STATE = SERVICE_STATE;
 
@@ -27,17 +27,45 @@ angular.module('swamp.controllers').controller('rootController', [
         $scope.serviceActions = {
             start: function(service, env) {
 
-                service.start(env);
+                if(swampManager.getInfo().mode == 'remote') {
+                    var modal = modalService.open(MODAL_TYPE.PROMPT, { name: service.name, action: 'start' });
+
+                    modal.result.then(function() {
+                        service.start(env);
+                    });
+
+                } else {
+                    service.start(env);
+                }
 
             },
             stop: function(service) {
 
-                service.stop();
+                if(swampManager.getInfo().mode == 'remote') {
+                    var modal = modalService.open(MODAL_TYPE.PROMPT, { name: service.name, action: 'stop' });
+
+                    modal.result.then(function() {
+                        service.stop();
+                    });
+
+
+                } else {
+                    service.stop();
+                }
 
             },
             restart: function(service, env) {
 
-                service.restart(env);
+                if(swampManager.getInfo().mode == 'remote') {
+                    var modal = modalService.open(MODAL_TYPE.PROMPT, { name: service.name, action: 'restart' });
+
+                    modal.result.then(function() {
+                        service.restart(env);
+                    });
+
+                } else {
+                    service.restart(env);
+                }
 
             },
             showServiceOutLog: function(service) {
