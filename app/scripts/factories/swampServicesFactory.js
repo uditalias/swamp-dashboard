@@ -233,6 +233,9 @@ angular.module('swamp.services').factory('swampServicesFactory', [
                     disabled: this.state != SERVICE_STATE.RUN,
                     command: function() { this.stop(); }.bind(this)
                 }, {
+                    title: 'Force Stop',
+                    command: function() { this.stop(); }.bind(this)
+                }, {
                     title: 'Process I/O',
                     command: [{
                         title: 'STDOUT',
