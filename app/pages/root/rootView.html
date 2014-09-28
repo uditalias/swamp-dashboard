@@ -1,4 +1,4 @@
-<div class="root-container">
+<div class="root-container" sw-scroll-state on-page-scroll="onPageScrolled(state)" ng-class="{ 'scrolled': handler.pageScrolled }">
 
     <div class="title flex margin-bottom-1 flex-align-center">
         <span>Services</span>
@@ -65,9 +65,11 @@
         Loading swamp services...
     </div>
 
-    <div ng-repeat="service in handler.filteredServices =
-    (services|orderBy:handler.orderByDir + handler.orderBy|filter:{ name: handler.servicesFilter }) track by $index" sw-context-menu="service">
-        <ng-include src="'components/service_row_summary/serviceRowSummary.html'" />
+    <div class="services-list-wrapper">
+        <div ng-repeat="service in handler.filteredServices =
+        (services|orderBy:handler.orderByDir + handler.orderBy|filter:{ name: handler.servicesFilter }) track by $index" sw-context-menu="service">
+            <ng-include src="'components/service_row_summary/serviceRowSummary.html'" />
+        </div>
     </div>
 
 </div>

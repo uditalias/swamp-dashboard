@@ -9,42 +9,52 @@ aside {
 
   .aside-inner {
 
+    padding-top: 105px;
+    position: relative;
     width: 100%;
-    margin-top: 105px;
+    height: 100%;
 
-    .aside-box {
+    .aside-container {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
 
-      padding: 0 20px;
+      .aside-box {
 
-      .aside-title {
-        font-weight: 700;
-      }
+        padding: 0 20px;
 
-      .aside-content {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+        .aside-title {
+          font-weight: 700;
+        }
 
-        li {
-          margin: 5px;
+        .aside-content {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
 
-          span {
-            cursor: pointer;
+          li {
+            margin: 5px;
 
-            i {
-              margin-right: 3px;
-              font-size: 12px;
+            span {
+              cursor: pointer;
+
+              i {
+                margin-right: 3px;
+                font-size: 12px;
+              }
             }
-          }
 
-          .clear-all-logs {
-           cursor: pointer;
-            i {
-              width: 15px;
+            .clear-all-logs {
+             cursor: pointer;
+              i {
+                width: 15px;
+              }
             }
           }
         }
       }
     }
+
   }
 }

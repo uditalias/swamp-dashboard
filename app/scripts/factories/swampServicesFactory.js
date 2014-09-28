@@ -21,6 +21,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
             this.monitorMemory = params.monitor.memory;
             this.monitor = params.monitor;
             this.state = this.isRunning ? SERVICE_STATE.RUN : SERVICE_STATE.STOP;
+            this.viewOptions = params.viewOptions;
 
             this.startTime = params.startTime;
             this.uptime = null;

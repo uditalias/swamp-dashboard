@@ -21,13 +21,11 @@ angular.module('swamp.directives').directive('swVerticalScroller', ['$timeout', 
 
                 $wrapper.children(itemSelector).each(function() {
 
-                    var margin = parseInt($(this).css('margin-right')) + parseInt($(this).css('margin-left'));
-
-                    width += ($(this).outerWidth() + margin);
+                    width += $(this).outerWidth(true);
 
                 });
 
-                return width;
+                return width + 1;
 
             }
 

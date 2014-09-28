@@ -1,6 +1,6 @@
-<div class="service-info padding-2" ng-hide="!toggleService">
+<div class="service-info padding-2" ng-hide="!service.viewOptions.toggle">
 
-    <div ng-if="toggleService">
+    <div ng-if="service.viewOptions.toggle">
 
         <div class="header flex flex-align-center">
             <div class="flex-6">
@@ -58,12 +58,12 @@
                     <div class="flex-1">Change Env</div>
                     <div class="flex-1 flex-align-center">
 
-                        <div class="dropdown">
+                        <div class="dropdown" is-open="service.viewOptions.envMenuOpen">
                             <a class="dropdown-toggle">
                                 {{service.selectedEnvironment || 'Select Environment...'}}
                             </a>
                             <ul class="dropdown-menu">
-                                <li ng-repeat="(key,value) in service.environments track by $index" ng-click="service.selectedEnvironment = key">
+                                <li ng-repeat="(key,value) in service.environments track by $index" ng-click="service.selectedEnvironment = key; service.viewOptions.envMenuOpen = !service.viewOptions.envMenuOpen;">
                                     <a>{{key}}</a>
                                 </li>
                             </ul>

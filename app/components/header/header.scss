@@ -1,5 +1,7 @@
 header {
 
+  @include transition(all 200ms);
+  @include box-shadow(none);
   position: fixed;
   top: 0;
   left: 0;
@@ -7,21 +9,33 @@ header {
   z-index: 1000;
   padding: 20px;
   background: $dark-blue;
-  @include transition(all 100ms);
 
   &.scrolled {
     @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.4));
+    padding: 10px 20px;
+
+    .header-inner {
+      h1 {
+        font-size: 32px;
+
+        span {
+          font-size: 22px;
+        }
+      }
+    }
   }
 
   .header-inner {
 
     h1 {
+      @include transition(all 200ms);
       font-size: 42px;
       color: $white;
       font-weight: 400;
       margin: 0;
 
       span {
+        @include transition(all 200ms);
         color: adjust-lightness($dark-blue, 15%);
         font-size: 32px;
         font-weight: 300;

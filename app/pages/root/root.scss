@@ -3,6 +3,22 @@
   margin-left: 250px;
   padding: 0 20px;
 
+  &.scrolled {
+    .table-header {
+      padding-left: 270px;
+      padding-right: 20px;
+      position: fixed;
+      top: 59px;
+      left: 0;
+      width: 100%;
+      z-index: 1010;
+    }
+
+    .services-list-wrapper {
+      margin-top: 30px;
+    }
+  }
+
   .title {
     color: $warm-grey;
     font-weight: 100;

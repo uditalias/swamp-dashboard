@@ -9,7 +9,8 @@ angular.module('swamp.controllers').controller('rootController', [
             orderBy: 'name',
             orderByDir: '',
             filteredServices: [],
-            isLoading: true
+            isLoading: true,
+            pageScrolled: false
         };
 
         $scope.SERVICE_STATE = SERVICE_STATE;
@@ -83,7 +84,13 @@ angular.module('swamp.controllers').controller('rootController', [
                 modalService.open(MODAL_TYPE.SERVICE_ENVIRONMENTS_EDITOR, service);
 
             }
-        }
+        };
+
+        $scope.onPageScrolled = function(state) {
+
+            $scope.handler.pageScrolled = state;
+
+        };
 
         $scope.bytesToSize = _.bytesToSize;
 
