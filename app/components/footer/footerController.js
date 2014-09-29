@@ -76,15 +76,22 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
 
                 if(removedTab[0].active) {
 
-                    $scope.setActive($scope.enabledTabsContent[0].id);
+                    var activeTabId = $scope.enabledTabsContent[0].id;
+
+                    $scope.setActive(activeTabId);
+
+                    $timeout(function() {
+
+                        $rootScope.$broadcast(EVENTS.VERTICAL_SCROLL_INTO_VIEW, '#tab_item_' + activeTabId);
+
+                    }, 10);
 
                 }
 
             }
 
             $rootScope.$emit(EVENTS.VERTICAL_SCROLL_RECALCULATE_DIMENSIONS);
-
-        }
+        };
 
         function _onLogsSelected(logs, aggregate) {
 
