@@ -1,5 +1,5 @@
 'use strict';
-angular.module('swamp.directives').directive('swFooterLogUnit', [function() {
+angular.module('swamp.directives').directive('swFooterLogUnit', ['$sce', function($sce) {
     return {
         restrict: 'E',
         scope: {
@@ -22,6 +22,21 @@ angular.module('swamp.directives').directive('swFooterLogUnit', [function() {
                     $scope.tab.content.unfreeze();
 
                 }
+            };
+
+            $scope.parseAnsi = function(raw) {
+                console.log(1)
+                var ansi = _.ansi(raw);
+                raw = '';
+                for(var i = 0, len = ansi.length; i < len; i++) {
+                    if(ansi[i].foreground) {
+                        raw += '<span style="color:' + ansi[i].foreground + '">' + ansi[i].text + '</span>';
+                        continue;
+                    }
+                    raw += ansi[i].text;
+                }
+
+                return $sce.trustAsHtml(raw);
             };
 
             $scope.$on('$destroy', function() {

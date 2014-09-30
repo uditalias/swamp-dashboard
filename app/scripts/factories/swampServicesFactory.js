@@ -15,6 +15,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
             this.runningEnvironment = params.runningEnvironment;
             this.selectedEnvironment = params.runningEnvironment;
             this.pid = params.pid;
+            this.startIndex = params.options.startIndex;
             this.options = params.options;
             this.environments = params.environments;
             this.monitorCpu = params.monitor.cpu;
@@ -25,6 +26,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             this.startTime = params.startTime;
             this.uptime = null;
+            this._uptimeInterval = null;
 
             this._createMonitorDataContainers();
             this._createLogDataContainers(this.options.maxLogsToSave);
@@ -118,11 +120,19 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
                 this.state = SERVICE_STATE.RUN;
 
+                this.selectedEnvironment = this.runningEnvironment;
+
                 $rootScope.$safeApply();
             },
 
             forceRestart: function() {
                 this.state = SERVICE_STATE.RESTART;
+
+                $rootScope.$safeApply();
+            },
+
+            forcePending: function() {
+                this.state = SERVICE_STATE.PENDING;
 
                 $rootScope.$safeApply();
             },
@@ -204,12 +214,20 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             _startUptimeMessageSync: function() {
 
-                this.uptime = moment(this.startTime);
+                this.uptime = moment(this.startTime).fromNow();
+
+                this._uptimeInterval = setTimeout(function() {
+
+                    this._startUptimeMessageSync();
+
+                }.bind(this), env.serviceUptimeTickInterval);
 
             },
 
             _stopUptimeMessageSync: function() {
 
+                clearTimeout(this._uptimeInterval);
+                this._uptimeInterval = null;
                 this.uptime = null;
 
             },

@@ -204,7 +204,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
                     paused: false,
                     query: '',
                     inQueryMode: false,
-                    itemcls: 'color-green',
+                    itemcls: 'color-warm-grey',
                     name: service.name + ' out log',
                     content: service.outLogData
                 });

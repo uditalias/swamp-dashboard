@@ -14,6 +14,7 @@ angular.module('swamp.config')
         "SERVICE_START": "service.start",
         "SERVICE_STOP": "service.stop",
         "SERVICE_RESTART": "service.restart",
+        "SERVICE_PENDING": "service.pending",
         "SERVICE_ERROR": "service.error",
         "SERVICE_OUT": "service.out",
         "SERVICE_MONITOR": "service.monitor",
@@ -29,6 +30,7 @@ angular.module('swamp.config')
         "SERVICE_START": "event::service.start",
         "SERVICE_STOP": "event::service.stop",
         "SERVICE_RESTART": "event::service.restart",
+        "SERVICE_PENDING": "event::service.pending",
         "SERVICE_OUT": "event::service.out",
         "SERVICE_ERROR": "event::service.error",
         "MODIFY_SERVICE_ENVIRONMENTS": "event::service.modify.environments",
@@ -47,7 +49,8 @@ angular.module('swamp.config')
     .constant('SERVICE_STATE', {
         "STOP": "service.state.stop",
         "RUN": "service.state.run",
-        "RESTART": "service.state.restart"
+        "RESTART": "service.state.restart",
+        "PENDING": "service.state.pending"
     })
     .constant('CLIENT_REQUEST', {
         "REQUEST_START_SERVICE": "request.start.service",

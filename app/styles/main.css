@@ -12025,6 +12025,10 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
   color: #EFB73E;
 }
 /* line 34, ../components/service_row_summary/servicerowsummary.scss */
+.service-summary .service-summary-row.pending {
+  color: #333;
+}
+/* line 38, ../components/service_row_summary/servicerowsummary.scss */
 .service-summary .service-summary-row:last-child {
   margin-right: 0;
 }

@@ -31,6 +31,10 @@
       color: $yellow;
     }
 
+    &.pending {
+      color: $cool-grey;
+    }
+
     &:last-child {
       margin-right: 0;
     }

@@ -25,6 +25,8 @@ angular.module('swamp.controllers').controller('rootController', [
 
         $scope.totalRestarting = 0;
 
+        $scope.totalPending = 0;
+
         $scope.serviceActions = {
             start: function(service, env) {
 
@@ -135,6 +137,8 @@ angular.module('swamp.controllers').controller('rootController', [
             $scope.totalStopped = swampServicesManager.countStopped();
 
             $scope.totalRestarting = swampServicesManager.countRestarting();
+
+            $scope.totalPending = swampServicesManager.countPending();
 
             $rootScope.$safeApply();
         }
