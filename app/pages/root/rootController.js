@@ -6,7 +6,7 @@ angular.module('swamp.controllers').controller('rootController', [
 
         $scope.handler = {
             servicesFilter: '',
-            orderBy: 'name',
+            orderBy: 'startIndex',
             orderByDir: '',
             filteredServices: [],
             isLoading: true,
@@ -26,6 +26,8 @@ angular.module('swamp.controllers').controller('rootController', [
         $scope.totalRestarting = 0;
 
         $scope.totalPending = 0;
+
+        $scope.totalStarting = 0;
 
         $scope.serviceActions = {
             start: function(service, env) {
@@ -139,6 +141,8 @@ angular.module('swamp.controllers').controller('rootController', [
             $scope.totalRestarting = swampServicesManager.countRestarting();
 
             $scope.totalPending = swampServicesManager.countPending();
+
+            $scope.totalStarting = swampServicesManager.countStarting();
 
             $rootScope.$safeApply();
         }

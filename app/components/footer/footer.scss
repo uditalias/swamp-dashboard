@@ -96,6 +96,10 @@ footer {
               display: block;
             }
 
+            .parse-log {
+              display: block;
+            }
+
             .search-log {
               display: block;
             }
@@ -120,12 +124,30 @@ footer {
             }
           }
 
-          .search-log {
+          .parse-log {
             z-index: 2;
             cursor: pointer;
             display: none;
             position: absolute;
             top: 75px;
+            right: 15px;
+
+            &:hover {
+              color: $light-aubergine;
+            }
+
+            &.active {
+              color: $light-aubergine;
+              display: block;
+            }
+          }
+
+          .search-log {
+            z-index: 2;
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            top: 95px;
             right: 15px;
 
             &:hover {
@@ -142,7 +164,7 @@ footer {
           .query-input-holder {
             z-index: 1;
             position: absolute;
-            top: 74px;
+            top: 94px;
             right: 10px;
             border: solid 1px $blue;
             background: rgba(25, 182, 238, 0.1);

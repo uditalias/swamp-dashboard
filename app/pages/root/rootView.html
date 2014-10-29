@@ -6,6 +6,7 @@
             <span class="color-green margin-right-2">{{totalRunning}} running</span>
             <span class="color-red margin-right-2">{{totalStopped}} stopped</span>
             <span class="color-yellow margin-right-2">{{totalRestarting}} restarting</span>
+            <span class="color-blue margin-right-2">{{totalStarting}} starting</span>
             <span class="color-cool-grey">{{totalPending}} pending</span>
         </span>
         <i class="fa fa-filter text-18 margin-left-2"
@@ -14,7 +15,7 @@
     </div>
 
     <div class="table-header flex">
-        <div class="flex-1 flex" ng-class="{ 'order': handler.orderBy == 'startIndex' }" ng-click="orderBy('startIndex')">
+        <div class="flex" ng-class="{ 'order': handler.orderBy == 'startIndex' }" ng-click="orderBy('startIndex')" style="width: 100px;">
             <span class="flex-1">Start Index</span>
             <div class="order-by">
                 <i class="fa fa-sort-down" ng-if="(handler.orderBy == 'startIndex' && handler.orderByDir == '-')"></i>

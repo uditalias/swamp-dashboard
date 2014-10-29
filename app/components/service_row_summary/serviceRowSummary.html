@@ -1,9 +1,9 @@
 <div class="service-summary">
 
     <div class="service-summary-row flex flex-align-center" ng-click="service.viewOptions.toggle = !service.viewOptions.toggle"
-         ng-class="{ 'running': service.state == SERVICE_STATE.RUN, 'stopped': service.state == SERVICE_STATE.STOP, 'restarted': service.state == SERVICE_STATE.RESTART, 'pending': service.state == SERVICE_STATE.PENDING, 'toggle': service.viewOptions.toggle }">
+         ng-class="{ 'running': service.state == SERVICE_STATE.RUN, 'stopped': service.state == SERVICE_STATE.STOP, 'restarted': service.state == SERVICE_STATE.RESTART, 'pending': service.state == SERVICE_STATE.PENDING, 'starting': service.state == SERVICE_STATE.STARTING, 'toggle': service.viewOptions.toggle }">
 
-        <div class="flex-1">{{service.options.startIndex}}</div>
+        <div style="width: 100px;" class="text-center">{{service.options.startIndex}}</div>
         <div class="flex-1">
             {{service.name}} <span ng-if="service.pid">[{{service.pid}}]</span>
         </div>
@@ -12,6 +12,7 @@
             <span ng-if="service.state == SERVICE_STATE.RESTART">Restarting...</span>
             <span ng-if="service.state == SERVICE_STATE.STOP">Stopped</span>
             <span ng-if="service.state == SERVICE_STATE.PENDING">Pending...</span>
+            <span ng-if="service.state == SERVICE_STATE.STARTING">Starting...</span>
         </div>
         <div class="flex-1">
             <span ng-if="service.monitor.cpu !== false">{{service.monitor.cpu|number:2}}%</span>

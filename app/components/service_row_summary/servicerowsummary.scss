@@ -35,6 +35,10 @@
       color: $cool-grey;
     }
 
+    &.starting {
+      color: $blue;
+    }
+
     &:last-child {
       margin-right: 0;
     }

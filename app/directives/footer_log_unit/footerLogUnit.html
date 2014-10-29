@@ -8,6 +8,9 @@
 <div class="pause-log" tooltip-placement="left" tooltip="{{tab.paused ? 'Resume logs' : 'Pause logs'}}" ng-click="pauseTabLog()" ng-class="{ 'active': tab.paused }">
     <i class="fa fa-pause"></i>
 </div>
+<div class="parse-log" tooltip-placement="left" tooltip="{{tab.parseAsHtml ? 'Stop parse logs' : 'Parse logs as HTML'}}" ng-click="parseTapLogAsHtml()" ng-class="{ 'active': tab.parseAsHtml }">
+  <i class="fa fa-code"></i>
+</div>
 <div class="search-log" tooltip-placement="left" tooltip="{{tab.inQueryMode ? '' : 'Search this log'}}" ng-click="tab.inQueryMode = !tab.inQueryMode" ng-class="{ 'active': tab.query.length > 0 || tab.inQueryMode }">
     <i class="fa fa-times" ng-if="tab.inQueryMode" ng-click="tab.query = ''"></i>
     <i class="fa fa-search" ng-if="!tab.inQueryMode"></i>
@@ -17,6 +20,6 @@
 </div>
 <ul class="log-items-list" sw-perfect-scrollbar ng-style="{ 'height': height + 'px' }" suppress-scroll-x="true" sw-scroll auto-scroll-bottom="tab.tailed">
     <li ng-repeat="content in tab.content.getAll()|filter:{text: tab.query} track by $index" class="{{tab.itemcls}}">
-        <pre>{{content.time.format('DD/MM/YYYY HH:mm:ss')}} - <span ng-bind-html="::parseAnsi(content.text)"></span></pre>
+        <pre>{{content.time.format('DD/MM/YYYY HH:mm:ss')}} - <span ng-if="!tab.parseAsHtml" ng-bind="content.text"></span><span ng-if="tab.parseAsHtml" ng-bind-html="::parseAnsi(content.text)"></span></pre>
     </li>
 </ul>

@@ -58,6 +58,14 @@ angular.module('swamp.services').service('swampServicesManager', [
             return 0;
         }
 
+        this.countStarting = function() {
+          if(this._services) {
+            return _.where(this._services, { state: SERVICE_STATE.STARTING }).length;
+          }
+
+          return 0;
+        }
+
         this.getAll = function() {
             return this._services;
         }
@@ -177,6 +185,14 @@ angular.module('swamp.services').service('swampServicesManager', [
             }
         }
 
+        function _onServiceStarting(event, serviceName) {
+            var service = this.getByName(serviceName);
+
+            if(service) {
+                service.forceStarting();
+            }
+        }
+
         function _onServiceOut(event, serviceName, log) {
 
             var service = this.getByName(serviceName);
@@ -252,6 +268,7 @@ angular.module('swamp.services').service('swampServicesManager', [
         $rootScope.$on(EVENTS.SERVICE_STOP, _onServiceStop.bind(this));
         $rootScope.$on(EVENTS.SERVICE_RESTART, _onServiceRestart.bind(this));
         $rootScope.$on(EVENTS.SERVICE_PENDING, _onServicePending.bind(this));
+        $rootScope.$on(EVENTS.SERVICE_STARTING, _onServiceStarting.bind(this));
         $rootScope.$on(EVENTS.SERVICE_OUT, _onServiceOut.bind(this));
         $rootScope.$on(EVENTS.SERVICE_ERROR, _onServiceError.bind(this));
         $rootScope.$on(EVENTS.MODIFY_SERVICE_ENVIRONMENTS, _onServiceModifyEnvironments.bind(this));

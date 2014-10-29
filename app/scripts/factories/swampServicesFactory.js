@@ -137,6 +137,12 @@ angular.module('swamp.services').factory('swampServicesFactory', [
                 $rootScope.$safeApply();
             },
 
+            forceStarting: function() {
+                this.state = SERVICE_STATE.STARTING;
+
+                $rootScope.$safeApply();
+            },
+
             log: function(logType, log) {
 
                 var serialized = serializeService.serializeLogData(logType, log);
@@ -214,7 +220,11 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             _startUptimeMessageSync: function() {
 
+                this._stopUptimeMessageSync();
+
                 this.uptime = moment(this.startTime).fromNow();
+
+                $rootScope.$safeApply();
 
                 this._uptimeInterval = setTimeout(function() {
 
