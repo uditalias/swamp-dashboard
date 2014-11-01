@@ -2,7 +2,7 @@
 
 app.config(['$locationProvider', '$urlRouterProvider', function ($locationProvider, $urlRouterProvider) {
 
-  $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(false);
   $urlRouterProvider.otherwise('/404/');
 
 }]);
