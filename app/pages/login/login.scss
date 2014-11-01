@@ -16,6 +16,7 @@
   }
 
   form {
+    position: relative;
     border-left: solid 1px adjust-lightness($dark-blue, 5%);
     input {
       @include border-radius(2px);
@@ -31,5 +32,9 @@
         background-color: adjust-lightness($dark-blue, 5%);
       }
     }
+  }
+
+  .login-error-message {
+    position: absolute;
   }
 }

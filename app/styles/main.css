@@ -12611,9 +12611,10 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
 }
 /* line 18, ../pages/login/login.scss */
 .login-container form {
+  position: relative;
   border-left: solid 1px #262633;
 }
-/* line 20, ../pages/login/login.scss */
+/* line 21, ../pages/login/login.scss */
 .login-container form input {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -12627,10 +12628,14 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
   background-color: #1f1f2a;
   color: #FFF;
 }
-/* line 29, ../pages/login/login.scss */
+/* line 30, ../pages/login/login.scss */
 .login-container form input:focus, .login-container form input.filled {
   outline: none;
   background-color: #262633;
+}
+/* line 37, ../pages/login/login.scss */
+.login-container .login-error-message {
+  position: absolute;
 }
 
 /* line 1, ../pages/dashboard/dashboard.scss */

@@ -6,14 +6,18 @@ angular.module('swamp.controllers').controller('loginController', ['$scope', 'au
     password: ''
   };
 
+  $scope.err = null;
+
   $scope.login = function() {
+
+    $scope.err = null;
 
     authApiService.login($scope.credentials.username, $scope.credentials.password)
       .catch(_onLoginFail);
   };
 
-  function _onLoginFail() {
-    console.log(2, arguments);
+  function _onLoginFail(response) {
+    $scope.err = response.statusText;
   }
 
 }]);
