@@ -12,6 +12,11 @@
     font-size: 12px;
   }
 
+  &.btn-smaller {
+    padding: 3px 5px;
+    font-size: 10px;
+  }
+
   &[disabled] {
     @include opacity(0.4);
   }

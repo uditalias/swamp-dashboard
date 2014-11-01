@@ -1,8 +1,15 @@
 'use strict';
 
-app.run(['socketService', 'swampManager', function(socketService, swampManager) {
+app.run([
+  'authApiService',
+  '$state',
+  function(authApiService, $state) {
 
-    swampManager.initialize();
-    socketService.setup();
+    authApiService.isLoggedIn()
+      .catch(userLoggedOut);
 
-}]);
+    function userLoggedOut() {
+      $state.go('login');
+    }
+
+  }]);

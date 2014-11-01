@@ -108,3 +108,47 @@ pre {
     }
   }
 }
+
+.spread {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.rainbow {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  div {
+    height: 3px;
+  }
+
+  div:nth-child(1) {
+    background: $red;
+    width: 20%;
+  }
+
+  div:nth-child(2) {
+    background: $green;
+    width: 30%;
+  }
+
+  div:nth-child(3) {
+    background: $yellow;
+    width: 10%;
+  }
+
+  div:nth-child(4) {
+    background: $blue;
+    width: 20%;
+  }
+
+  div:nth-child(5) {
+    background: $light-aubergine;
+    width: 20%;
+  }
+}

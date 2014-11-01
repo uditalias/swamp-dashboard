@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('swamp.controllers').controller('rootController', [
+angular.module('swamp.controllers').controller('dashboardController', [
     '$scope', '$rootScope', 'swampServicesManager', 'swampManager', 'SERVICE_STATE', 'EVENTS', 'modalService', 'MODAL_TYPE',
     function($scope, $rootScope, swampServicesManager, swampManager, SERVICE_STATE, EVENTS, modalService, MODAL_TYPE) {
 

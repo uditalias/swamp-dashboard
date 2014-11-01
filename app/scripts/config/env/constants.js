@@ -6,7 +6,8 @@
  "name": "development",
  "serviceUptimeTickInterval": 10000,
  "swampReloadSeconds": 6,
- "socketConnectionString": "http://localhost:2121/"
+ "socketConnectionString": "http://localhost:2121/",
+ "apiBasePath": "http://localhost:2121/"
 })
 
 ;

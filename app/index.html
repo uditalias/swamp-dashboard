@@ -29,9 +29,9 @@
     <meta name="viewport" content="width=device-width">
     <!-- build:css /styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="lib/sass-bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="lib/normalize-css/normalize.css" />
-    <link rel="stylesheet" href="scripts/lib/perfect-scrollbar/perfect-scrollbar-0.4.8.min.css" />
+    <link rel="stylesheet" href="/lib/sass-bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/normalize-css/normalize.css" />
+    <link rel="stylesheet" href="/scripts/lib/perfect-scrollbar/perfect-scrollbar-0.4.8.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -46,10 +46,7 @@
   <body ng-app="swamp" ng-class="{ 'footer-panel-open': footerOpen }" ng-controller="mainController">
 
     <div class="app-wrapper">
-        <header ng-controller="headerController" ng-class="{ 'scrolled': handler.pageScrolled }" sw-scroll-state scroll-offset="40" on-page-scroll="onPageScrolled(state)" ng-include="'components/header/header.html'"></header>
-        <aside ng-controller="asideController" ng-include="'components/aside/aside.html'"></aside>
         <div ui-view></div>
-        <footer ng-controller="footerController" ng-include="'components/footer/footer.html'"></footer>
     </div>
 
     <!-- build:js /scripts/vendor.js -->
@@ -122,6 +119,8 @@
     <script src="/scripts/services/swampManager.js"></script>
     <script src="/scripts/services/swampServicesManager.js"></script>
     <script src="/scripts/services/modalService.js"></script>
+    <script src="/scripts/services/authApiService.js"></script>
+    <script src="/scripts/services/userService.js"></script>
     <!-- services -->
 
     <!-- providers -->
@@ -159,10 +158,25 @@
     <!-- controllers -->
 
 
-    <!-- page:root -->
-    <script src="/pages/root/rootStates.js"></script>
-    <script src="/pages/root/rootController.js"></script>
-    <!-- page:root -->
+    <!-- page:dashboard -->
+    <script src="/pages/dashboard/dashboardStates.js"></script>
+    <script src="/pages/dashboard/dashboardController.js"></script>
+    <!-- page:dashboard -->
+
+    <!-- page:404 -->
+    <script src="/pages/404/404States.js"></script>
+    <script src="/pages/404/404Controller.js"></script>
+    <!-- page:404 -->
+
+    <!-- page:login -->
+    <script src="/pages/login/loginStates.js"></script>
+    <script src="/pages/login/loginController.js"></script>
+    <!-- page:login -->
+
+    <!-- page:loading -->
+    <script src="/pages/loading/loadingStates.js"></script>
+    <script src="/pages/loading/loadingController.js"></script>
+    <!-- page:loading -->
 
     <!-- endbuild -->
 
