@@ -16,12 +16,11 @@ app.run([
     }
 
     function _onStateChangeStart(evt, toState, toParams, fromState, fromParams) {
-        if(toState.name == 'login' && userService.isLoggedIn()) {
-            return $state.go('dashboard');
-        }
 
-        if(toState.name == 'dashboard' && !userService.isLoggedIn()) {
-          return $state.go('login');
+        if(toState.name == 'login' && userService.isLoggedIn()) {
+            return $state.transitionTo('dashboard');
+        } else if(toState.name == 'dashboard' && !userService.isLoggedIn()) {
+          return $state.transitionTo('login');
         }
 
     }

@@ -3,6 +3,6 @@
 app.config(['$locationProvider', '$urlRouterProvider', function ($locationProvider, $urlRouterProvider) {
 
   $locationProvider.html5Mode(false);
-  $urlRouterProvider.otherwise('/404/');
+  $urlRouterProvider.otherwise('/login/');
 
 }]);

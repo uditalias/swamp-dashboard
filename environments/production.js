@@ -1,5 +1,7 @@
 module.exports  =  {
 
-    name: "production"
+    name: "production",
+
+    apiBasePath: '/'
 
 };

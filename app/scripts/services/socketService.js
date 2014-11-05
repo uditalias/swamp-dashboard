@@ -1,14 +1,17 @@
 "use strict";
 
-angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVENTS', 'swampServicesManager', 'serializeService', 'env', '$rootScope',
-    function(SOCKET_EVENTS, EVENTS, swampServicesManager, serializeService, env, $rootScope) {
+angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVENTS', 'swampServicesManager', 'serializeService', 'env', '$rootScope', 'tokenService',
+    function(SOCKET_EVENTS, EVENTS, swampServicesManager, serializeService, env, $rootScope, tokenService) {
 
         this._socket = null;
 
         this.setup = function() {
 
+            var access_token = tokenService.getAccessToken();
+
             this._socket = io.connect(env.socketConnectionString, {
-                reconnect: false
+                reconnect: false,
+                query: 'x-access-token=' + access_token
             });
 
             this._bindSocketEvents();

@@ -27,15 +27,15 @@
         </div>
         <div class="flex-1 flex" ng-click="$event.stopPropagation()">
             <div class="flex-1 margin-right-1" tooltip="Start service">
-                <button class="btn btn-green width-max" ng-disabled="service.state == SERVICE_STATE.RUN || service.state == SERVICE_STATE.RESTART || service.state == SERVICE_STATE.PENDING"
+                <button class="btn btn-green width-max" ng-disabled="service.state == SERVICE_STATE.RUN || service.state == SERVICE_STATE.RESTART || service.state == SERVICE_STATE.PENDING || service.state == SERVICE_STATE.STARTING"
                         ng-click="serviceActions.start(service)"><i class="fa fa-play"></i></button>
             </div>
             <div class="flex-1 margin-right-1" tooltip="Stop service">
-                <button class="btn btn-red width-max" ng-disabled="service.state == SERVICE_STATE.STOP || service.state == SERVICE_STATE.RESTART || service.state == SERVICE_STATE.PENDING"
+                <button class="btn btn-red width-max" ng-disabled="service.state == SERVICE_STATE.STOP || service.state == SERVICE_STATE.RESTART || service.state == SERVICE_STATE.PENDING || service.state == SERVICE_STATE.STARTING"
                         ng-click="serviceActions.stop(service)"><i class="fa fa-stop"></i></button>
             </div>
             <div class="flex-1" tooltip="Restart service">
-                <button class="btn btn-yellow width-max" ng-disabled="service.state == SERVICE_STATE.STOP || service.state == SERVICE_STATE.PENDING"
+                <button class="btn btn-yellow width-max" ng-disabled="service.state == SERVICE_STATE.STOP || service.state == SERVICE_STATE.PENDING || service.state == SERVICE_STATE.STARTING"
                         ng-click="serviceActions.restart(service)"><i class="fa fa-refresh"></i></button>
             </div>
         </div>

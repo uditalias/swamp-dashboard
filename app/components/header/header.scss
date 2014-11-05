@@ -19,7 +19,7 @@ header {
         font-size: 32px;
 
         span {
-          font-size: 22px;
+          font-size: 32px;
         }
       }
     }
@@ -37,7 +37,7 @@ header {
       span {
         @include transition(all 200ms);
         color: adjust-lightness($dark-blue, 15%);
-        font-size: 32px;
+        font-size: 42px;
         font-weight: 300;
       }
     }

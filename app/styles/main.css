@@ -11956,7 +11956,7 @@ header.scrolled .header-inner h1 {
 }
 /* line 21, ../components/header/header.scss */
 header.scrolled .header-inner h1 span {
-  font-size: 22px;
+  font-size: 32px;
 }
 /* line 30, ../components/header/header.scss */
 header .header-inner h1 {
@@ -11972,7 +11972,7 @@ header .header-inner h1 span {
   -webkit-transition: all 200ms;
   transition: all 200ms;
   color: #3c3c50;
-  font-size: 32px;
+  font-size: 42px;
   font-weight: 300;
 }
 /* line 45, ../components/header/header.scss */
@@ -12010,7 +12010,12 @@ header .header-inner .search-container i {
   color: #17171e;
 }
 
-/* line 1, ../components/aside/aside.scss */
+/* line 2, ../components/aside/aside.scss */
+.footer-panel-open aside .aside-inner {
+  padding-bottom: 330px;
+}
+
+/* line 7, ../components/aside/aside.scss */
 aside {
   width: 250px;
   height: 100%;
@@ -12019,52 +12024,52 @@ aside {
   left: 0;
   z-index: 500;
 }
-/* line 10, ../components/aside/aside.scss */
+/* line 16, ../components/aside/aside.scss */
 aside .aside-inner {
   padding-top: 105px;
   position: relative;
   width: 100%;
   height: 100%;
 }
-/* line 17, ../components/aside/aside.scss */
+/* line 23, ../components/aside/aside.scss */
 aside .aside-inner .aside-container {
   position: relative;
   overflow: hidden;
   height: 100%;
   width: 100%;
 }
-/* line 23, ../components/aside/aside.scss */
+/* line 29, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box {
   padding: 0 20px;
 }
-/* line 27, ../components/aside/aside.scss */
+/* line 33, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box .aside-title {
   font-weight: 700;
 }
-/* line 31, ../components/aside/aside.scss */
+/* line 37, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box .aside-content {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-/* line 36, ../components/aside/aside.scss */
+/* line 42, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box .aside-content li {
   margin: 5px;
 }
-/* line 39, ../components/aside/aside.scss */
+/* line 45, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box .aside-content li span {
   cursor: pointer;
 }
-/* line 42, ../components/aside/aside.scss */
+/* line 48, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box .aside-content li span i {
   margin-right: 3px;
   font-size: 12px;
 }
-/* line 48, ../components/aside/aside.scss */
+/* line 54, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs {
   cursor: pointer;
 }
-/* line 50, ../components/aside/aside.scss */
+/* line 56, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs i {
   width: 15px;
 }

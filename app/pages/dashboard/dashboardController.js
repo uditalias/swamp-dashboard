@@ -147,10 +147,16 @@ angular.module('swamp.controllers').controller('dashboardController', [
             $rootScope.$safeApply();
         }
 
+        if(_.toArray(swampServicesManager.getAll()).length) {
+          _onSwampServicesManagerInitialized();
+        }
+
         $rootScope.$on(EVENTS.SERVICES_FILTER_CHANGE, _onServicesFilterChange);
         $rootScope.$on(EVENTS.SWAMP_SERVICES_MANAGER_INITIALIZED, _onSwampServicesManagerInitialized);
         $rootScope.$on(EVENTS.SERVICE_START, _refreshServicesCountSummary);
         $rootScope.$on(EVENTS.SERVICE_STOP, _refreshServicesCountSummary);
         $rootScope.$on(EVENTS.SERVICE_RESTART, _refreshServicesCountSummary);
+        $rootScope.$on(EVENTS.SERVICE_PENDING, _refreshServicesCountSummary);
+        $rootScope.$on(EVENTS.SERVICE_STARTING, _refreshServicesCountSummary);
 
     }]);
