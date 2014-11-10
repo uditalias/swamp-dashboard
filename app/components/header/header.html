@@ -2,7 +2,10 @@
 
     <div class="flex-1">
         <h1>
-            Swamp <span>Dashboard</span>
+            Swamp
+            <span>
+                Dashboard
+            </span>
         </h1>
     </div>
 
@@ -14,9 +17,14 @@
             <i class="fa fa-times" ng-if="handler.serviceQuery.length > 0" ng-click="clearFilter()"></i>
         </div>
 
-      <div class="flex flex-align-center margin-left-3">
-        <button class="btn btn-red btn-small" ng-click="logout()">Logout</button>
-      </div>
+        <div class="flex flex-align-center margin-left-3">
+          <div class="margin-right-1">Mode:</div>
+          <div class="bold color-blue">{{handler.info.mode}}</div>
+        </div>
+
+        <div class="flex flex-align-center margin-left-3">
+          <button class="btn btn-red btn-small" ng-click="logout()">Logout</button>
+        </div>
 
     </div>
 

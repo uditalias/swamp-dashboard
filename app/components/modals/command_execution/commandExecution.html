@@ -33,13 +33,12 @@
 
         </div>
 
-        <ul class="log-items-list flex-1" sw-perfect-scrollbar>
-          <div class="loader-wrapper" ng-if="!execution.disposed">
-            <div class="spinner">
-              <div class="double-bounce1"></div>
-              <div class="double-bounce2"></div>
-            </div>
-          </div>
+        <div class="tail-log" tooltip-placement="left" tooltip="{{execution.tailed ? 'Turn auto scroll off' : 'Turn auto scroll on'}}" ng-click="execution.tailed = !execution.tailed" ng-class="{ 'active': execution.tailed }">
+          <i ng-if="execution.tailed" class="fa fa-dot-circle-o text-16"></i>
+          <i ng-if="!execution.tailed" class="fa fa-circle-o text-16"></i>
+        </div>
+
+        <ul class="log-items-list flex-1" sw-perfect-scrollbar sw-scroll auto-scroll-bottom="execution.tailed">
           <li ng-repeat="content in execution.log">
             <pre><span ng-bind-html="::parseAnsi(content.text)"></span></pre>
           </li>

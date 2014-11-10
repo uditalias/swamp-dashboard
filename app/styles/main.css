@@ -12029,10 +12029,18 @@ header .header-inner h1 span {
   font-weight: 300;
 }
 /* line 45, ../components/header/header.scss */
+header .header-inner label {
+  top: 0;
+  left: 100%;
+  font-weight: 100;
+  background: #3c3c50;
+  color: #AEA79F;
+}
+/* line 53, ../components/header/header.scss */
 header .header-inner .search-container {
   position: relative;
 }
-/* line 49, ../components/header/header.scss */
+/* line 57, ../components/header/header.scss */
 header .header-inner .search-container input {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -12047,13 +12055,13 @@ header .header-inner .search-container input {
   background-color: #1f1f2a;
   color: #AEA79F;
 }
-/* line 59, ../components/header/header.scss */
+/* line 67, ../components/header/header.scss */
 header .header-inner .search-container input:focus, header .header-inner .search-container input.filtered {
   outline: none;
   width: 400px;
   background-color: #262633;
 }
-/* line 66, ../components/header/header.scss */
+/* line 74, ../components/header/header.scss */
 header .header-inner .search-container i {
   position: absolute;
   font-size: 22px;
@@ -12442,20 +12450,43 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
 /* line 1, ../components/modals/command_execution/commandexecution.scss */
 .command-execution {
   height: 100%;
+  position: relative;
 }
 /* line 6, ../components/modals/command_execution/commandexecution.scss */
+.command-execution:hover .tail-log {
+  display: block;
+}
+/* line 11, ../components/modals/command_execution/commandexecution.scss */
+.command-execution .tail-log {
+  z-index: 1;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 130px;
+  right: 15px;
+}
+/* line 19, ../components/modals/command_execution/commandexecution.scss */
+.command-execution .tail-log:hover {
+  color: #2c8d3a;
+}
+/* line 23, ../components/modals/command_execution/commandexecution.scss */
+.command-execution .tail-log.active {
+  color: #38B44A;
+  display: block;
+}
+/* line 31, ../components/modals/command_execution/commandexecution.scss */
 .command-execution .execution-info-table .execution-info-row {
   border-bottom: solid 1px #333;
 }
-/* line 8, ../components/modals/command_execution/commandexecution.scss */
+/* line 33, ../components/modals/command_execution/commandexecution.scss */
 .command-execution .execution-info-table .execution-info-row .execution-info-item {
   border-right: solid 1px #333;
 }
-/* line 11, ../components/modals/command_execution/commandexecution.scss */
+/* line 36, ../components/modals/command_execution/commandexecution.scss */
 .command-execution .execution-info-table .execution-info-row .execution-info-item:last-child {
   border-right: none;
 }
-/* line 18, ../components/modals/command_execution/commandexecution.scss */
+/* line 43, ../components/modals/command_execution/commandexecution.scss */
 .command-execution .execution-actions {
   position: absolute;
   bottom: 0;
@@ -12463,12 +12494,12 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
   width: 100%;
   background: #141414;
 }
-/* line 26, ../components/modals/command_execution/commandexecution.scss */
+/* line 51, ../components/modals/command_execution/commandexecution.scss */
 .command-execution code {
   color: #AEA79F;
   background: #333;
 }
-/* line 31, ../components/modals/command_execution/commandexecution.scss */
+/* line 56, ../components/modals/command_execution/commandexecution.scss */
 .command-execution ul.log-items-list {
   -webkit-transition: height 200ms;
   transition: height 200ms;
@@ -12476,38 +12507,31 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
   overflow: hidden;
   margin-bottom: 52px;
 }
-/* line 38, ../components/modals/command_execution/commandexecution.scss */
+/* line 63, ../components/modals/command_execution/commandexecution.scss */
 .command-execution ul.log-items-list:hover li {
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
-/* line 43, ../components/modals/command_execution/commandexecution.scss */
-.command-execution ul.log-items-list .loader-wrapper {
-  z-index: 1;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-/* line 50, ../components/modals/command_execution/commandexecution.scss */
+/* line 68, ../components/modals/command_execution/commandexecution.scss */
 .command-execution ul.log-items-list li {
   -webkit-transition: all 100ms;
   transition: all 100ms;
   padding: 0 10px;
 }
-/* line 55, ../components/modals/command_execution/commandexecution.scss */
+/* line 73, ../components/modals/command_execution/commandexecution.scss */
 .command-execution ul.log-items-list li:nth-child(even) {
   background-color: #141414;
 }
-/* line 59, ../components/modals/command_execution/commandexecution.scss */
+/* line 77, ../components/modals/command_execution/commandexecution.scss */
 .command-execution ul.log-items-list li:nth-child(odd) {
   background-color: #121212;
 }
-/* line 63, ../components/modals/command_execution/commandexecution.scss */
+/* line 81, ../components/modals/command_execution/commandexecution.scss */
 .command-execution ul.log-items-list li:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 69, ../components/modals/command_execution/commandexecution.scss */
+/* line 87, ../components/modals/command_execution/commandexecution.scss */
 .command-execution pre {
   color: inherit;
   border: none;

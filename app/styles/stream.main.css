@@ -3687,6 +3687,51 @@
   box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* line 1, scss/globals/loaders.scss */
+.spinner {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+/* line 7, scss/globals/loaders.scss */
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+/* line 21, scss/globals/loaders.scss */
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
 /* line 1, scss/iostream/common.scss */
 html, body {
   margin: 0;

@@ -42,6 +42,14 @@ header {
       }
     }
 
+    label {
+      top: 0;
+      left: 100%;
+      font-weight: 100;
+      background: adjust-lightness($dark-blue, 15%);
+      color: $warm-grey;
+    }
+
     .search-container {
 
       position: relative;

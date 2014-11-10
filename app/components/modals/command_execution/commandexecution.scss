@@ -1,5 +1,30 @@
 .command-execution {
   height: 100%;
+  position: relative;
+
+  &:hover {
+    .tail-log {
+      display: block;
+    }
+  }
+
+  .tail-log {
+    z-index: 1;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 130px;
+    right: 15px;
+
+    &:hover {
+      color: adjust-lightness($green, -10%);
+    }
+
+    &.active {
+      color: $green;
+      display: block;
+    }
+  }
 
   .execution-info-table {
 
@@ -38,13 +63,6 @@
       li {
         @include opacity(0.6);
       }
-    }
-
-    .loader-wrapper {
-      z-index: 1;
-      position: absolute;
-      top: 10px;
-      right: 10px;
     }
 
     li {

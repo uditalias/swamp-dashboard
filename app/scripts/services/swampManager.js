@@ -9,7 +9,7 @@ angular.module('swamp.services').service('swampManager', [
 
         this._info = {
             totalmem: 0,
-            mode: 'local'
+            mode: '*'
         };
 
         this._commands = [];
@@ -98,7 +98,7 @@ angular.module('swamp.services').service('swampManager', [
         function _setSwampInfo(info) {
 
           if(info) {
-            this._info = info;
+            _.extend(this._info, info);
           }
         }
 

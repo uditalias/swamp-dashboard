@@ -1,11 +1,12 @@
 'use strict';
 
-angular.module('swamp.controllers').controller('headerController', ['$scope', '$rootScope', 'EVENTS', 'authApiService',
-    function($scope, $rootScope, EVENTS, authApiService) {
+angular.module('swamp.controllers').controller('headerController', ['$scope', '$rootScope', 'EVENTS', 'authApiService', 'swampManager',
+    function($scope, $rootScope, EVENTS, authApiService, swampManager) {
 
         $scope.handler = {
             pageScrolled: false,
-            serviceQuery: ''
+            serviceQuery: '',
+            info: swampManager.getInfo()
         };
 
         $scope.onPageScrolled = function(state) {
