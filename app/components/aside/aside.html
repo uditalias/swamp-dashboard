@@ -32,7 +32,7 @@
             </ul>
         </div>
 
-        <div class="aside-box margin-bottom-10">
+        <div class="aside-box margin-bottom-4">
             <div class="aside-title">
                 Swamp options
             </div>
@@ -45,6 +45,24 @@
                 <li>
                     <div class="clear-all-logs" ng-click="clearAllLogs()">
                         <i class="fa fa-trash-o"></i> Clear all logs
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="aside-box margin-bottom-10">
+            <div class="aside-title">
+              Execution Commands
+            </div>
+            <ul class="aside-content">
+                <li ng-repeat="execution in handler.executionCommands">
+                    <div class="cursor-pointer" ng-click="openCommandExecutionWindow(execution)"
+                         ng-class="{
+                         'color-blue': !execution.disposed,
+                         'color-green': execution.disposed && execution.success,
+                         'color-red': execution.disposed && !execution.success }"
+                          tooltip="{{execution.serviceName}}" tooltip-placement="right" tooltip-append-to-body="true">
+                      {{execution.cmd}}
                     </div>
                 </li>
             </ul>

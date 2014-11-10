@@ -19,6 +19,18 @@ angular.module('swamp.config')
             templateUrl: 'components/modals/prompt/prompt.html',
             controller: 'promptController',
             windowClass: 'modal-size_30'
+        },
+
+        "modal::execute.command.prompt": {
+            templateUrl: 'components/modals/execute_command_prompt/executeCommandPrompt.html',
+            controller: 'executeCommandPromptController',
+            windowClass: 'modal-size_50'
+        },
+
+        "modal::command.execution": {
+            templateUrl: 'components/modals/command_execution/commandExecution.html',
+            controller: 'commandExecutionController',
+            windowClass: 'modal-size_80 max-height'
         }
 
     });

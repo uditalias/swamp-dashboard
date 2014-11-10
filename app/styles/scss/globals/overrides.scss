@@ -108,4 +108,13 @@
       width: 30%;
     }
   }
+
+  &.max-height {
+    .modal-dialog {
+      height: 100%;
+      .modal-content {
+        height: 100%;
+      }
+    }
+  }
 }

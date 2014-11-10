@@ -10201,6 +10201,14 @@ td.visible-print {
 .modal.modal-size_30 .modal-dialog {
   width: 30%;
 }
+/* line 113, scss/globals/overrides.scss */
+.modal.max-height .modal-dialog {
+  height: 100%;
+}
+/* line 115, scss/globals/overrides.scss */
+.modal.max-height .modal-dialog .modal-content {
+  height: 100%;
+}
 
 /* line 1, scss/globals/colors.scss */
 .color-orange {
@@ -11661,6 +11669,51 @@ pre {
     opacity: 0.3;
   }
 }
+/* line 1, scss/globals/loaders.scss */
+.spinner {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+/* line 7, scss/globals/loaders.scss */
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+/* line 21, scss/globals/loaders.scss */
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
 /*
  *  Components
  */
@@ -12069,7 +12122,11 @@ aside .aside-inner .aside-container .aside-box .aside-content li span i {
 aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs {
   cursor: pointer;
 }
-/* line 56, ../components/aside/aside.scss */
+/* line 57, ../components/aside/aside.scss */
+aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs:hover {
+  color: #DF382C;
+}
+/* line 61, ../components/aside/aside.scss */
 aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs i {
   width: 15px;
 }
@@ -12362,6 +12419,103 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
   background: #141414;
 }
 
+/* line 1, ../components/modals/execute_command_prompt/executecommandprompt.scss */
+.execute-command-prompt {
+  color: #FFF;
+  font-weight: 300;
+}
+/* line 6, ../components/modals/execute_command_prompt/executecommandprompt.scss */
+.execute-command-prompt .prompt-action {
+  font-weight: 500;
+  text-decoration: underline;
+}
+/* line 11, ../components/modals/execute_command_prompt/executecommandprompt.scss */
+.execute-command-prompt .prompt-actions {
+  background: #141414;
+}
+/* line 15, ../components/modals/execute_command_prompt/executecommandprompt.scss */
+.execute-command-prompt code {
+  color: #AEA79F;
+  background: #333;
+}
+
+/* line 1, ../components/modals/command_execution/commandexecution.scss */
+.command-execution {
+  height: 100%;
+}
+/* line 6, ../components/modals/command_execution/commandexecution.scss */
+.command-execution .execution-info-table .execution-info-row {
+  border-bottom: solid 1px #333;
+}
+/* line 8, ../components/modals/command_execution/commandexecution.scss */
+.command-execution .execution-info-table .execution-info-row .execution-info-item {
+  border-right: solid 1px #333;
+}
+/* line 11, ../components/modals/command_execution/commandexecution.scss */
+.command-execution .execution-info-table .execution-info-row .execution-info-item:last-child {
+  border-right: none;
+}
+/* line 18, ../components/modals/command_execution/commandexecution.scss */
+.command-execution .execution-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #141414;
+}
+/* line 26, ../components/modals/command_execution/commandexecution.scss */
+.command-execution code {
+  color: #AEA79F;
+  background: #333;
+}
+/* line 31, ../components/modals/command_execution/commandexecution.scss */
+.command-execution ul.log-items-list {
+  -webkit-transition: height 200ms;
+  transition: height 200ms;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 52px;
+}
+/* line 38, ../components/modals/command_execution/commandexecution.scss */
+.command-execution ul.log-items-list:hover li {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+/* line 43, ../components/modals/command_execution/commandexecution.scss */
+.command-execution ul.log-items-list .loader-wrapper {
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+/* line 50, ../components/modals/command_execution/commandexecution.scss */
+.command-execution ul.log-items-list li {
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  padding: 0 10px;
+}
+/* line 55, ../components/modals/command_execution/commandexecution.scss */
+.command-execution ul.log-items-list li:nth-child(even) {
+  background-color: #141414;
+}
+/* line 59, ../components/modals/command_execution/commandexecution.scss */
+.command-execution ul.log-items-list li:nth-child(odd) {
+  background-color: #121212;
+}
+/* line 63, ../components/modals/command_execution/commandexecution.scss */
+.command-execution ul.log-items-list li:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+/* line 69, ../components/modals/command_execution/commandexecution.scss */
+.command-execution pre {
+  color: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
 /*
  *  Directives
  */
@@ -12524,19 +12678,20 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
   z-index: 2000;
   background-color: #1a1a1a;
   min-width: 130px;
+  white-space: nowrap;
   -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 9, ../directives/context_menu/contextmenu.scss */
+/* line 10, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-/* line 15, ../directives/context_menu/contextmenu.scss */
+/* line 16, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li {
   position: relative;
   color: #AEA79F;
@@ -12544,7 +12699,7 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
   padding: 5px;
   border-bottom: solid 1px #262626;
 }
-/* line 23, ../directives/context_menu/contextmenu.scss */
+/* line 24, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li.sub-menu-container:after {
   position: absolute;
   top: 18%;
@@ -12552,33 +12707,33 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
   content: '\f105';
   font-family: 'FontAwesome';
 }
-/* line 32, ../directives/context_menu/contextmenu.scss */
+/* line 33, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li.disabled {
   color: #2b2b2b;
 }
-/* line 36, ../directives/context_menu/contextmenu.scss */
+/* line 37, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li:hover:not(.disabled) {
   background-color: #171717;
   color: #FFF;
 }
-/* line 41, ../directives/context_menu/contextmenu.scss */
+/* line 42, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li:first-child {
   -moz-border-radius: 4px 4px 0 0;
   -webkit-border-radius: 4px;
   border-radius: 4px 4px 0 0;
 }
-/* line 45, ../directives/context_menu/contextmenu.scss */
+/* line 46, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li:last-child {
   -moz-border-radius: 0 0 4px 4px;
   -webkit-border-radius: 0;
   border-radius: 0 0 4px 4px;
   border-bottom: none;
 }
-/* line 51, ../directives/context_menu/contextmenu.scss */
+/* line 52, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu ul li:hover .sw-sub-context-menu {
   display: block;
 }
-/* line 58, ../directives/context_menu/contextmenu.scss */
+/* line 59, ../directives/context_menu/contextmenu.scss */
 .sw-context-menu .sw-sub-context-menu {
   left: 100%;
   top: -1px;

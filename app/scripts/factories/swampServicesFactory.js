@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('swamp.services').factory('swampServicesFactory', [
-    '$rootScope', 'env', 'SERVICE_STATE', 'CLIENT_REQUEST', 'aggregatedDataFactory', 'AGGREGATED_LIST_TYPE', 'LOG_TYPE', 'serializeService', 'EVENTS',
-    function($rootScope, env, SERVICE_STATE, CLIENT_REQUEST, aggregatedDataFactory, AGGREGATED_LIST_TYPE, LOG_TYPE, serializeService, EVENTS) {
+    '$rootScope', 'env', 'SERVICE_STATE', 'CLIENT_REQUEST', 'aggregatedDataFactory', 'AGGREGATED_LIST_TYPE', 'LOG_TYPE', 'serializeService', 'EVENTS', 'swampManager', 'modalService', 'MODAL_TYPE',
+    function($rootScope, env, SERVICE_STATE, CLIENT_REQUEST, aggregatedDataFactory, AGGREGATED_LIST_TYPE, LOG_TYPE, serializeService, EVENTS, swampManager, modalService, MODAL_TYPE) {
 
 
         function SwampService(params) {
@@ -86,6 +86,12 @@ angular.module('swamp.services').factory('swampServicesFactory', [
                 environment = environment || this.selectedEnvironment;
 
                 $rootScope.$broadcast(CLIENT_REQUEST.REQUEST_RESTART_SERVICE, this, environment);
+
+            },
+
+            executeCommand: function(commandId) {
+
+              $rootScope.$broadcast(CLIENT_REQUEST.REQUEST_COMMAND_EXECUTION, this, commandId);
 
             },
 
@@ -243,7 +249,11 @@ angular.module('swamp.services').factory('swampServicesFactory', [
             },
 
             getContextMenu: function() {
-                return [{
+
+                var commands = swampManager.getCommands();
+
+
+                var contextMenu = [{
                     title: 'Out log',
                     command: function() { $rootScope.$broadcast(EVENTS.OPEN_FOOTER_PANEL, this.outLogData.id); }.bind(this)
                 }, {
@@ -273,7 +283,45 @@ angular.module('swamp.services').factory('swampServicesFactory', [
                         title: 'STDERR',
                         command: function() { this.openIOStreamer('error'); }.bind(this)
                     }]
-                }]
+                }];
+
+                if(commands.length > 0) {
+
+                    var commandsMenu = [];
+
+                    if(commands.length) {
+                      _.forEach(commands, function(command) {
+                        commandsMenu.push({
+                          title: command.name,
+                          command: function(command) {
+
+                              if(swampManager.getInfo().mode == 'remote') {
+
+                                  var modal = modalService.open(MODAL_TYPE.EXECUTE_COMMAND_PROMPT, { service: this, command: command });
+
+                                  modal.result.then(function() {
+
+                                      this.executeCommand(command.id);
+
+                                  }.bind(this));
+
+                              } else {
+                                  this.executeCommand(command.id);
+                              }
+
+                          }.bind(this, command)
+                        });
+                      }.bind(this));
+                    }
+
+                    contextMenu.push({
+                        title: 'Commands',
+                        disabled: commands.length == 0,
+                        command: commandsMenu
+                    });
+                }
+
+                return contextMenu;
             }
 
         };

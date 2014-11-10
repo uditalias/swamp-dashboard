@@ -1,0 +1,58 @@
+<sw-modal-content modal-title="execution.cmd" class="command-execution">
+
+    <div class="flex execution-info-table flex-vbox flex-1">
+
+        <div class="flex execution-info-row">
+
+            <div class="flex flex-1 execution-info-item margin-right-2 padding-2">
+              <div class="flex-1">Service</div>
+              <div class="flex-2 color-white">{{execution.serviceName}}</div>
+            </div>
+
+            <div class="flex flex-1 execution-info-item margin-right-2 padding-2">
+              <div class="flex-1">CWD</div>
+              <div class="flex-2 color-white text-truncate" tooltip="{{execution.cwd}}">{{execution.cwd}}</div>
+            </div>
+
+        </div>
+
+        <div class="flex execution-info-row">
+
+          <div class="flex flex-1 execution-info-item margin-right-2 padding-2">
+            <div class="flex-1">Status</div>
+            <div class="flex-2 color-blue" ng-if="!execution.disposed && !terminating">Running...</div>
+            <div class="flex-2 color-green" ng-if="execution.disposed && execution.success">Success</div>
+            <div class="flex-2 color-red" ng-if="execution.disposed && !execution.success">Failed</div>
+            <div class="flex-2 color-yellow" ng-if="!execution.disposed && terminating">Terminating...</div>
+          </div>
+
+          <div class="flex flex-1 execution-info-item margin-right-2 padding-2">
+            <div class="flex-1">CMD</div>
+            <div class="flex-2 color-white text-truncate" tooltip="{{execution.cmd}}"><code>{{execution.cmd}}</code></div>
+          </div>
+
+        </div>
+
+        <ul class="log-items-list flex-1" sw-perfect-scrollbar>
+          <div class="loader-wrapper" ng-if="!execution.disposed">
+            <div class="spinner">
+              <div class="double-bounce1"></div>
+              <div class="double-bounce2"></div>
+            </div>
+          </div>
+          <li ng-repeat="content in execution.log">
+            <pre><span ng-bind-html="::parseAnsi(content.text)"></span></pre>
+          </li>
+        </ul>
+
+    </div>
+
+    <div class="flex flex-pack-end padding-2 execution-actions">
+      <button class="btn btn-primary btn-green btn-small margin-right-2" ng-if="!execution.disposed && !terminating" ng-click="terminate()" ng-disabled="execution.disposed || terminating">
+          <span ng-if="!terminating">Terminate</span>
+          <span ng-if="!execution.disposed && terminating">Terminating...</span>
+      </button>
+      <button class="btn btn-primary btn-red btn-small" ng-click="dismiss()">Close</button>
+    </div>
+
+</sw-modal-content>

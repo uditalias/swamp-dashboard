@@ -29,7 +29,6 @@ angular.module('swamp.directives').directive('swFooterLogUnit', ['$sce', functio
       };
 
       $scope.parseAnsi = function(raw) {
-        console.log(1)
         var ansi = _.ansi(raw);
         raw = '';
         for(var i = 0, len = ansi.length; i < len; i++) {

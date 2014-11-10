@@ -1,0 +1,23 @@
+<sw-modal-content modal-title="'Execute Command for ' + service.name + '?'" class="execute-command-prompt">
+
+  <div class="padding-4 text-16">
+      <div>
+          Are you sure you want to execute the command <span class="prompt-action color-yellow">{{command.name}}</span>?
+      </div>
+      <div>
+          <div class="flex margin-top-2">
+              <div class="margin-right-2">CMD:</div>
+              <div><code>$ {{command.cmd}}</code></div>
+          </div>
+          <div class="flex margin-top-2">
+              <div class="margin-right-2">CWD:</div>
+              <div><code>{{service.path}}</code></div>
+          </div>
+      </div>
+  </div>
+  <div class="flex flex-pack-center padding-2 prompt-actions">
+    <button class="btn btn-primary btn-green margin-right-2" ng-click="confirm()">Yes, Execute</button>
+    <button class="btn btn-primary btn-red" ng-click="dismiss()">No, Cancel</button>
+  </div>
+
+</sw-modal-content>

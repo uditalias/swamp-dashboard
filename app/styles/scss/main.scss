@@ -12,6 +12,7 @@
 @import "globals/common";
 @import "globals/buttons";
 @import "globals/animations";
+@import "globals/loaders";
 
 
 /*
@@ -26,6 +27,8 @@
 @import "../../components/modals/environments_editor/environmentseditor";
 @import "../../components/modals/logs_selector/logsselector";
 @import "../../components/modals/prompt/prompt";
+@import "../../components/modals/execute_command_prompt/executecommandprompt";
+@import "../../components/modals/command_execution/commandexecution";
 
 
 /*

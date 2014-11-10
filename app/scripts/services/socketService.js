@@ -59,7 +59,7 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                             serialized.push(serializeService.serializeSwampService(raw));
                         });
 
-                        $rootScope.$broadcast(EVENTS.SWAMP_DATA_RECEIVED, message.data.swamp);
+                        $rootScope.$broadcast(EVENTS.SWAMP_DATA_RECEIVED, message.data.swamp, message.data.commands);
                         $rootScope.$broadcast(EVENTS.SWAMP_SERVICES_RECEIVED, serialized);
 
                         break;
@@ -158,6 +158,30 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                         $rootScope.$broadcast(EVENTS.MODIFY_SERVICE_ENVIRONMENTS, serviceName, serialized);
 
                         break;
+
+                    case SOCKET_EVENTS.COMMAND_STARTED:
+
+                        var serialized = serializeService.serializeExecutionCommand(message.data);
+
+                        $rootScope.$broadcast(EVENTS.COMMAND_STARTED, serialized);
+
+                        break;
+
+                    case SOCKET_EVENTS.COMMAND_OUT:
+
+                        var serialized = serializeService.serializeCommandOut(message.data);
+
+                        $rootScope.$broadcast(EVENTS.COMMAND_OUT, serialized);
+
+                        break;
+
+                    case SOCKET_EVENTS.COMMAND_DISPOSED:
+
+                        var serialized = serializeService.serializeCommandDisposed(message.data);
+
+                        $rootScope.$broadcast(EVENTS.COMMAND_DISPOSED, serialized);
+
+                        break;
                 }
             }
         }
@@ -169,5 +193,7 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
         $rootScope.$on(SOCKET_EVENTS.SWAMP_RESTART_ALL, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.SWAMP_START_ALL, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.MODIFY_SERVICE_ENVIRONMENTS, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.EXECUTE_COMMAND, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.TERMINATE_COMMAND, this._emit.bind(this));
 
     }]);

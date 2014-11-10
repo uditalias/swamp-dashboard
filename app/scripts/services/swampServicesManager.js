@@ -255,6 +255,17 @@ angular.module('swamp.services').service('swampServicesManager', [
 
         }
 
+        function _onClientRequestCommandExecution(event, service, commandId) {
+
+            var params = {
+                name: service.name,
+                commandId: commandId
+            }
+
+            $rootScope.$broadcast(SOCKET_EVENTS.EXECUTE_COMMAND, params);
+
+        }
+
         function _onSwampDisconnected() {
 
             _dispose.call(this);
@@ -276,5 +287,6 @@ angular.module('swamp.services').service('swampServicesManager', [
         $rootScope.$on(CLIENT_REQUEST.REQUEST_START_SERVICE, _onClientRequestStartService.bind(this));
         $rootScope.$on(CLIENT_REQUEST.REQUEST_STOP_SERVICE, _onClientRequestStopService.bind(this));
         $rootScope.$on(CLIENT_REQUEST.REQUEST_RESTART_SERVICE, _onClientRequestRestartService.bind(this));
+        $rootScope.$on(CLIENT_REQUEST.REQUEST_COMMAND_EXECUTION, _onClientRequestCommandExecution.bind(this));
 
     }]);

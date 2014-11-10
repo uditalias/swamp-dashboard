@@ -1,0 +1,76 @@
+.command-execution {
+  height: 100%;
+
+  .execution-info-table {
+
+    .execution-info-row {
+      border-bottom: solid 1px $cool-grey;
+      .execution-info-item {
+        border-right: solid 1px $cool-grey;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  .execution-actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: adjust-lightness($cool-grey, -12%);
+  }
+
+  code {
+    color: $warm-grey;
+    background: $cool-grey;
+  }
+
+  ul.log-items-list {
+    @include transition(height 200ms);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 52px;
+
+    &:hover {
+      li {
+        @include opacity(0.6);
+      }
+    }
+
+    .loader-wrapper {
+      z-index: 1;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    li {
+
+      @include transition(all 100ms);
+      padding: 0 10px;
+
+      &:nth-child(even) {
+        background-color: adjust-lightness($cool-grey, -12%);
+      }
+
+      &:nth-child(odd) {
+        background-color: adjust-lightness($cool-grey, -13%);
+      }
+
+      &:hover {
+        @include opacity(1);
+      }
+    }
+  }
+
+  pre {
+    color: inherit;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+}

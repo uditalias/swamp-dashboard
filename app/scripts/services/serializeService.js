@@ -3,7 +3,7 @@
 angular.module('swamp.services').service('serializeService', [function() {
 
     this.serializeSwampService = function (data) {
-      
+
         return {
             id : data.id,
             name : data.name,
@@ -84,6 +84,39 @@ angular.module('swamp.services').service('serializeService', [function() {
 
         return data.environments;
 
+    };
+
+    this.serializeExecutionCommand = function(data) {
+
+        var dto = {
+            exeId: data.exeId,
+            commandId: data.commandId,
+            serviceName: data.serviceName,
+            command: data.command
+        };
+
+        dto.command.timestamp = new Date().valueOf();
+
+        return dto;
+
+    };
+
+    this.serializeCommandOut = function(data) {
+        return {
+            exeId: data.exeId,
+            commandId: data.commandId,
+            serviceName: data.serviceName,
+            log: data.log
+        }
+    };
+
+    this.serializeCommandDisposed = function(data) {
+        return {
+            exeId: data.exeId,
+            commandId: data.commandId,
+            serviceName: data.serviceName,
+            success: data.success
+        }
     };
 
 }]);

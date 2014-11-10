@@ -53,6 +53,11 @@ aside {
 
             .clear-all-logs {
              cursor: pointer;
+
+              &:hover {
+                color: $red;
+              }
+
               i {
                 width: 15px;
               }

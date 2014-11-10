@@ -5,7 +5,8 @@ angular.module('swamp.controllers').controller('asideController', ['$scope', '$r
 
         $scope.handler = {
             tailCheckState: false,
-            servicesCount: swampServicesManager.count
+            servicesCount: swampServicesManager.count,
+            executionCommands: swampManager.getCommandsExecution()
         }
 
         $scope.restartAll = function() {
@@ -78,6 +79,10 @@ angular.module('swamp.controllers').controller('asideController', ['$scope', '$r
 
             $rootScope.$broadcast(EVENTS.CLEAR_ALL_LOGS);
 
+        }
+
+        $scope.openCommandExecutionWindow = function(execution) {
+            modalService.open(MODAL_TYPE.COMMAND_EXECUTION, execution);
         }
 
         function _onSwampServicesManagerInitialized(event) {

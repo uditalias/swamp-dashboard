@@ -19,7 +19,12 @@ angular.module('swamp.config')
         "SERVICE_ERROR": "service.error",
         "SERVICE_OUT": "service.out",
         "SERVICE_MONITOR": "service.monitor",
-        "MODIFY_SERVICE_ENVIRONMENTS": "service.modifyEnvironments"
+        "MODIFY_SERVICE_ENVIRONMENTS": "service.modifyEnvironments",
+        "EXECUTE_COMMAND": "service.executeCommand",
+        "COMMAND_STARTED": "command.started",
+        "COMMAND_OUT": "command.out",
+        "COMMAND_DISPOSED": "command.disposed",
+        "TERMINATE_COMMAND": "command.terminate"
     })
     .constant('EVENTS', {
         "SWAMP_SERVICES_RECEIVED": "event::swamp.services.received",
@@ -36,6 +41,9 @@ angular.module('swamp.config')
         "SERVICE_OUT": "event::service.out",
         "SERVICE_ERROR": "event::service.error",
         "MODIFY_SERVICE_ENVIRONMENTS": "event::service.modify.environments",
+        "COMMAND_STARTED": "event::command.started",
+        "COMMAND_OUT": "event::command.out",
+        "COMMAND_DISPOSED": "event::command.disposed",
 
         "SWAMP_MANAGER_INITIALIZED": "event::swamp.manager.initialized",
         "SWAMP_SERVICES_MANAGER_INITIALIZED": "event::swamp.services.manager.initialized",
@@ -63,7 +71,9 @@ angular.module('swamp.config')
     .constant('CLIENT_REQUEST', {
         "REQUEST_START_SERVICE": "request.start.service",
         "REQUEST_STOP_SERVICE": "request.stop.service",
-        "REQUEST_RESTART_SERVICE": "request.restart.service"
+        "REQUEST_RESTART_SERVICE": "request.restart.service",
+        "REQUEST_COMMAND_EXECUTION": "request.command.execution",
+        "REQUEST_COMMAND_TERMINATION": "request.command.termination"
     })
     .constant('AGGREGATED_LIST_TYPE', {
         "LIFO": 1,
@@ -72,7 +82,9 @@ angular.module('swamp.config')
     .constant('MODAL_TYPE', {
         "SERVICE_ENVIRONMENTS_EDITOR": 'modal::service.environments.editor',
         "LOGS_SELECTOR": 'modal::logs.selector',
-        "PROMPT": "modal::prompt"
+        "PROMPT": "modal::prompt",
+        "EXECUTE_COMMAND_PROMPT": "modal::execute.command.prompt",
+        "COMMAND_EXECUTION": "modal::command.execution"
     })
     .constant('LOG_TYPE', {
         "OUT": "log.out",

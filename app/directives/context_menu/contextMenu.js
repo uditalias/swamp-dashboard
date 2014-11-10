@@ -61,7 +61,7 @@ angular.module('swamp.directives').directive('swContextMenu', ['$rootScope', 'EV
 
                         }
 
-                        $menu.find('ul').append($item);
+                        $menu.find('>ul').append($item);
 
                     });
 
