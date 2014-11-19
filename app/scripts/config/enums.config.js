@@ -62,6 +62,7 @@ angular.module('swamp.config')
         "VIEW_CONTENT_LOADED": "$viewContentLoaded"
     })
     .constant('SERVICE_STATE', {
+        "NONE": "service.state.none",
         "STOP": "service.state.stop",
         "RUN": "service.state.run",
         "RESTART": "service.state.restart",

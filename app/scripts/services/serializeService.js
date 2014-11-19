@@ -15,6 +15,7 @@ angular.module('swamp.services').service('serializeService', [function() {
             pid : data.pid,
             startTime : data.startTime,
             options : data.options,
+            phase : data.phase,
             environments : data.environments,
             monitorCpu : data.monitor.cpu,
             monitorMemory : data.monitor.memory,

@@ -21,9 +21,9 @@ angular.module('swamp.services').factory('swampServicesFactory', [
             this.monitorCpu = params.monitor.cpu;
             this.monitorMemory = params.monitor.memory;
             this.monitor = params.monitor;
-            this.state = this.isRunning ? SERVICE_STATE.RUN : SERVICE_STATE.STOP;
+            this.phase = params.phase;
+            this.state = this._translateState();
             this.viewOptions = params.viewOptions;
-
             this.startTime = params.startTime;
             this.uptime = null;
             this._uptimeInterval = null;
@@ -221,6 +221,24 @@ angular.module('swamp.services').factory('swampServicesFactory', [
                 this.outLogData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, maxLength);
 
                 this.errorLogData = aggregatedDataFactory.create(AGGREGATED_LIST_TYPE.FIFO, maxLength);
+
+            },
+
+            _translateState: function() {
+
+                if(this.isRunning || this.phase == 'STARTED') {
+                  return SERVICE_STATE.RUN;
+                } else if(this.phase == 'NONE') {
+                    return SERVICE_STATE.NONE;
+                } else if(this.phase == 'STARTING') {
+                    return SERVICE_STATE.STARTING;
+                } else if(this.phase == 'STOPPING') {
+                    return SERVICE_STATE.PENDING;
+                } else if(this.phase == 'STOPPED') {
+                    return SERVICE_STATE.STOP;
+                } else if(this.phase == 'PENDING') {
+                    return SERVICE_STATE.PENDING;
+                }
 
             },
 
