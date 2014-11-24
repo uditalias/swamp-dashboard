@@ -213,7 +213,7 @@ module.exports = function (grunt) {
                 options: {
                     sassDir: '<%= yeoman.app %>/styles/scss',
                     cssDir: '<%= yeoman.app %>/styles/',
-                    specify: ['<%= yeoman.app %>/styles/scss/main.scss', '<%= yeoman.app %>/styles/scss/stream.main.scss']
+                    specify: ['<%= yeoman.app %>/styles/scss/main.scss', '<%= yeoman.app %>/styles/scss/stream.main.scss', '<%= yeoman.app %>/styles/scss/connect.main.scss']
                 }
             },
             dist: {
@@ -221,7 +221,7 @@ module.exports = function (grunt) {
                     generatedImagesDir: '<%= yeoman.dist %>/assets/images/generated',
                     sassDir: '<%= yeoman.app %>/styles/scss',
                     cssDir: '<%= yeoman.app %>/styles/',
-                    specify: ['<%= yeoman.app %>/styles/scss/main.scss', '<%= yeoman.app %>/styles/scss/stream.main.scss' ]
+                    specify: ['<%= yeoman.app %>/styles/scss/main.scss', '<%= yeoman.app %>/styles/scss/stream.main.scss', '<%= yeoman.app %>/styles/scss/connect.main.scss' ]
                 }
             },
             server: {
@@ -249,7 +249,7 @@ module.exports = function (grunt) {
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
         useminPrepare: {
-            html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/ioStream.html'],
+            html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/ioStream.html', '<%= yeoman.app %>/connect.html'],
             options: {
                 dest: '<%= yeoman.dist %>'
             }
@@ -378,7 +378,8 @@ module.exports = function (grunt) {
                             dest: '../swamp/dashboard/views/',
                             src: [
                                 'index.ejs',
-                                'ioStream.ejs'
+                                'ioStream.ejs',
+                                'connect.ejs'
                             ]
                         }]
                     };
@@ -451,9 +452,11 @@ module.exports = function (grunt) {
     grunt.registerTask('converthtml', function() {
         var index_html = fs.readFileSync(path.resolve(yeoman.dist, 'index.html'));
         var io_stream = fs.readFileSync(path.resolve(yeoman.dist, 'ioStream.html'));
+        var connect = fs.readFileSync(path.resolve(yeoman.dist, 'connect.html'));
 
         fs.writeFileSync(path.resolve(yeoman.dist, 'index.ejs'), index_html);
         fs.writeFileSync(path.resolve(yeoman.dist, 'ioStream.ejs'), io_stream);
+        fs.writeFileSync(path.resolve(yeoman.dist, 'connect.ejs'), connect);
 
     });
 
