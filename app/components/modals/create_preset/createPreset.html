@@ -1,0 +1,21 @@
+<sw-modal-content modal-title="'Create Preset'" class="create-preset">
+
+    <div class="padding-4 text-16">
+        <div class="flex flex-align-center">
+            <div class="flex-1">Preset Name</div>
+            <div class="preset-name-wrapper">
+                <input type="text" ng-model="presetParams.name" />
+            </div>
+        </div>
+
+        <ul class="list-unstyled color-white margin-top-2 margin-left-2 preset-services-list" sw-perfect-scrollbar>
+            <li ng-repeat="service in presetParams.services" class="margin-bottom-1">{{service}}</li>
+        </ul>
+    </div>
+
+    <div class="flex create-preset-actions-wrapper padding-2 flex-pack-end">
+        <button class="btn btn-small btn-red margin-right-1" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-small btn-green" ng-click="create()" ng-disabled="!presetParams.name || presetParams.services.length == 0"><i class="fa fa-plus"></i> Create Preset</button>
+    </div>
+
+</sw-modal-content>

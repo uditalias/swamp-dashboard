@@ -53,3 +53,11 @@
 .color-green {
   color: $green;
 }
+
+.hover-green {
+  @include transition(color 200ms);
+
+  &:hover {
+    color: $green;
+  }
+}

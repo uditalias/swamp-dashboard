@@ -120,4 +120,13 @@ angular.module('swamp.services').service('serializeService', [function() {
         }
     };
 
+    this.serializePreset = function(data) {
+        return {
+            id: data.id,
+            name: data.name,
+            services: data.services,
+            inStorage: data.inStorage
+        }
+    };
+
 }]);

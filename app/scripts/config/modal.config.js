@@ -31,6 +31,18 @@ angular.module('swamp.config')
             templateUrl: 'components/modals/command_execution/commandExecution.html',
             controller: 'commandExecutionController',
             windowClass: 'modal-size_80 max-height'
+        },
+
+        "modal::run.preset": {
+            templateUrl: 'components/modals/run_preset/runPreset.html',
+            controller: 'runPresetController',
+            windowClass: 'modal-size_40'
+        },
+
+        "modal::create.preset": {
+            templateUrl: 'components/modals/create_preset/createPreset.html',
+            controller: 'createPresetController',
+            windowClass: 'modal-size_40'
         }
 
     });

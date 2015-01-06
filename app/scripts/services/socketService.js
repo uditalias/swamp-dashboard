@@ -59,7 +59,7 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                             serialized.push(serializeService.serializeSwampService(raw));
                         });
 
-                        $rootScope.$broadcast(EVENTS.SWAMP_DATA_RECEIVED, message.data.swamp, message.data.commands);
+                        $rootScope.$broadcast(EVENTS.SWAMP_DATA_RECEIVED, message.data.swamp, message.data.commands, message.data.presets);
                         $rootScope.$broadcast(EVENTS.SWAMP_SERVICES_RECEIVED, serialized);
 
                         break;
@@ -182,6 +182,22 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
                         $rootScope.$broadcast(EVENTS.COMMAND_DISPOSED, serialized);
 
                         break;
+
+                  case SOCKET_EVENTS.PRESET_CREATED:
+
+                        var serialized = serializeService.serializePreset(message.data);
+
+                        $rootScope.$broadcast(EVENTS.PRESET_CREATED, serialized);
+
+                        break;
+
+                  case SOCKET_EVENTS.PRESET_DELETED:
+
+                        var presetId = message.data;
+
+                        $rootScope.$broadcast(EVENTS.PRESET_DELETED, presetId);
+
+                        break;
                 }
             }
         }
@@ -195,5 +211,7 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
         $rootScope.$on(SOCKET_EVENTS.MODIFY_SERVICE_ENVIRONMENTS, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.EXECUTE_COMMAND, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.TERMINATE_COMMAND, this._emit.bind(this));
-
+        $rootScope.$on(SOCKET_EVENTS.RUN_PRESET, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.CREATE_PRESET, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.DELETE_PRESET, this._emit.bind(this));
     }]);

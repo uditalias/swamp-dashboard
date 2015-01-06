@@ -24,7 +24,12 @@ angular.module('swamp.config')
         "COMMAND_STARTED": "command.started",
         "COMMAND_OUT": "command.out",
         "COMMAND_DISPOSED": "command.disposed",
-        "TERMINATE_COMMAND": "command.terminate"
+        "TERMINATE_COMMAND": "command.terminate",
+        "RUN_PRESET": "preset.run",
+        "CREATE_PRESET": "preset.create",
+        "DELETE_PRESET": "preset.delete",
+        "PRESET_CREATED": "preset.created",
+        "PRESET_DELETED": "preset.deleted"
     })
     .constant('EVENTS', {
         "SWAMP_SERVICES_RECEIVED": "event::swamp.services.received",
@@ -44,6 +49,8 @@ angular.module('swamp.config')
         "COMMAND_STARTED": "event::command.started",
         "COMMAND_OUT": "event::command.out",
         "COMMAND_DISPOSED": "event::command.disposed",
+        "PRESET_CREATED": "event::preset.created",
+        "PRESET_DELETED": "event::preset.deleted",
 
         "SWAMP_MANAGER_INITIALIZED": "event::swamp.manager.initialized",
         "SWAMP_SERVICES_MANAGER_INITIALIZED": "event::swamp.services.manager.initialized",
@@ -85,7 +92,9 @@ angular.module('swamp.config')
         "LOGS_SELECTOR": 'modal::logs.selector',
         "PROMPT": "modal::prompt",
         "EXECUTE_COMMAND_PROMPT": "modal::execute.command.prompt",
-        "COMMAND_EXECUTION": "modal::command.execution"
+        "COMMAND_EXECUTION": "modal::command.execution",
+        "RUN_PRESET": "modal::run.preset",
+        "CREATE_PRESET": "modal::create.preset"
     })
     .constant('LOG_TYPE', {
         "OUT": "log.out",

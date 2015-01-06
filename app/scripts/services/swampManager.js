@@ -14,6 +14,7 @@ angular.module('swamp.services').service('swampManager', [
 
         this._commands = [];
         this._commandsExecution = [];
+        this._presets = [];
 
         this.getInfo = function() {
             return this._info;
@@ -25,6 +26,28 @@ angular.module('swamp.services').service('swampManager', [
 
         this.getCommandsExecution = function() {
             return this._commandsExecution;
+        };
+
+        this.getPresets = function() {
+            return this._presets;
+        };
+
+        this.runPreset = function(preset) {
+
+            $rootScope.$broadcast(SOCKET_EVENTS.RUN_PRESET, { id: preset.id });
+
+        };
+
+        this.createPreset = function(presetDefinition) {
+
+            $rootScope.$broadcast(SOCKET_EVENTS.CREATE_PRESET, { preset: presetDefinition });
+
+        };
+
+        this.deletePreset = function(presetId) {
+
+            $rootScope.$broadcast(SOCKET_EVENTS.DELETE_PRESET, { presetId: presetId });
+
         };
 
         this.log = function(logType, log) {
@@ -113,13 +136,21 @@ angular.module('swamp.services').service('swampManager', [
             }
         }
 
-        function _onSwampDataReceived(event, swampData, commands) {
+        function _setSwampPresets(presets) {
+          if(presets) {
+            _.pushAll(this._presets, presets);
+          }
+        }
+
+        function _onSwampDataReceived(event, swampData, commands, presets) {
 
             _setSwampLogs.call(this, swampData.logs);
 
             _setSwampInfo.call(this, swampData.info);
 
             _setSwampCommands.call(this, commands);
+
+            _setSwampPresets.call(this, presets);
 
             $rootScope.$broadcast(EVENTS.SWAMP_MANAGER_INITIALIZED);
 
@@ -163,12 +194,26 @@ angular.module('swamp.services').service('swampManager', [
             $rootScope.$broadcast(SOCKET_EVENTS.TERMINATE_COMMAND, { id: exeId });
         }
 
+        function _onPresetCreated(event, preset) {
+
+            this._presets.push(preset);
+
+        }
+
+        function _onPresetDeleted(event, presetId) {
+
+            _.remove(this._presets, function(preset) { return preset.id == presetId });
+
+        }
+
         $rootScope.$on(EVENTS.SWAMP_OUT, _onSwampOut.bind(this));
         $rootScope.$on(EVENTS.SWAMP_ERROR, _onSwampError.bind(this));
         $rootScope.$on(EVENTS.SWAMP_DATA_RECEIVED, _onSwampDataReceived.bind(this));
         $rootScope.$on(EVENTS.COMMAND_STARTED, _onCommandStarted.bind(this));
         $rootScope.$on(EVENTS.COMMAND_OUT, _onCommandOut.bind(this));
         $rootScope.$on(EVENTS.COMMAND_DISPOSED, _onCommandDisposed.bind(this));
+        $rootScope.$on(EVENTS.PRESET_CREATED, _onPresetCreated.bind(this));
+        $rootScope.$on(EVENTS.PRESET_DELETED, _onPresetDeleted.bind(this));
 
         $rootScope.$on(CLIENT_REQUEST.REQUEST_COMMAND_TERMINATION, _onClientRequestCommandTermination);
 

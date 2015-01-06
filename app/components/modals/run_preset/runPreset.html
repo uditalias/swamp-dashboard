@@ -1,0 +1,27 @@
+<sw-modal-content modal-title="'Run `' + preset.name + '` Preset'" class="run-preset">
+
+    <div class="padding-4 text-16">
+        <div class="text-16">
+          Are you sure you want to run the preset <span class="prompt-action color-yellow">{{preset.name}}</span>?
+        </div>
+
+        <div class="text-14 margin-top-2">This action will stop all services and run the following:</div>
+        <ul class="list-unstyled color-white margin-top-2 margin-left-2">
+            <li ng-repeat="service in preset.services" class="margin-bottom-1">{{service}}</li>
+        </ul>
+
+    </div>
+
+    <div class="flex run-preset-actions-wrapper padding-2 flex-pack-end">
+        <div class="flex-1">
+            <button class="btn btn-small btn-red margin-right-1" ng-click="deletePreset()" ng-disabled="!preset.inStorage">
+                <i class="fa fa-trash-o"></i> Delete Preset
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-small btn-red margin-right-1" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-small btn-green" ng-click="applyChanges()"><i class="fa fa-sliders"></i> Run Preset</button>
+        </div>
+    </div>
+
+</sw-modal-content>

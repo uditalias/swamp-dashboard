@@ -50,6 +50,29 @@
             </ul>
         </div>
 
+        <div class="aside-box margin-bottom-4">
+            <div class="aside-title">
+              Presets
+            </div>
+            <ul class="aside-content">
+                <li ng-repeat="preset in handler.presets">
+                    <div class="cursor-pointer hover-green" ng-click="startPreset(preset)">
+                        <div class="flex flex-align-center">
+                            <div class="flex-1 flex flex-align-center">
+                                <i class="fa fa-sliders margin-right-1"></i> {{preset.name}}
+                            </div>
+                            <div class="" ng-show="preset.inStorage">
+                                <i tooltip="From Database" tooltip-append-to-body="true" class="fa fa-database"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="flex flex-align-center cursor-pointer hover-green margin-top-1 padding-top-1" ng-click="createPreset()">
+                    <i class="fa fa-plus margin-right-1"></i> Create Preset...
+                </li>
+            </ul>
+        </div>
+
         <div class="aside-box margin-bottom-10">
             <div class="aside-title">
               Execution Commands

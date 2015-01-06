@@ -6,8 +6,9 @@ angular.module('swamp.controllers').controller('asideController', ['$scope', '$r
         $scope.handler = {
             tailCheckState: false,
             servicesCount: swampServicesManager.count,
-            executionCommands: swampManager.getCommandsExecution()
-        }
+            executionCommands: swampManager.getCommandsExecution(),
+            presets: swampManager.getPresets()
+        };
 
         $scope.restartAll = function() {
 
@@ -83,6 +84,28 @@ angular.module('swamp.controllers').controller('asideController', ['$scope', '$r
 
         $scope.openCommandExecutionWindow = function(execution) {
             modalService.open(MODAL_TYPE.COMMAND_EXECUTION, execution);
+        }
+
+        $scope.startPreset = function(preset) {
+            var modal = modalService.open(MODAL_TYPE.RUN_PRESET, preset);
+
+            modal.result.then(function(_preset) {
+
+                swampManager.runPreset(_preset);
+
+            });
+        }
+
+        $scope.createPreset = function() {
+
+            var modal = modalService.open(MODAL_TYPE.CREATE_PRESET);
+
+            modal.result.then(function(preset) {
+
+              swampManager.createPreset(preset);
+
+            });
+
         }
 
         function _onSwampServicesManagerInitialized(event) {
