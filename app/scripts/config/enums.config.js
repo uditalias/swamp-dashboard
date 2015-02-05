@@ -29,7 +29,11 @@ angular.module('swamp.config')
         "CREATE_PRESET": "preset.create",
         "DELETE_PRESET": "preset.delete",
         "PRESET_CREATED": "preset.created",
-        "PRESET_DELETED": "preset.deleted"
+        "PRESET_DELETED": "preset.deleted",
+        "SERVICE_LOG_OUT_SUBSCRIBE": "service.log.out.subscribe",
+        "SERVICE_LOG_OUT_UNSUBSCRIBE": "service.log.out.unsubscribe",
+        "SERVICE_LOG_ERROR_SUBSCRIBE": "service.log.error.subscribe",
+        "SERVICE_LOG_ERROR_UNSUBSCRIBE": "service.log.error.unsubscribe"
     })
     .constant('EVENTS', {
         "SWAMP_SERVICES_RECEIVED": "event::swamp.services.received",

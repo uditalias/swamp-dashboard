@@ -122,6 +122,22 @@ angular.module('swamp.services').service('swampServicesManager', [
 
         }
 
+        this.subscribeServiceOutLog = function(serviceId) {
+            $rootScope.$broadcast(SOCKET_EVENTS.SERVICE_LOG_OUT_SUBSCRIBE, { serviceId: serviceId });
+        }
+
+        this.unsubscribeServiceOutLog = function(serviceId) {
+            $rootScope.$broadcast(SOCKET_EVENTS.SERVICE_LOG_OUT_UNSUBSCRIBE, { serviceId: serviceId });
+        }
+
+        this.subscribeServiceErrorLog = function(serviceId) {
+            $rootScope.$broadcast(SOCKET_EVENTS.SERVICE_LOG_ERROR_SUBSCRIBE, { serviceId: serviceId });
+        }
+
+        this.unsubscribeServiceErrorLog = function(serviceId) {
+            $rootScope.$broadcast(SOCKET_EVENTS.SERVICE_LOG_ERROR_UNSUBSCRIBE, { serviceId: serviceId });
+        }
+
         function _dispose() {
 
             _.forEach(this._services, function(service) {

@@ -214,4 +214,8 @@ angular.module('swamp.services').service('socketService', ['SOCKET_EVENTS', 'EVE
         $rootScope.$on(SOCKET_EVENTS.RUN_PRESET, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.CREATE_PRESET, this._emit.bind(this));
         $rootScope.$on(SOCKET_EVENTS.DELETE_PRESET, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SERVICE_LOG_OUT_SUBSCRIBE, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SERVICE_LOG_OUT_UNSUBSCRIBE, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SERVICE_LOG_ERROR_SUBSCRIBE, this._emit.bind(this));
+        $rootScope.$on(SOCKET_EVENTS.SERVICE_LOG_ERROR_UNSUBSCRIBE, this._emit.bind(this));
     }]);
