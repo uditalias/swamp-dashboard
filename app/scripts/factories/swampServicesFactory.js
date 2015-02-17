@@ -226,7 +226,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
 
             _translateState: function() {
 
-                if(this.isRunning || this.phase == 'STARTED') {
+                if(this.phase == 'STARTED') {
                   return SERVICE_STATE.RUN;
                 } else if(this.phase == 'NONE') {
                     return SERVICE_STATE.NONE;
