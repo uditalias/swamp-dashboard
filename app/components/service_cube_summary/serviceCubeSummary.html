@@ -1,0 +1,35 @@
+<div class="service-summary-cube" ng-class="{ 'running': service.state == SERVICE_STATE.RUN, 'stopped': service.state == SERVICE_STATE.STOP, 'restarted': service.state == SERVICE_STATE.RESTART, 'pending': service.state == SERVICE_STATE.PENDING, 'starting': service.state == SERVICE_STATE.STARTING, 'toggle': service.viewOptions.toggle }">
+  <div class="color-white text-truncate">
+    {{service.name}}
+  </div>
+  <div class="flex text-24 monitor-row">
+    <div class="flex-1 monitor-item padding-1">
+      <div class="text-12">CPU</div>
+      <div class="">
+        <span ng-if="service.monitor.cpu !== false" class="monitor-item-value" ng-class="{ 'up': service.monitor.cpuTrend == 1, 'down': service.monitor.cpuTrend == -1 }">{{service.monitor.cpu|number:2}}%</span>
+        <span ng-if="service.monitor.cpu === false">N/A</span>
+      </div>
+    </div>
+    <div class="flex-1 text-right monitor-item padding-1">
+      <div class="text-12">MEM</div>
+      <div class="">
+        <span ng-if="service.monitor.memory !== false" class="monitor-item-value" ng-class="{ 'up': service.monitor.memoryTrend == 1, 'down': service.monitor.memoryTrend == -1 }" tooltip="{{(service.monitor.memory|number) + ' bytes'}}">{{bytesToSize(service.monitor.memory)}}</span>
+        <span ng-if="service.monitor.memory === false">N/A</span>
+      </div>
+    </div>
+  </div>
+  <div class="data-table margin-bottom-1">
+    <div class="flex padding-1">
+      <div class="flex-1">Started</div>
+      <div class="">{{service.uptime || '-'}}</div>
+    </div>
+    <div class="flex padding-1">
+      <div class="flex-1">PID</div>
+      <div class="">{{service.pid || '-'}}</div>
+    </div>
+    <div class="flex padding-1">
+      <div class="flex-1">Env</div>
+      <div class="">{{service.runningEnvironment || '-'}}</div>
+    </div>
+  </div>
+</div>

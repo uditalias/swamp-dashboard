@@ -103,6 +103,45 @@ footer {
             .search-log {
               display: block;
             }
+
+            .start-service {
+              display: block;
+            }
+
+            .stop-service {
+              display: block;
+            }
+
+            .restart-service {
+              display: block;
+            }
+          }
+
+          .start-service {
+            position: absolute;
+            cursor: pointer;
+            display: none;
+            right: 15px;
+            top: 115px;
+            z-index: 1;
+          }
+
+          .stop-service {
+            position: absolute;
+            cursor: pointer;
+            display: none;
+            right: 15px;
+            top: 135px;
+            z-index: 1;
+          }
+
+          .restart-service {
+            position: absolute;
+            cursor: pointer;
+            display: none;
+            right: 15px;
+            top: 155px;
+            z-index: 1;
           }
 
           .pause-log {

@@ -18,6 +18,15 @@
 <div class="query-input-holder" ng-if="tab.inQueryMode">
     <input type="text" ng-model="tab.query" sw-focus-bool="tab.inQueryMode" />
 </div>
+<div class="start-service" tooltip-placement="left" tooltip="Start service" ng-if="!!tab.service" ng-click="tab.onStart(tab.service)">
+  <i class="fa fa-play color-green"></i>
+</div>
+<div class="stop-service" tooltip-placement="left" tooltip="Stop service" ng-if="!!tab.service" ng-click="tab.onStop(tab.service)">
+  <i class="fa fa-stop color-red"></i>
+</div>
+<div class="restart-service" tooltip-placement="left" tooltip="Restart service" ng-if="!!tab.service" ng-click="tab.onRestart(tab.service)">
+  <i class="fa fa-refresh color-yellow"></i>
+</div>
 <ul class="log-items-list" sw-perfect-scrollbar ng-style="{ 'height': height + 'px' }" suppress-scroll-x="true" sw-scroll auto-scroll-bottom="tab.tailed">
     <li ng-repeat="content in tab.content.getAll()|filter:{text: tab.query} track by $index" class="{{tab.itemcls}}">
         <pre>{{content.time.format('DD/MM/YYYY HH:mm:ss')}} - <span ng-if="!tab.parseAsHtml" ng-bind="content.text"></span><span ng-if="tab.parseAsHtml" ng-bind-html="parseAnsi(content.text)"></span></pre>

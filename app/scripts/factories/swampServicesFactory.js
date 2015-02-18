@@ -27,6 +27,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
             this.startTime = params.startTime;
             this.uptime = null;
             this._uptimeInterval = null;
+            this._resetTrendsTimeout = null;
 
             this._createMonitorDataContainers();
             this._createLogDataContainers(this.options.maxLogsToSave);
@@ -50,7 +51,24 @@ angular.module('swamp.services').factory('swampServicesFactory', [
             },
 
             updateMonitorData: function(monitorData) {
-                this.monitor = monitorData;
+
+                if((this.monitor.cpu || !isNaN(this.monitor.cpu)) && monitorData.cpu) {
+                  if(monitorData.cpu > this.monitor.cpu) {
+                    this.monitor.cpuTrend = 1;
+                  } else if (monitorData.cpu < this.monitor.cpu) {
+                    this.monitor.cpuTrend = -1;
+                  }
+                }
+
+                if((this.monitor.memory || !isNaN(this.monitor.memory)) && monitorData.memory) {
+                  if(monitorData.memory > this.monitor.memory) {
+                    this.monitor.memoryTrend = 1;
+                  } else if (monitorData.memory < this.monitor.memory) {
+                    this.monitor.memoryTrend = -1;
+                  }
+                }
+
+                _.extend(this.monitor, monitorData);
 
                 if(!isNaN(this.monitor.cpu)) {
 
@@ -65,6 +83,11 @@ angular.module('swamp.services').factory('swampServicesFactory', [
                 }
 
                 $rootScope.$safeApply();
+
+                this._resetTrendsTimeout = setTimeout(function() {
+                  this.monitor.cpuTrend = 0;
+                  this.monitor.memoryTrend = 0;
+                }.bind(this), 1000);
             },
 
             stop: function() {

@@ -1,0 +1,55 @@
+.service-summary-cube {
+  @include border-radius(3px);
+  float: left;
+  background-color: adjust-lightness($cool-grey, -5%);
+  @include box-shadow(inset 0 1px 2px 0 rgba(0,0,0,0.2));
+  width: 300px;
+  //height: 250px;
+  padding: 10px;
+  margin: 10px;
+  border-top: solid 3px $cool-grey;
+
+  &.running {
+    border-top-color: $green;
+  }
+
+  &.stopped {
+    border-top-color: $red;
+  }
+
+  &.restarted {
+    border-top-color: $yellow;
+  }
+
+  &.pending {
+    border-top-color: $cool-grey;
+  }
+
+  &.starting {
+    border-top-color: $blue;
+  }
+
+  .monitor-row {
+    margin-top: 10px;
+    padding: 5px 0;
+    border-top: solid 1px $cool-grey;
+    border-bottom: solid 1px $cool-grey;
+    .monitor-item {
+      .monitor-item-value {
+        @include transition(color 200ms);
+        color: $warm-grey;
+        &.up {
+          color: adjust-lightness($red, 10%);
+        }
+
+        &.down {
+          color: adjust-lightness($green, 10%);
+        }
+      }
+    }
+  }
+
+  .data-table {
+    border-bottom: solid 1px $cool-grey;
+  }
+}

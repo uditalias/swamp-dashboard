@@ -11,6 +11,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
       panelContentHeight: 300,
       swampVersion: window.swampVersion
     };
+
     $scope.tabsContent = [];
     $scope.enabledTabsContent = [];
 
@@ -210,6 +211,7 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
         $scope.tabsContent.push({
           id: service.outLogData.id,
           serviceId: service.id,
+          service: service,
           active: false,
           tailed: tailAllLogsState,
           parseAsHtml: false,
@@ -220,12 +222,16 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
           name: service.name + ' out log',
           content: service.outLogData,
           onOpen: _onOpenOutLogTab,
-          onClose: _onCloseOutLogTab
+          onClose: _onCloseOutLogTab,
+          onStart: _onStartClick,
+          onStop: _onStopClick,
+          onRestart: _onRestartClick
         });
 
         $scope.tabsContent.push({
           id: service.errorLogData.id,
           serviceId: service.id,
+          service: service,
           active: false,
           tailed: tailAllLogsState,
           parseAsHtml: false,
@@ -236,12 +242,27 @@ angular.module('swamp.controllers').controller('footerController', ['$scope', '$
           name: service.name + ' error log',
           content: service.errorLogData,
           onOpen: _onOpenErrorLogTab,
-          onClose: _onCloseErrorLogTab
+          onClose: _onCloseErrorLogTab,
+          onStart: _onStartClick,
+          onStop: _onStopClick,
+          onRestart: _onRestartClick
         });
 
       });
 
       $scope.handler.initializing = false;
+    }
+
+    function _onStartClick(service) {
+      $scope.serviceActions.start(service);
+    }
+
+    function _onStopClick(service) {
+      $scope.serviceActions.stop(service);
+    }
+
+    function _onRestartClick(service) {
+      $scope.serviceActions.restart(service);
     }
 
     function _onOpenOutLogTab(tab) {

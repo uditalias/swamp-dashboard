@@ -10,7 +10,8 @@ angular.module('swamp.controllers').controller('dashboardController', [
             orderByDir: '',
             filteredServices: [],
             isLoading: true,
-            pageScrolled: false
+            pageScrolled: false,
+            viewType: 'list'
         };
 
         $scope.SERVICE_STATE = SERVICE_STATE;
