@@ -12375,6 +12375,18 @@ aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs
 aside .aside-inner .aside-container .aside-box .aside-content li .clear-all-logs i {
   width: 15px;
 }
+/* line 66, ../components/aside/aside.scss */
+aside .aside-inner .aside-container .aside-box .aside-content li .enable-speech {
+  cursor: pointer;
+}
+/* line 69, ../components/aside/aside.scss */
+aside .aside-inner .aside-container .aside-box .aside-content li .enable-speech.active {
+  color: #38B44A;
+}
+/* line 73, ../components/aside/aside.scss */
+aside .aside-inner .aside-container .aside-box .aside-content li .enable-speech i {
+  width: 14px;
+}
 
 /* line 3, ../components/service_row_summary/servicerowsummary.scss */
 .service-summary .service-summary-row {

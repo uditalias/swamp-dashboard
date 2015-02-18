@@ -1,13 +1,28 @@
 'use strict';
 
-angular.module('swamp.controllers').controller('asideController', ['$scope', '$rootScope', 'EVENTS', 'swampManager', 'swampServicesManager', 'modalService', 'MODAL_TYPE',
-    function($scope, $rootScope, EVENTS, swampManager, swampServicesManager, modalService, MODAL_TYPE) {
+angular.module('swamp.controllers').controller('asideController', [
+  '$scope', '$rootScope', 'EVENTS', 'swampManager', 'swampServicesManager', 'modalService', 'MODAL_TYPE', 'SETTING', 'settingsService', 'speechService',
+    function($scope, $rootScope, EVENTS, swampManager, swampServicesManager, modalService, MODAL_TYPE, SETTING, settingsService, speechService) {
 
         $scope.handler = {
             tailCheckState: false,
             servicesCount: swampServicesManager.count,
             executionCommands: swampManager.getCommandsExecution(),
-            presets: swampManager.getPresets()
+            presets: swampManager.getPresets(),
+            speechEnabled: !!settingsService.get(SETTING.SPEECH_ENABLED)
+        };
+
+        $scope.toggleSpeech = function() {
+
+            if($scope.handler.speechEnabled) {
+                speechService.stop();
+                settingsService.set(SETTING.SPEECH_ENABLED, null);
+                $scope.handler.speechEnabled = false;
+            } else {
+                settingsService.set(SETTING.SPEECH_ENABLED, 1);
+                $scope.handler.speechEnabled = true;
+            }
+
         };
 
         $scope.restartAll = function() {

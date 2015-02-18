@@ -62,6 +62,18 @@ aside {
                 width: 15px;
               }
             }
+
+            .enable-speech {
+              cursor: pointer;
+
+              &.active {
+                color: $green;
+              }
+
+              i {
+                width: 14px;
+              }
+            }
           }
         }
       }

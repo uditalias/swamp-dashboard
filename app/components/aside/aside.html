@@ -47,6 +47,11 @@
                         <i class="fa fa-trash-o"></i> Clear all logs
                     </div>
                 </li>
+                <li>
+                    <div class="enable-speech" ng-click="toggleSpeech()" ng-class="{ 'active': handler.speechEnabled }">
+                        <i class="fa" ng-class="{ 'fa-volume-off': !handler.speechEnabled, 'fa-volume-up': handler.speechEnabled }"></i> Swamp agent voice
+                    </div>
+                </li>
             </ul>
         </div>
 

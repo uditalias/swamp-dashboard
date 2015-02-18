@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('swamp.controllers').controller('dashboardController', [
-    '$scope', '$rootScope', 'swampServicesManager', 'swampManager', 'SERVICE_STATE', 'EVENTS', 'modalService', 'MODAL_TYPE',
-    function($scope, $rootScope, swampServicesManager, swampManager, SERVICE_STATE, EVENTS, modalService, MODAL_TYPE) {
+    '$scope', '$rootScope', 'swampServicesManager', 'swampManager', 'SERVICE_STATE', 'EVENTS', 'modalService', 'settingsService', 'MODAL_TYPE', 'VIEW_TYPE', 'SETTING',
+    function($scope, $rootScope, swampServicesManager, swampManager, SERVICE_STATE, EVENTS, modalService, settingsService, MODAL_TYPE, VIEW_TYPE, SETTING) {
 
         $scope.handler = {
             servicesFilter: '',
@@ -11,10 +11,12 @@ angular.module('swamp.controllers').controller('dashboardController', [
             filteredServices: [],
             isLoading: true,
             pageScrolled: false,
-            viewType: 'list'
+            viewType: settingsService.get(SETTING.VIEW_TYPE) || VIEW_TYPE.LIST
         };
 
         $scope.SERVICE_STATE = SERVICE_STATE;
+
+        $scope.VIEW_TYPE = VIEW_TYPE;
 
         $scope.totalSwampMemory = 0;
 
@@ -94,6 +96,14 @@ angular.module('swamp.controllers').controller('dashboardController', [
         $scope.onPageScrolled = function(state) {
 
             $scope.handler.pageScrolled = state;
+
+        };
+
+        $scope.changeViewType = function(type) {
+
+            $scope.handler.viewType = type;
+
+            settingsService.set(SETTING.VIEW_TYPE, type);
 
         };
 
