@@ -19,7 +19,7 @@ angular.module('swamp.controllers').controller('disconnectMessageController', [
 
       } else {
 
-        speechService.speek($scope.handler.reconnectTimeout, true);
+        speechService.speak($scope.handler.reconnectTimeout, true);
 
         $timeout(_countDown, 1000);
 
@@ -38,8 +38,8 @@ angular.module('swamp.controllers').controller('disconnectMessageController', [
 
     };
 
-    speechService.speek('Houston, we have a problem', true);
-    speechService.speek('Reconnecting in', true);
+    speechService.speak('Houston, we have a problem', true);
+    speechService.speak('Reconnecting in', true);
 
     _countDown();
 
