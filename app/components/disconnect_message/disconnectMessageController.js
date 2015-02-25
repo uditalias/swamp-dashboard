@@ -19,8 +19,6 @@ angular.module('swamp.controllers').controller('disconnectMessageController', [
 
       } else {
 
-        speechService.speak($scope.handler.reconnectTimeout, true);
-
         $timeout(_countDown, 1000);
 
       }
@@ -39,7 +37,7 @@ angular.module('swamp.controllers').controller('disconnectMessageController', [
     };
 
     speechService.speak('Houston, we have a problem', true);
-    speechService.speak('Reconnecting in', true);
+    speechService.speak('It\'s seems like the Swamp just stopped or restarted...', true);
 
     _countDown();
 
