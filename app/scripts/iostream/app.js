@@ -33,7 +33,15 @@ $(function() {
 
         $filesList.empty();
 
-        _.forEach(data.data, function(file) {
+        data = data.data.sort(naturalSort);
+
+        // the natural sort will put the tailed (e.g. `out.log`) file at the end
+        // so we shifting it to the head of the list
+        if(data.length > 1) {
+          data.unshift(data.pop());
+        }
+
+        _.forEach(data, function(file) {
 
             var $item = $('<li />');
 
