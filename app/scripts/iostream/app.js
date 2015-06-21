@@ -33,7 +33,7 @@ $(function() {
 
         $filesList.empty();
 
-        data = data.data.sort(naturalSort);
+        data = data.data;
 
         // the natural sort will put the tailed (e.g. `out.log`) file at the end
         // so we shifting it to the head of the list
