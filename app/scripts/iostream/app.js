@@ -35,11 +35,30 @@ $(function() {
 
         data = data.data;
 
-        // the natural sort will put the tailed (e.g. `out.log`) file at the end
-        // so we shifting it to the head of the list
-        if(data.length > 1) {
-          data.unshift(data.pop());
-        }
+        var aTime, bTime;
+
+        data = data.sort(function(a, b) {
+
+          if(a.mtime && b.mtime) {
+            aTime = new Date(a.mtime).getTime();
+            bTime = new Date(b.mtime).getTime();
+
+            if(aTime > bTime) {
+              return -1;
+            } else if (aTime < bTime) {
+              return 1;
+            } else {
+              return 0;
+            }
+          } else {
+            return 0;
+          }
+        }).map(function(stat) {
+          return stat && stat.filename || '';
+        });
+
+        aTime = null;
+        bTime = null;
 
         _.forEach(data, function(file) {
 
