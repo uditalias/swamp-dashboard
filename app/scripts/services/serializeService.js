@@ -20,6 +20,7 @@ angular.module('swamp.services').service('serializeService', [function() {
             monitorCpu : data.monitor.cpu,
             monitorMemory : data.monitor.memory,
             logs: data.logs,
+            threshold: data.threshold,
             viewOptions: {
                 toggle: false,
                 envMenuOpen: false

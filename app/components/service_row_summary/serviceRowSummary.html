@@ -14,13 +14,23 @@
             <span ng-if="service.state == SERVICE_STATE.PENDING">Pending...</span>
             <span ng-if="service.state == SERVICE_STATE.STARTING">Starting...</span>
         </div>
-        <div class="flex-1">
-            <span ng-if="service.monitor.cpu !== false">{{service.monitor.cpu|number:2}}%</span>
-            <span ng-if="service.monitor.cpu === false">N/A</span>
+        <div class="flex-1 flex flex-align-center">
+            <div class="margin-right-1" ng-if="service.threshold && service.threshold.cpu">
+              <i class="fa fa-fire-extinguisher" data-tooltip-html-unsafe="{{'CPU Threshold: ' + service.threshold.cpu.threshold + '%<br/>Duration: ' + service.threshold.cpu.duration/1000 + 's'}}"></i>
+            </div>
+            <div class="flex-1">
+              <span ng-if="service.monitor.cpu !== false">{{service.monitor.cpu|number:2}}%</span>
+              <span ng-if="service.monitor.cpu === false">N/A</span>
+            </div>
         </div>
-        <div class="flex-1">
-            <span ng-if="service.monitor.memory !== false" tooltip="{{(service.monitor.memory|number) + ' bytes'}}">{{bytesToSize(service.monitor.memory)}}</span>
-            <span ng-if="service.monitor.memory === false">N/A</span>
+        <div class="flex-1 flex flex-align-center">
+            <div class="margin-right-1" ng-if="service.threshold && service.threshold.memory">
+              <i class="fa fa-fire-extinguisher" data-tooltip-html-unsafe="{{'Memory Threshold: ' + service.threshold.memory.threshold + '<br/>Duration: ' + service.threshold.memory.duration/1000 + 's'}}"></i>
+            </div>
+            <div class="flex-1">
+              <span ng-if="service.monitor.memory !== false" tooltip="{{(service.monitor.memory|number) + ' bytes'}}">{{bytesToSize(service.monitor.memory)}}</span>
+              <span ng-if="service.monitor.memory === false">N/A</span>
+            </div>
         </div>
         <div class="flex-1">
             {{service.uptime || '-'}}

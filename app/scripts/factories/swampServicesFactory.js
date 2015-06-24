@@ -24,6 +24,7 @@ angular.module('swamp.services').factory('swampServicesFactory', [
       this.monitor = params.monitor;
       this.phase = params.phase;
       this.state = this._translateState();
+      this.threshold = params.threshold;
       this.viewOptions = params.viewOptions;
       this.startTime = params.startTime;
       this.uptime = null;

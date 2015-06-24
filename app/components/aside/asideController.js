@@ -6,7 +6,7 @@ angular.module('swamp.controllers').controller('asideController', [
 
         $scope.handler = {
             tailCheckState: false,
-            servicesCount: swampServicesManager.count,
+            servicesCount: 0,
             executionCommands: swampManager.getCommandsExecution(),
             presets: swampManager.getPresets(),
             speechEnabled: !!settingsService.get(SETTING.SPEECH_ENABLED)
